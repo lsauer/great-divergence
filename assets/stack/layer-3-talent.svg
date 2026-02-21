@@ -1,0 +1,11 @@
+<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1400 900'>
+  <rect width='1400' height='900' fill='#121d2e'/>
+  <g fill='#4f9cff' fill-opacity='0.65'>
+    <circle cx='270' cy='350' r='70'/><circle cx='470' cy='430' r='78'/><circle cx='690' cy='320' r='74'/><circle cx='920' cy='430' r='80'/><circle cx='1130' cy='330' r='76'/>
+  </g>
+  <g stroke='#f2c14e' stroke-width='3' opacity='0.75'>
+    <line x1='270' y1='350' x2='470' y2='430'/><line x1='470' y1='430' x2='690' y2='320'/><line x1='690' y1='320' x2='920' y2='430'/><line x1='920' y1='430' x2='1130' y2='330'/>
+  </g>
+  <text x='110' y='170' fill='#eef1f8' font-family='Georgia,serif' font-size='64'>Talent and Culture</text>
+  <text x='110' y='222' fill='#a6b1c8' font-family='monospace' font-size='24'>Layer 3</text>
+</svg>

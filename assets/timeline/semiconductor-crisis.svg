@@ -1,0 +1,11 @@
+<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1600 900'>
+  <rect width='1600' height='900' fill='#140d15'/>
+  <rect x='380' y='170' width='840' height='560' rx='12' fill='none' stroke='#ff6b6b' stroke-width='8'/>
+  <rect x='520' y='270' width='560' height='360' fill='#240f1a' stroke='#7b61ff' stroke-width='3'/>
+  <g stroke='#f2c14e' stroke-width='5'>
+    <path d='M520 450 H130'/><path d='M1080 450 H1470'/>
+    <path d='M800 270 V70'/><path d='M800 630 V830'/>
+  </g>
+  <text x='180' y='230' fill='#eef1f8' font-family='Georgia,serif' font-size='60'>Semiconductor Crisis</text>
+  <text x='180' y='290' fill='#a6b1c8' font-family='monospace' font-size='28'>2027-2028</text>
+</svg>

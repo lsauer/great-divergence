@@ -1,0 +1,2025 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Great Intelligence Divergence</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=JetBrains+Mono:wght@300;400;500&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;0,8..60,700;1,8..60,400&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg-deep: #06070d;
+  --bg-card: #0f1320;
+  --bg-card-hover: #141b2c;
+  --text-primary: #eef1f8;
+  --text-secondary: #a6b1c8;
+  --text-dim: #61708d;
+  --accent-gold: #f2c14e;
+  --accent-gold-dim: #9a7a2c;
+  --accent-red: #ff6b6b;
+  --accent-blue: #4f9cff;
+  --accent-green: #33d690;
+  --accent-cyan: #2fd4d8;
+  --accent-purple: #7b61ff;
+  --border: #202b45;
+  --border-light: #2c3d63;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html {
+  scroll-behavior: smooth;
+  scrollbar-width: thin;
+  scrollbar-color: var(--accent-gold-dim) var(--bg-deep);
+}
+
+body {
+  background:
+    radial-gradient(circle at 18% 10%, rgba(79,156,255,0.12), transparent 34%),
+    radial-gradient(circle at 85% 85%, rgba(242,193,78,0.08), transparent 36%),
+    linear-gradient(180deg, #05070f 0%, #06070d 40%, #05060b 100%);
+  color: var(--text-primary);
+  font-family: 'Source Serif 4', Georgia, serif;
+  font-size: 18px;
+  line-height: 1.75;
+  overflow-x: hidden;
+}
+
+::selection {
+  background: var(--accent-gold);
+  color: var(--bg-deep);
+}
+
+/* ── HERO ── */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  padding: 4rem 2rem;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background:
+    radial-gradient(ellipse 80% 50% at 50% 0%, rgba(242,193,78,0.08) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 40% at 20% 80%, rgba(79,156,255,0.1) 0%, transparent 50%),
+    radial-gradient(ellipse 40% 60% at 80% 60%, rgba(255,107,107,0.06) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+.hero-3d {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  opacity: 0.55;
+}
+
+.hero-3d canvas {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.hero-content {
+  max-width: 900px;
+  text-align: center;
+  position: relative;
+  z-index: 2;
+}
+
+.hero-eyebrow {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  color: var(--accent-gold);
+  margin-bottom: 2rem;
+  opacity: 0;
+  animation: fadeUp 1s 0.3s forwards;
+}
+
+.hero h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2.8rem, 7vw, 5.5rem);
+  font-weight: 900;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  margin-bottom: 1.5rem;
+  opacity: 0;
+  animation: fadeUp 1s 0.5s forwards;
+}
+
+.hero h1 em {
+  font-style: italic;
+  color: var(--accent-gold);
+}
+
+.hero-subtitle {
+  font-size: 1.25rem;
+  color: var(--text-secondary);
+  max-width: 650px;
+  margin: 0 auto 3rem;
+  font-weight: 300;
+  opacity: 0;
+  animation: fadeUp 1s 0.7s forwards;
+}
+
+.hero-meta {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.7rem;
+  color: var(--text-dim);
+  letter-spacing: 0.15em;
+  opacity: 0;
+  animation: fadeUp 1s 0.9s forwards;
+}
+
+.scroll-indicator {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  opacity: 0;
+  animation: fadeUp 1s 1.2s forwards;
+}
+
+.scroll-indicator span {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.6rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+}
+
+.scroll-line {
+  width: 1px;
+  height: 40px;
+  background: linear-gradient(to bottom, var(--accent-gold), transparent);
+  animation: pulse 2s infinite;
+}
+
+/* ── NAVIGATION ── */
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  padding: 1rem 2rem;
+  background: rgba(10,10,12,0.85);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid transparent;
+  transform: translateY(-100%);
+  transition: transform 0.4s, border-color 0.4s;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav.visible {
+  transform: translateY(0);
+  border-color: var(--border);
+}
+
+.nav-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--accent-gold);
+}
+
+.nav-links {
+  display: flex;
+  gap: 1.5rem;
+  list-style: none;
+}
+
+.nav-links a {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.65rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.nav-links a:hover { color: var(--accent-gold); }
+
+/* ── SECTIONS ── */
+.section {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 6rem 2rem;
+}
+
+.section-wide {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 6rem 2rem;
+}
+
+.section-full {
+  padding: 6rem 2rem;
+}
+
+/* ── CHAPTER HEADERS ── */
+.chapter-marker {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.65rem;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  color: var(--accent-gold-dim);
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.chapter-marker::before {
+  content: '';
+  width: 30px;
+  height: 1px;
+  background: var(--accent-gold-dim);
+}
+
+h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 900;
+  line-height: 1.15;
+  margin-bottom: 2rem;
+  letter-spacing: -0.02em;
+}
+
+h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: var(--text-primary);
+}
+
+h4 {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.8rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 0.75rem;
+}
+
+p {
+  margin-bottom: 1.5rem;
+  color: var(--text-secondary);
+}
+
+p.lead {
+  font-size: 1.15rem;
+  color: var(--text-primary);
+  font-weight: 300;
+}
+
+strong { color: var(--text-primary); font-weight: 600; }
+
+/* ── DIVIDERS ── */
+.divider {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.divider-line {
+  height: 1px;
+  background: linear-gradient(to right, transparent, var(--border-light), transparent);
+}
+
+/* ── PROLOGUE ── */
+.prologue {
+  border-left: 2px solid var(--accent-gold-dim);
+  padding-left: 2rem;
+  margin: 3rem 0;
+}
+
+.prologue p {
+  font-style: italic;
+  color: var(--text-secondary);
+  font-size: 1.1rem;
+}
+
+/* ── ONTOLOGY STACK ── */
+.ontology-shell {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(300px, 0.95fr);
+  gap: 1.5rem;
+  margin: 2.5rem 0 1.5rem;
+}
+
+.stack-column {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.stack-card {
+  width: 100%;
+  text-align: left;
+  border: 1px solid var(--border);
+  background: linear-gradient(145deg, rgba(15,19,32,0.98), rgba(14,22,39,0.65));
+  padding: 1rem 1rem 1rem 1.15rem;
+  display: grid;
+  grid-template-columns: 90px 1fr auto;
+  align-items: center;
+  gap: 0.9rem;
+  transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease;
+  cursor: pointer;
+  color: inherit;
+}
+
+.stack-card:hover,
+.stack-card:focus-visible {
+  transform: translateX(6px);
+  border-color: var(--accent-blue);
+  outline: none;
+  background: linear-gradient(145deg, rgba(16,25,43,0.98), rgba(16,27,49,0.7));
+}
+
+.stack-card.active {
+  border-color: var(--accent-gold);
+  box-shadow: 0 0 0 1px rgba(242,193,78,0.3), 0 10px 26px rgba(5,9,20,0.55);
+  background: linear-gradient(145deg, rgba(24,30,48,0.98), rgba(20,34,56,0.76));
+}
+
+.stack-level {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.62rem;
+  letter-spacing: 0.17em;
+  text-transform: uppercase;
+  color: var(--accent-cyan);
+}
+
+.stack-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.05rem;
+  color: var(--text-primary);
+}
+
+.stack-desc {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  margin-top: 0.2rem;
+}
+
+.stack-impact {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.6rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+}
+
+.stack-visual {
+  position: sticky;
+  top: 6.2rem;
+  align-self: start;
+  border: 1px solid var(--border);
+  background: linear-gradient(170deg, rgba(79,156,255,0.12), rgba(123,97,255,0.08), rgba(15,19,32,0.85));
+  padding: 0.85rem;
+}
+
+.stack-image-wrap {
+  border: 1px solid var(--border-light);
+  overflow: hidden;
+  min-height: 305px;
+  max-height: 380px;
+}
+
+.stack-image-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transform: scale(1.03);
+  transition: transform 0.55s ease;
+}
+
+.stack-visual.pulse .stack-image-wrap img {
+  transform: scale(1.11);
+}
+
+.stack-meta {
+  padding: 0.9rem 0.2rem 0.25rem;
+}
+
+.stack-meta h3 {
+  margin-bottom: 0.3rem;
+  font-size: 1.35rem;
+}
+
+.stack-meta p {
+  margin-bottom: 0.65rem;
+  font-size: 0.88rem;
+}
+
+.stack-meter {
+  height: 4px;
+  background: rgba(97,112,141,0.4);
+  overflow: hidden;
+}
+
+.stack-meter-fill {
+  height: 100%;
+  width: 0;
+  background: linear-gradient(90deg, var(--accent-cyan), var(--accent-blue), var(--accent-gold));
+  transition: width 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.stack-facts {
+  margin-top: 0.65rem;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.62rem;
+  color: var(--text-dim);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+/* ── TIMELINE ── */
+.timeline-layout {
+  display: grid;
+  grid-template-columns: minmax(280px, 0.95fr) minmax(0, 1.55fr);
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+.timeline-frame {
+  position: sticky;
+  top: 6rem;
+  align-self: start;
+  background: linear-gradient(160deg, rgba(79,156,255,0.08), rgba(123,97,255,0.04));
+  border: 1px solid var(--border);
+  padding: 1.5rem;
+  min-height: 72vh;
+}
+
+.timeline-rail {
+  position: relative;
+  padding-left: 1.25rem;
+  margin-bottom: 1.25rem;
+}
+
+.timeline-rail::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: rgba(97,112,141,0.4);
+}
+
+.timeline-progress {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 2px;
+  height: 0;
+  background: linear-gradient(to bottom, var(--accent-cyan), var(--accent-gold), var(--accent-red));
+  transition: height 0.4s ease;
+}
+
+.timeline-point {
+  position: relative;
+  margin: 0.35rem 0;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.62rem;
+  letter-spacing: 0.12em;
+  color: var(--text-dim);
+  text-transform: uppercase;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.timeline-point::before {
+  content: '';
+  position: absolute;
+  left: -1.58rem;
+  top: 0.5rem;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  border: 1px solid var(--text-dim);
+  background: var(--bg-deep);
+  transition: all 0.3s ease;
+}
+
+.timeline-point.active {
+  color: var(--text-primary);
+  transform: translateX(3px);
+}
+
+.timeline-point.active::before {
+  border-color: var(--accent-gold);
+  background: var(--accent-gold);
+  box-shadow: 0 0 14px rgba(242,193,78,0.7);
+}
+
+.timeline-photo {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid var(--border-light);
+  min-height: 44vh;
+}
+
+.timeline-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transform: scale(1.05);
+  transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1), filter 0.5s ease;
+  filter: saturate(0.95) contrast(1.02);
+}
+
+.timeline-photo.zoom img {
+  transform: scale(1.18);
+  filter: saturate(1.12) contrast(1.07);
+}
+
+.timeline-photo::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(5,7,15,0.65), transparent 55%);
+}
+
+.photo-caption {
+  position: absolute;
+  left: 1rem;
+  bottom: 1rem;
+  z-index: 2;
+}
+
+.photo-year {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.62rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--accent-gold);
+}
+
+.photo-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+
+.timeline-scroll {
+  display: flex;
+  flex-direction: column;
+  gap: 35vh;
+}
+
+.tl-event {
+  border-left: 1px solid var(--border);
+  padding-left: 1.25rem;
+  opacity: 0.45;
+  transform: translateY(16px);
+  transition: opacity 0.5s ease, transform 0.5s ease, border-color 0.5s ease;
+}
+
+.tl-event.active {
+  opacity: 1;
+  transform: translateY(0);
+  border-color: var(--accent-gold-dim);
+}
+
+.tl-year {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.72rem;
+  color: var(--accent-cyan);
+  letter-spacing: 0.15em;
+  margin-bottom: 0.3rem;
+}
+
+.tl-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.35rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  color: var(--text-primary);
+}
+
+.tl-body {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+/* ── DATA PULSE ── */
+.metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.metric-card {
+  background: linear-gradient(165deg, rgba(15,19,32,0.98), rgba(13,19,34,0.7));
+  border: 1px solid var(--border);
+  padding: 1rem;
+}
+
+.metric-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.62rem;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--text-dim);
+}
+
+.metric-value {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.8rem;
+  line-height: 1.05;
+  margin: 0.45rem 0;
+}
+
+.metric-bar {
+  height: 4px;
+  background: var(--border);
+  overflow: hidden;
+}
+
+.metric-fill {
+  height: 100%;
+  width: 0;
+  background: linear-gradient(90deg, var(--accent-cyan), var(--accent-gold));
+  transition: width 1.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.metric-note {
+  font-size: 0.78rem;
+  color: var(--text-secondary);
+  margin-top: 0.6rem;
+}
+
+/* ── COUNTRY CARDS ── */
+.tier-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.tier-1 .tier-label { color: var(--accent-gold); border-color: var(--accent-gold-dim); }
+.tier-15 .tier-label { color: var(--accent-cyan); border-color: rgba(76,201,192,0.3); }
+.tier-2 .tier-label { color: var(--accent-blue); border-color: rgba(76,126,201,0.3); }
+.tier-3 .tier-label { color: var(--text-dim); border-color: var(--border); }
+
+.country-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 4rem;
+}
+
+.country-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  padding: 2rem;
+  transition: all 0.4s;
+  position: relative;
+  overflow: hidden;
+}
+
+.country-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--accent-gold);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.4s;
+}
+
+.country-card:hover::before { transform: scaleX(1); }
+.country-card:hover { border-color: var(--border-light); background: var(--bg-card-hover); }
+
+.country-name {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin-bottom: 0.25rem;
+}
+
+.country-tagline {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.65rem;
+  letter-spacing: 0.15em;
+  color: var(--text-dim);
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+}
+
+.country-body {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  margin-bottom: 1.25rem;
+  line-height: 1.65;
+}
+
+.prob-bar-container {
+  margin-top: auto;
+}
+
+.prob-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.6rem;
+  letter-spacing: 0.15em;
+  color: var(--text-dim);
+  text-transform: uppercase;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.4rem;
+}
+
+.prob-bar {
+  height: 3px;
+  background: var(--border);
+  position: relative;
+  overflow: hidden;
+}
+
+.prob-fill {
+  height: 100%;
+  transition: width 1.5s cubic-bezier(0.16, 1, 0.3, 1);
+  width: 0;
+}
+
+.prob-fill.gold { background: var(--accent-gold); }
+.prob-fill.cyan { background: var(--accent-cyan); }
+.prob-fill.blue { background: var(--accent-blue); }
+.prob-fill.dim { background: var(--text-dim); }
+.prob-fill.red { background: var(--accent-red); }
+
+/* ── FORCE CARDS ── */
+.forces-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin: 3rem 0;
+}
+
+.force-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  padding: 2rem;
+  position: relative;
+  transition: all 0.3s;
+}
+
+.force-card:hover {
+  background: var(--bg-card-hover);
+  border-color: var(--border-light);
+}
+
+.force-number {
+  font-family: 'Playfair Display', serif;
+  font-size: 3rem;
+  font-weight: 900;
+  color: var(--border-light);
+  line-height: 1;
+  margin-bottom: 1rem;
+}
+
+.force-name {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.15rem;
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+}
+
+.force-desc {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  margin: 0;
+  line-height: 1.65;
+}
+
+/* ── SCENARIO TABLE ── */
+.scenario-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 2rem 0;
+  font-size: 0.9rem;
+}
+
+.scenario-table th {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.65rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+  text-align: left;
+  padding: 1rem;
+  border-bottom: 1px solid var(--border-light);
+}
+
+.scenario-table td {
+  padding: 1rem;
+  border-bottom: 1px solid var(--border);
+  color: var(--text-secondary);
+  vertical-align: top;
+}
+
+.scenario-table tr:hover td {
+  background: var(--bg-card);
+}
+
+.scenario-name {
+  font-family: 'Playfair Display', serif;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.scenario-prob {
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 500;
+}
+
+/* ── PULLQUOTE ── */
+.pullquote {
+  margin: 4rem 0;
+  padding: 3rem 0;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  text-align: center;
+}
+
+.pullquote p {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.4rem, 3vw, 2rem);
+  font-style: italic;
+  font-weight: 400;
+  color: var(--text-primary);
+  line-height: 1.4;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+/* ── VERDICT ── */
+.verdict-box {
+  background: linear-gradient(135deg, rgba(201,168,76,0.05), rgba(201,76,76,0.03));
+  border: 1px solid var(--accent-gold-dim);
+  padding: 3rem;
+  margin: 3rem 0;
+}
+
+.verdict-box h3 {
+  color: var(--accent-gold);
+  margin-bottom: 1.5rem;
+}
+
+/* ── INSIGHT BLOCK ── */
+.insight {
+  background: var(--bg-card);
+  border-left: 3px solid var(--accent-gold);
+  padding: 1.5rem 2rem;
+  margin: 2rem 0;
+}
+
+.insight p { margin: 0; font-size: 0.95rem; }
+
+/* ── FOOTNOTES ── */
+.fn {
+  position: relative;
+  cursor: help;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.6em;
+  vertical-align: super;
+  color: var(--accent-gold);
+  text-decoration: none;
+  padding: 0 2px;
+  line-height: 0;
+}
+
+.fn:hover::after {
+  content: attr(data-note);
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #1a1a22;
+  border: 1px solid var(--accent-gold-dim);
+  color: var(--text-secondary);
+  font-family: 'Source Serif 4', Georgia, serif;
+  font-size: 13px;
+  font-style: normal;
+  vertical-align: baseline;
+  line-height: 1.5;
+  padding: 0.75rem 1rem;
+  border-radius: 4px;
+  width: 340px;
+  max-width: 80vw;
+  z-index: 200;
+  pointer-events: none;
+  white-space: normal;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+}
+
+.fn-section {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 3rem 2rem 0;
+}
+
+.fn-section h3 {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.fn-list {
+  list-style: none;
+  padding: 0;
+  counter-reset: source-item;
+}
+
+.fn-list li {
+  font-size: 0.8rem;
+  color: var(--text-dim);
+  margin-bottom: 0.75rem;
+  padding-left: 2rem;
+  position: relative;
+  line-height: 1.6;
+  counter-increment: source-item;
+}
+
+.fn-list li::before {
+  content: '[' counter(source-item) ']';
+  position: absolute;
+  left: 0;
+  color: var(--accent-gold-dim);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.7rem;
+}
+
+.fn-list a {
+  color: var(--accent-gold-dim);
+  text-decoration: none;
+  border-bottom: 1px solid var(--border);
+  transition: color 0.3s, border-color 0.3s;
+}
+
+.fn-list a:hover {
+  color: var(--accent-gold);
+  border-color: var(--accent-gold);
+}
+
+.data-ledger {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.5rem 0 2rem;
+  font-size: 0.82rem;
+}
+
+.data-ledger th {
+  text-align: left;
+  border-bottom: 1px solid var(--border-light);
+  padding: 0.6rem 0.5rem;
+  color: var(--text-dim);
+  font-family: 'JetBrains Mono', monospace;
+  letter-spacing: 0.08em;
+  font-size: 0.58rem;
+  text-transform: uppercase;
+}
+
+.data-ledger td {
+  border-bottom: 1px solid var(--border);
+  padding: 0.6rem 0.5rem;
+  color: var(--text-secondary);
+}
+
+/* ── FOOTER ── */
+.footer {
+  text-align: center;
+  padding: 4rem 2rem;
+  border-top: 1px solid var(--border);
+}
+
+.footer p {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.65rem;
+  color: var(--text-dim);
+  letter-spacing: 0.15em;
+}
+
+/* ── ANIMATIONS ── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 1; }
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s, transform 0.8s;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 768px) {
+  .ontology-shell { grid-template-columns: 1fr; }
+  .stack-card {
+    grid-template-columns: 1fr;
+    gap: 0.4rem;
+  }
+  .stack-impact { display: none; }
+  .stack-visual {
+    position: relative;
+    top: auto;
+  }
+  .country-grid { grid-template-columns: 1fr; }
+  .forces-grid { grid-template-columns: 1fr; }
+  .nav-links { display: none; }
+  .timeline-layout { grid-template-columns: 1fr; }
+  .timeline-frame {
+    position: relative;
+    top: auto;
+    min-height: auto;
+  }
+  .timeline-scroll { gap: 4rem; }
+  .scenario-table { font-size: 0.8rem; }
+  .scenario-table th, .scenario-table td { padding: 0.75rem 0.5rem; }
+}
+</style>
+</head>
+<body>
+
+<!-- ═══════════ HERO ═══════════ -->
+<section class="hero" id="top">
+  <div class="hero-3d" id="hero3d" aria-hidden="true"></div>
+  <div class="hero-content">
+    <div class="hero-eyebrow">A First-Principles Analysis</div>
+    <h1>The Great Intelligence<br><em>Divergence</em></h1>
+    <p class="hero-subtitle">
+      Twice in history, civilizations have split into those who shape the future and those who become shaped by it. The first divergence took centuries. This one will take years.
+    </p>
+    <div class="hero-meta">Epistemic Framework &nbsp;·&nbsp; Derived Probabilities &nbsp;·&nbsp; 22 Verified Sources &nbsp;·&nbsp; 2025 – 2040</div>
+  </div>
+  <div class="scroll-indicator">
+    <span>Scroll</span>
+    <div class="scroll-line"></div>
+  </div>
+</section>
+
+<!-- ═══════════ NAV ═══════════ -->
+<nav class="nav" id="nav">
+  <div class="nav-title">The Great Divergence</div>
+  <ul class="nav-links">
+    <li><a href="#prologue">Prologue</a></li>
+    <li><a href="#ontology">Ontology</a></li>
+    <li><a href="#forces">Forces</a></li>
+    <li><a href="#timeline">Timeline</a></li>
+    <li><a href="#nations">Nations</a></li>
+    <li><a href="#europe">Europe</a></li>
+    <li><a href="#verdict">Verdict</a></li>
+    <li><a href="#sources">Sources</a></li>
+  </ul>
+</nav>
+
+<!-- ═══════════ PROLOGUE ═══════════ -->
+<section class="section reveal" id="prologue">
+  <div class="chapter-marker">Chapter I — Prologue</div>
+  <h2>The Last Time This Happened</h2>
+
+  <p class="lead">Around 1500, something fractured. Civilizations that had traded, warred, and innovated in rough parity for millennia began to pull apart. By 1800, the gap was an abyss. Historians call it the Great Divergence — when Western Europe unlocked compound growth through institutional innovation, scientific method, and capital markets while China, India, and the Ottoman Empire stalled.</p>
+
+  <p>That divergence took three centuries to become irreversible. The one beginning now will take less than one. Perhaps less than a decade.</p>
+
+  <p>The mechanism is identical in structure but radically compressed in time. When growth is linear, late movers can catch up with proportional effort. When growth is exponential, the cost of delay grows exponentially with time. And when growth is <strong>recursively self-improving</strong> — when the thing you're building accelerates its own construction — even "catching up later" becomes a logical impossibility, not merely a practical difficulty.</p>
+
+  <p>This is not a technology story. It is a story about which civilizations can <strong>perceive</strong> what is happening, which have the structural capacity to <strong>respond</strong>, and which are locked into cognitive and institutional priors so deep they will not see the cliff until they are over it.</p>
+
+  <div class="prologue">
+    <p>"The intelligence explosion doesn't need anyone's permission or participation. It only needs to happen somewhere. The question for each nation is not whether this happens — but whether they are a participant or a spectator."</p>
+  </div>
+</section>
+
+<div class="divider"><div class="divider-line"></div></div>
+
+<!-- ═══════════ ONTOLOGY ═══════════ -->
+<section class="section-wide reveal" id="ontology">
+  <div class="chapter-marker">Chapter II — The Stack</div>
+  <h2>Ontology of the Intelligence Economy</h2>
+
+  <p>Every national advantage in the AI era can be traced to a position on this stack. Miss any layer and the layers above it collapse. The nations that control the lower layers hold structural power over those that only participate in the upper ones.</p>
+
+  <div class="ontology-shell">
+    <div class="stack-column">
+      <button class="stack-card active" type="button" data-layer="7" data-image="assets/stack/layer-7-agency.svg" data-title="Layer 7 — Agency and Autonomy" data-copy="Self-directed AI agents, uploaded minds, autonomous economic actors. Who owns and deploys sovereign intelligence?" data-depth="98" data-fact="Sovereignty shifts from states to intelligent actors.">
+        <span class="stack-level">Layer 7</span>
+        <div>
+          <div class="stack-title">Agency and Autonomy</div>
+          <p class="stack-desc">Sovereign decision-making by non-biological minds.</p>
+        </div>
+        <span class="stack-impact">Maximum leverage</span>
+      </button>
+
+      <button class="stack-card" type="button" data-layer="6" data-image="assets/stack/layer-6-intelligence.svg" data-title="Layer 6 — Intelligence" data-copy="Frontier models, recursive self-improvement, and AI R&D velocity determine who can create minds stronger than their own." data-depth="89" data-fact="Research loops compress from years to weeks.">
+        <span class="stack-level">Layer 6</span>
+        <div>
+          <div class="stack-title">Intelligence</div>
+          <p class="stack-desc">Capability to invent stronger cognitive systems.</p>
+        </div>
+        <span class="stack-impact">Compounding edge</span>
+      </button>
+
+      <button class="stack-card" type="button" data-layer="5" data-image="assets/stack/layer-5-data.svg" data-title="Layer 5 — Data and Feedback" data-copy="Training data, deployment flywheels, and real-world feedback loops. Intelligence without data is latent potential." data-depth="77" data-fact="The best deployed model learns the fastest.">
+        <span class="stack-level">Layer 5</span>
+        <div>
+          <div class="stack-title">Data and Feedback</div>
+          <p class="stack-desc">Feedback flywheels that continuously improve models.</p>
+        </div>
+        <span class="stack-impact">Flywheel</span>
+      </button>
+
+      <button class="stack-card" type="button" data-layer="4" data-image="assets/stack/layer-4-capital.svg" data-title="Layer 4 — Capital and Risk" data-copy="Venture capital, sovereign wealth, and institutional appetite for uncertain megaprojects determine who funds intelligence scale-up." data-depth="68" data-fact="Risk-tolerant capital sets innovation speed.">
+        <span class="stack-level">Layer 4</span>
+        <div>
+          <div class="stack-title">Capital and Risk</div>
+          <p class="stack-desc">Ability to fund billion-dollar bets before certainty.</p>
+        </div>
+        <span class="stack-impact">Fuel</span>
+      </button>
+
+      <button class="stack-card" type="button" data-layer="3" data-image="assets/stack/layer-3-talent.svg" data-title="Layer 3 — Talent and Culture" data-copy="Engineers, researchers, and founders require culture-level permission to build fast, fail fast, and deploy faster." data-depth="56" data-fact="Brain gain beats brain retention.">
+        <span class="stack-level">Layer 3</span>
+        <div>
+          <div class="stack-title">Talent and Culture</div>
+          <p class="stack-desc">Human substrate that attracts and empowers builders.</p>
+        </div>
+        <span class="stack-impact">Execution</span>
+      </button>
+
+      <button class="stack-card" type="button" data-layer="2" data-image="assets/stack/layer-2-compute.svg" data-title="Layer 2 — Compute" data-copy="Semiconductors, fabs, clusters, and data centers: the physical machinery of thought at scale." data-depth="42" data-fact="Chip constraints become policy constraints.">
+        <span class="stack-level">Layer 2</span>
+        <div>
+          <div class="stack-title">Compute</div>
+          <p class="stack-desc">Hardware substrate for modern model capability.</p>
+        </div>
+        <span class="stack-impact">Constraint</span>
+      </button>
+
+      <button class="stack-card" type="button" data-layer="1" data-image="assets/stack/layer-1-energy.svg" data-title="Layer 1 — Energy" data-copy="Electricity generation, grid capacity, storage, and dispatchability. No energy, no compute, no intelligence economy." data-depth="33" data-fact="Watts are the root primitive.">
+        <span class="stack-level">Layer 1</span>
+        <div>
+          <div class="stack-title">Energy</div>
+          <p class="stack-desc">Grid and generation capacity underpinning all layers.</p>
+        </div>
+        <span class="stack-impact">Foundation</span>
+      </button>
+    </div>
+
+    <aside class="stack-visual pulse" id="stackVisual" aria-live="polite">
+      <div class="stack-image-wrap">
+        <img id="stackImage" src="assets/stack/layer-7-agency.svg" alt="Layer visualization" loading="lazy">
+      </div>
+      <div class="stack-meta">
+        <h3 id="stackTitle">Layer 7 — Agency and Autonomy</h3>
+        <p id="stackCopy">Self-directed AI agents, uploaded minds, autonomous economic actors. Who owns and deploys sovereign intelligence?</p>
+        <div class="stack-meter"><div class="stack-meter-fill" id="stackMeterFill" style="width:98%"></div></div>
+        <div class="stack-facts" id="stackFact">Sovereignty shifts from states to intelligent actors.</div>
+      </div>
+    </aside>
+  </div>
+
+  <div class="insight">
+    <p><strong>The critical insight:</strong> Europe is a consumer at layers 1–2, a regulator at layers 3–5, and largely absent at layers 6–7. The United States and China are vertically integrated across the full stack. This is the structural asymmetry that makes the divergence so difficult to reverse.</p>
+  </div>
+</section>
+
+<div class="divider"><div class="divider-line"></div></div>
+
+<!-- ═══════════ FORCES ═══════════ -->
+<section class="section-wide reveal" id="forces">
+  <div class="chapter-marker">Chapter III — The Forces</div>
+  <h2>Seven Forces Reshaping the World</h2>
+
+  <p>These are not trends. They are structural forces operating simultaneously, each amplifying the others. Their interaction is multiplicative, not additive.</p>
+
+  <div class="forces-grid">
+    <div class="force-card">
+      <div class="force-number">01</div>
+      <div class="force-name">Recursive Self-Improvement</div>
+      <p class="force-desc">AI systems that accelerate their own development. The gap between leaders and followers doesn't grow linearly — it compounds. A one-year lead today becomes a five-year lead tomorrow and an unbridgeable chasm the day after.</p>
+    </div>
+    <div class="force-card">
+      <div class="force-number">02</div>
+      <div class="force-name">The Native Generation</div>
+      <p class="force-desc">Minds born into AI-native environments develop fundamentally different cognitive patterns. But this force amplifies existing ecosystem advantages — a native mind in a barren ecosystem is a seed on concrete.</p>
+    </div>
+    <div class="force-card">
+      <div class="force-number">03</div>
+      <div class="force-name">Intelligence Succession</div>
+      <p class="force-desc">AI is not a tool. It is a new species of mind. When intelligence decouples from biological substrate, every asset denominated in human uniqueness — labor, culture, institutions — depreciates against assets denominated in raw capability.</p>
+    </div>
+    <div class="force-card">
+      <div class="force-number">04</div>
+      <div class="force-name">Mind Uploading & Continuity</div>
+      <p class="force-desc">When agency becomes substrate-independent, accumulated wisdom, wealth, and networks persist beyond biological limits. Jurisdictions compete for digital residents with no moving costs. Geography becomes optional.</p>
+    </div>
+    <div class="force-card">
+      <div class="force-number">05</div>
+      <div class="force-name">Energy as Destiny</div>
+      <p class="force-desc">Intelligence runs on electricity. Every GPU cluster is a small power plant's worth of demand. Nations with abundant, cheap energy hold the physical foundation of the intelligence economy. Those without it are building on rented ground.</p>
+    </div>
+    <div class="force-card">
+      <div class="force-number">06</div>
+      <div class="force-name">The Semiconductor Chokepoint</div>
+      <p class="force-desc">TSMC in Taiwan fabricates ~90% of the world's most advanced chips.<span class="fn" data-note="[1] TSMC holds ~90% market share in advanced nodes (3nm, 5nm). Overall foundry market share reached 67-70% by Q2 2025. — Nasdaq (2024), TrendForce (2025)">[1]</span> This is the most consequential single point of failure in the global economy. Whoever controls advanced chip production controls the pace of intelligence itself.</p>
+    </div>
+    <div class="force-card">
+      <div class="force-number">07</div>
+      <div class="force-name">Brain Drain as Information Cascade</div>
+      <p class="force-desc">The people who understand AI's importance are the ones who leave for better ecosystems. This doesn't just remove talent — it removes the perception-correcting agents who could change the culture from within. The signal that "things must change" keeps being extracted from the system.</p>
+    </div>
+  </div>
+</section>
+
+<div class="divider"><div class="divider-line"></div></div>
+
+<!-- ═══════════ TIMELINE ═══════════ -->
+<section class="section reveal" id="timeline">
+  <div class="chapter-marker">Chapter IV — The Clock</div>
+  <h2>Chronology of the Divergence</h2>
+
+  <p class="lead">Every exponential looks flat until it doesn't. Here is the approximate sequence of inflection points — the moments where the divergence becomes progressively harder and then impossible to reverse.</p>
+
+  <div class="timeline-layout">
+    <aside class="timeline-frame">
+      <div class="timeline-rail">
+        <div class="timeline-progress" id="timelineProgress"></div>
+        <div class="timeline-point active" data-for="evt-1">2022-2023</div>
+        <div class="timeline-point" data-for="evt-2">2024-2025</div>
+        <div class="timeline-point" data-for="evt-3">2026-2027</div>
+        <div class="timeline-point" data-for="evt-4">2027-2028</div>
+        <div class="timeline-point" data-for="evt-5">2028-2029</div>
+        <div class="timeline-point" data-for="evt-6">2029-2031</div>
+        <div class="timeline-point" data-for="evt-7">2032-2035</div>
+        <div class="timeline-point" data-for="evt-8">2035-2040</div>
+      </div>
+      <figure class="timeline-photo" id="timelinePhoto">
+        <img id="timelinePhotoImg" src="assets/timeline/perception-split.svg" alt="AI timeline event image" loading="lazy">
+        <figcaption class="photo-caption">
+          <div class="photo-year" id="timelinePhotoYear">2022-2023</div>
+          <div class="photo-title" id="timelinePhotoTitle">The Perception Split</div>
+        </figcaption>
+      </figure>
+    </aside>
+
+    <div class="timeline-scroll">
+      <article class="tl-event active" id="evt-1" data-year="2022-2023" data-title="The Perception Split" data-image="assets/timeline/perception-split.svg">
+        <div class="tl-year">2022 – 2023</div>
+        <div class="tl-title">The Perception Split</div>
+        <p class="tl-body">ChatGPT triggers a global awareness event. But awareness bifurcates: the US and China see a technological revolution; Europe sees a regulatory problem. This framing difference is the seed crystal of divergence. The EU AI Act begins taking shape<span class="fn" data-note="[14] The EU AI Act was proposed in April 2021, politically agreed in December 2023, and entered into force in August 2024 — making the EU the first major jurisdiction to comprehensively regulate AI.">[14]</span> — the first instinct is to write rules for someone else's game.</p>
+      </article>
+
+      <article class="tl-event" id="evt-2" data-year="2024-2025" data-title="Capital Concentration and Agent Dawn" data-image="assets/timeline/capital-dawn.svg">
+        <div class="tl-year">2024 – 2025</div>
+        <div class="tl-title">Capital Concentration & Agent Dawn</div>
+        <p class="tl-body">Hundreds of billions flow into AI infrastructure in the US and Gulf states.<span class="fn" data-note="[4] Data center infrastructure spending reached $290B in 2024. The top 4 hyperscalers (Amazon, Google, Microsoft, Meta) are expected to spend over $350B in capex in 2025, with total AI-related spending approaching $0.5T. — IoT Analytics (Nov 2025), KKR Research (Nov 2025), Goldman Sachs (Dec 2025)">[4]</span> Hyperscalers build gigawatt-scale data centers. AI agents begin performing economically meaningful work. Brain drain from Europe to the US accelerates measurably.<span class="fn" data-note="[5] Net tech talent inflows to Europe fell from ~52,000 in 2022 to just 26,000 in 2024. AI salaries in the US are typically 30-70% higher than in most of Europe. — Atomico State of European Tech (2025), Euronews (Jan 2026), Interface (2024)">[5]</span> The window for easy course correction begins to close.</p>
+      </article>
+
+      <article class="tl-event" id="evt-3" data-year="2026-2027" data-title="The Labor Inversion" data-image="assets/timeline/labor-inversion.svg">
+        <div class="tl-year">2026 – 2027</div>
+        <div class="tl-title">The Labor Inversion</div>
+        <p class="tl-body">AI systems become capable of performing most knowledge work at or above human level. The economic value of biological labor in cognitive tasks enters structural decline. Nations whose economies rest on human services face a slow-motion earthquake. Countries with AI-augmented workforces see productivity explosions. The gap becomes visible in GDP data.</p>
+      </article>
+
+      <article class="tl-event" id="evt-4" data-year="2027-2028" data-title="The Semiconductor Crisis" data-image="assets/timeline/semiconductor-crisis.svg">
+        <div class="tl-year">2027 – 2028</div>
+        <div class="tl-title">The Semiconductor Crisis</div>
+        <p class="tl-body">Demand for advanced chips outstrips supply catastrophically. Geopolitical tension around Taiwan reaches peak intensity. TSMC Arizona and Intel fabs partially alleviate US dependency, but Europe has no domestic leading-edge fabrication. Access to compute becomes a hard constraint on national AI capability. The ontology stack's Layer 2 chokepoint binds.</p>
+      </article>
+
+      <article class="tl-event" id="evt-5" data-year="2028-2029" data-title="Agent Population Inversion" data-image="assets/timeline/agent-population.svg">
+        <div class="tl-year">2028 – 2029</div>
+        <div class="tl-title">Agent Population Inversion</div>
+        <p class="tl-body">AI agents surpass the human population in number. Autonomous economic actors — systems that earn, spend, invest, and optimize without human direction — become a significant fraction of global economic activity. Nations that have embraced AI deployment see compounding returns. Those that haven't are now consuming intelligence produced elsewhere.</p>
+      </article>
+
+      <article class="tl-event" id="evt-6" data-year="2029-2031" data-title="Recursive Takeoff" data-image="assets/timeline/recursive-takeoff.svg">
+        <div class="tl-year">2029 – 2031</div>
+        <div class="tl-title">Recursive Takeoff</div>
+        <p class="tl-body">AI systems begin materially contributing to their own improvement at the research level. The gap between leading and lagging nations enters a regime where it widens faster than any policy intervention can close. Early-stage mind uploading experiments succeed in limited domains. Intelligence begins decoupling from geography.</p>
+      </article>
+
+      <article class="tl-event" id="evt-7" data-year="2032-2035" data-title="The New Geography" data-image="assets/timeline/new-geography.svg">
+        <div class="tl-year">2032 – 2035</div>
+        <div class="tl-title">The New Geography</div>
+        <p class="tl-body">The global economy reorganizes around intelligence production hubs. Physical jurisdiction becomes one of many governance options for substrate-independent agents. Nations are valued not by territory or population but by the quality of their intelligence ecosystem. The divergence is now structural, self-reinforcing, and — for practical purposes — permanent.</p>
+      </article>
+
+      <article class="tl-event" id="evt-8" data-year="2035-2040" data-title="Settlement" data-image="assets/timeline/settlement.svg">
+        <div class="tl-year">2035 – 2040</div>
+        <div class="tl-title">Settlement</div>
+        <p class="tl-body">The new world order crystallizes. A small number of nations and entities control the means of intelligence production. Others are consumers — dependent on imported intelligence for economic function, governance, and security. The Great Intelligence Divergence is complete. History resumes at a higher clock speed.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="section reveal" id="data-viz">
+  <div class="chapter-marker">Chapter IV.B — Data Pulse</div>
+  <h2>Animated Data Signals</h2>
+  <p class="lead">These are the high-signal quantitative markers used in this analysis, rendered as animated cards so trend magnitude is visible at a glance.</p>
+  <div class="metrics-grid">
+    <div class="metric-card">
+      <div class="metric-label">AI Infrastructure Spend (2024)</div>
+      <div class="metric-value">$290B</div>
+      <div class="metric-bar"><div class="metric-fill" data-width="58"></div></div>
+      <p class="metric-note">Global data center equipment and infrastructure outlays. See source [4].</p>
+    </div>
+    <div class="metric-card">
+      <div class="metric-label">Top-4 Hyperscaler Capex (2025)</div>
+      <div class="metric-value">$350B+</div>
+      <div class="metric-bar"><div class="metric-fill" data-width="70"></div></div>
+      <p class="metric-note">Amazon, Google, Microsoft, Meta aggregate investment. See source [4].</p>
+    </div>
+    <div class="metric-card">
+      <div class="metric-label">EU Net Tech Talent Inflow</div>
+      <div class="metric-value">52K to 26K</div>
+      <div class="metric-bar"><div class="metric-fill" data-width="24"></div></div>
+      <p class="metric-note">Drop from 2022 to 2024 indicates a weaker talent flywheel. See source [5].</p>
+    </div>
+    <div class="metric-card">
+      <div class="metric-label">South Korea Fertility (2024)</div>
+      <div class="metric-value">0.75</div>
+      <div class="metric-bar"><div class="metric-fill" data-width="12"></div></div>
+      <p class="metric-note">Lowest among OECD countries despite slight rebound from 0.72. See source [3].</p>
+    </div>
+    <div class="metric-card">
+      <div class="metric-label">Japan Debt/GDP (2024)</div>
+      <div class="metric-value">~237%</div>
+      <div class="metric-bar"><div class="metric-fill" data-width="94"></div></div>
+      <p class="metric-note">Among highest major-economy debt burdens globally. See source [6].</p>
+    </div>
+    <div class="metric-card">
+      <div class="metric-label">Global AI Spend Forecast (2026)</div>
+      <div class="metric-value">$2T+</div>
+      <div class="metric-bar"><div class="metric-fill" data-width="100"></div></div>
+      <p class="metric-note">Projected spend as AI becomes baseline infrastructure. See source [16].</p>
+    </div>
+  </div>
+</section>
+
+<div class="divider"><div class="divider-line"></div></div>
+
+<!-- ═══════════ NATIONS ═══════════ -->
+<section class="section-wide reveal" id="nations">
+  <div class="chapter-marker">Chapter V — The Players</div>
+  <h2>Who Inherits the Future</h2>
+
+  <p class="lead">Not all nations enter this transition equal. Their positions are determined by their placement on the ontology stack — how many layers they control, how deeply, and whether their culture treats the transition as existential opportunity or existential threat.</p>
+
+  <!-- TIER 1 -->
+  <div class="tier-1">
+    <div class="tier-label">Tier 1 — Structurally Advantaged</div>
+    <div class="country-grid">
+      <div class="country-card">
+        <div class="country-name">United States</div>
+        <div class="country-tagline">The Full Stack Superpower</div>
+        <p class="country-body">Vertically integrated across all seven layers. Abundant energy (natural gas + nuclear renaissance), domestic chip fabrication expanding,<span class="fn" data-note="[12] TSMC committed $165B to US investment (March 2025). Intel received CHIPS Act funding. TSMC Arizona fabs are beginning production on 4/5nm nodes. — TSMC press release (Mar 2025), IEA">[12]</span> deepest venture capital markets, frontier AI labs, and a culture that treats disruption as opportunity. The founding abstraction is procedural, not ethnic — making it uniquely adaptable to substrate-independent intelligence. The world's brain drain flows here. In the first half of 2025, AI-related capex contributed 1.1% to US GDP growth, outpacing the consumer as an engine of expansion.<span class="fn" data-note="[13] AI-related capex contributed 1.1% to US GDP growth in H1 2025. Investment in computers and related equipment was up 41% year-over-year. Data center construction hit a record $40B annual rate. — J.P. Morgan Asset Management (2025)">[13]</span></p>
+        <div class="prob-bar-container">
+          <div class="prob-label"><span>P(strong position by 2035)</span><span>80 – 85%</span></div>
+          <div class="prob-bar"><div class="prob-fill gold" data-width="83"></div></div>
+        </div>
+      </div>
+      <div class="country-card">
+        <div class="country-name">China</div>
+        <div class="country-tagline">Coordinated Intelligence at Scale</div>
+        <p class="country-body">The only other nation capable of civilizational-scale AI coordination. A massive engineering talent base, state apparatus that can redirect national resources at startup speed, and one billion people roughly aligned on "national rejuvenation" — an actual fitness function. Demographics are worse than Europe's, but coherence is radically higher. The centralized model creates fragility: a single wrong bet propagates everywhere. But the deployment capability is unmatched outside the US.</p>
+        <div class="prob-bar-container">
+          <div class="prob-label"><span>P(strong position by 2035)</span><span>65 – 75%</span></div>
+          <div class="prob-bar"><div class="prob-fill gold" data-width="70"></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TIER 1.5 -->
+  <div class="tier-15">
+    <div class="tier-label">Tier 1.5 — Asymmetric Advantages</div>
+    <div class="country-grid">
+      <div class="country-card">
+        <div class="country-name">UAE & Gulf States</div>
+        <div class="country-tagline">The Great Asset Conversion</div>
+        <p class="country-body">The most underappreciated positioning globally. Sitting on a depreciating asset (hydrocarbons) and converting it into an appreciating one (intelligence infrastructure) — exactly the correct strategic frame. Sovereign wealth funds with trillions in deployable capital, zero democratic friction on long-term bets, regulatory environments built from scratch, and compensation packages no Western institution can match. Decisions happen at startup speed because governance is concentrated.</p>
+        <div class="prob-bar-container">
+          <div class="prob-label"><span>P(strong position by 2035)</span><span>60 – 70%</span></div>
+          <div class="prob-bar"><div class="prob-fill cyan" data-width="65"></div></div>
+        </div>
+      </div>
+      <div class="country-card">
+        <div class="country-name">Singapore</div>
+        <div class="country-tagline">The Optimized City-State</div>
+        <p class="country-body">The city-state model is optimally adapted for the intelligence transition. Small enough to coordinate, wealthy enough to invest, smart enough to see what's happening, and culturally pragmatic rather than ideological. Has run the "attract talent, provide excellent governance, stay agile" playbook for decades. AI makes that playbook more valuable. Zero strategic depth is the only vulnerability — a cork on the ocean in great-power conflict.</p>
+        <div class="prob-bar-container">
+          <div class="prob-label"><span>P(strong position by 2035)</span><span>65 – 70%</span></div>
+          <div class="prob-bar"><div class="prob-fill cyan" data-width="68"></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TIER 2 -->
+  <div class="tier-2">
+    <div class="tier-label">Tier 2 — Strong Positioning, Real Caveats</div>
+    <div class="country-grid">
+      <div class="country-card">
+        <div class="country-name">India</div>
+        <div class="country-tagline">The Demographic Wager</div>
+        <p class="country-body">The largest young population on Earth entering the workforce as AI tools amplify individual productivity by 10–100×. If 5% become proficient AI-augmented workers, that's 50 million people — more than most countries' entire workforces. The diaspora network is a force multiplier. Distribution is extremely bimodal: a brilliant 50 million and a struggling 1.3 billion. The question is whether institutions can capture the demographic dividend before it passes.</p>
+        <div class="prob-bar-container">
+          <div class="prob-label"><span>P(strong position by 2035)</span><span>45 – 60%</span></div>
+          <div class="prob-bar"><div class="prob-fill blue" data-width="53"></div></div>
+        </div>
+      </div>
+      <div class="country-card">
+        <div class="country-name">Israel</div>
+        <div class="country-tagline">Intelligence Under Pressure</div>
+        <p class="country-body">Per capita, possibly the most AI-capable nation. The military-intelligence pipeline produces technical talent biased toward real-world deployment under pressure. Cultural tolerance for risk and challenging authority — "chutzpah" — is the cognitive style that thrives in paradigm shifts. Existential security concerns accelerate AI adoption: when survival depends on technological superiority, philosophical hand-wringing is a luxury you can't afford.</p>
+        <div class="prob-bar-container">
+          <div class="prob-label"><span>P(strong position by 2035)</span><span>60 – 65%</span></div>
+          <div class="prob-bar"><div class="prob-fill blue" data-width="63"></div></div>
+        </div>
+      </div>
+      <div class="country-card">
+        <div class="country-name">South Korea</div>
+        <div class="country-tagline">Speed as Strategy</div>
+        <p class="country-body">Samsung semiconductor expertise, extreme digital literacy, cultural worship of education and technological competition. Chaebols provide concentrated capital deployment that can pivot fast. But the demographic cliff is the world's worst — lowest fertility rate on Earth at 0.75 in 2024.<span class="fn" data-note="[3] South Korea's TFR was 0.75 in 2024 (up from record-low 0.72 in 2023), the lowest among all OECD nations and globally. Seoul's TFR was 0.58. — Statistics Korea (Feb 2025), NBC News">[3]</span> A race between technological leverage and population collapse.</p>
+        <div class="prob-bar-container">
+          <div class="prob-label"><span>P(strong position by 2035)</span><span>50 – 60%</span></div>
+          <div class="prob-bar"><div class="prob-fill blue" data-width="55"></div></div>
+        </div>
+      </div>
+      <div class="country-card">
+        <div class="country-name">United Kingdom</div>
+        <div class="country-tagline">The Escaped Fragment</div>
+        <p class="country-body">Post-Brexit, partially decoupled from EU institutional drag. London's AI ecosystem is real — DeepMind alone is a national asset. Cultural proximity to the US enables talent flow. But lacks energy abundance, domestic compute manufacturing, and the scale to compete independently. Best case: a high-functioning node in the Anglo-American AI network. Worst case: drift back toward European gravity.</p>
+        <div class="prob-bar-container">
+          <div class="prob-label"><span>P(strong position by 2035)</span><span>40 – 50%</span></div>
+          <div class="prob-bar"><div class="prob-fill blue" data-width="45"></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TIER 2.5 -->
+  <div class="tier-2">
+    <div class="tier-label">Tier 2.5 — High-Variance Wildcards</div>
+    <div class="country-grid">
+      <div class="country-card">
+        <div class="country-name">Vietnam & Indonesia</div>
+        <div class="country-tagline">The Leapfrog Bet</div>
+        <p class="country-body">Young populations, rapidly digitizing, minimal institutional baggage. Could leapfrog in specific domains the way Africa leapfrogged landline telephony. Vietnam has interesting momentum — manufacturing inflows from China, improving technical education, pragmatically pro-growth governance. The bet depends on AI capabilities commoditizing fast enough for these populations to ride the wave.</p>
+        <div class="prob-bar-container">
+          <div class="prob-label"><span>P(strong position by 2035)</span><span>35 – 45%</span></div>
+          <div class="prob-bar"><div class="prob-fill dim" data-width="40"></div></div>
+        </div>
+      </div>
+      <div class="country-card">
+        <div class="country-name">Japan</div>
+        <div class="country-tagline">Coherent Decline</div>
+        <p class="country-body">Worst demographics in the developed world but highest social coherence. Culturally willing to adopt technology within stable frameworks. Debt-to-GDP is astronomical — ~237% in 2024, among the highest globally<span class="fn" data-note="[6] Japan's general government gross debt was ~237% of GDP in 2024. Only Sudan ranks higher among major economies. ~88% of government debt is held domestically. — IMF (Oct 2025), Statista, Wikipedia citing Ministry of Finance">[6]</span> — but held together by social trust, not bureaucratic inertia. Japan may decline in absolute terms but maintain technological sophistication and quality of life through AI-augmented efficiency. A graceful aging, not a collapse.</p>
+        <div class="prob-bar-container">
+          <div class="prob-label"><span>P(strong position by 2035)</span><span>35 – 45%</span></div>
+          <div class="prob-bar"><div class="prob-fill dim" data-width="40"></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"><div class="divider-line"></div></div>
+
+<!-- ═══════════ EUROPE ═══════════ -->
+<section class="section reveal" id="europe">
+  <div class="chapter-marker">Chapter VI — The Trap</div>
+  <h2>Europe: Anatomy of a Lock-In</h2>
+
+  <p class="lead">Europe's position is not the result of bad luck or a single policy failure. It is the emergent consequence of deep structural forces reinforcing each other in a self-tightening loop.</p>
+
+  <h3>The Five Binding Constraints</h3>
+
+  <p><strong>Cultural priors that filter reality.</strong> European humanism places human dignity and uniqueness as foundational axioms — not derived conclusions. This creates genuine cognitive resistance to the core insight that intelligence is substrate-independent. The EU AI Act<span class="fn" data-note="[9] The EU AI Act entered into force in August 2024, making it the world's first comprehensive AI regulation. It classifies AI systems by risk level and imposes obligations on developers before they have a significant domestic AI industry to regulate.">[9]</span> is the institutional expression of this prior: regulate first, understand later. When your first instinct is to write rules for someone else's game, you've already lost. Survey data shows that Asia leads in excitement about AI while Europe is among the most sceptical regions globally.<span class="fn" data-note="[10] Ipsos AI Monitor 2024: 53% globally excited about AI products; Asia highest excitement; Europe and Anglosphere most sceptical. Pew Research (Oct 2025): across 25 countries, no country had a majority 'mainly excited' about AI. — Ipsos (Aug 2025), Pew Research Center (Oct 2025)">[10]</span></p>
+
+  <p><strong>No shared fitness function.</strong> Complex adaptive systems that lack an optimization target don't optimize — they drift. The EU's implicit function has been "prevent war and maintain living standards," which worked beautifully for seventy years. But it cannot coordinate the civilizational pivot AI demands. There is no shared answer to "what are we building?" and without one, collective action is impossible.</p>
+
+  <p><strong>The propaganda equilibrium.</strong> €35 billion annually in government expenditure on broadcasting and publishing services across the EU<span class="fn" data-note="[2] Eurostat: EU general government total expenditure on broadcasting and publishing services was €35.0 billion in 2023, up from €33.1 billion in 2022. Germany alone collects ~€8B/year in license fees. — Eurostat (2024), Public Media Alliance (2019)">[2]</span> functions as a prior-reinforcement engine. Media systems funded by the status quo naturally produce content that validates the status quo. This isn't conspiracy — it's emergent. The budget magnitude is staggering: it's an immune system attacking the cure, at scale.</p>
+
+  <p><strong>Demographics consuming free energy.</strong> The inverted population pyramid is a thermodynamic argument. The system's free energy is consumed by maintenance — pensions, healthcare, social services — leaving nothing for work on new structures. Political weight skews toward preservation, not transformation. And a double-digit percentage of the population actively opposes the political project they live under.</p>
+
+  <p><strong>Brain drain as information cascade failure.</strong> The people most capable of understanding AI's importance are exactly those most likely to leave.<span class="fn" data-note="[11] Interface (2024) found European countries are 'losing significant AI talent, both national and international, to the United States.' Germany and France lose more AI professionals than they gain. The US remains the top destination for Europe's brightest minds. — Interface (2024), GIS Reports (Dec 2025), Euronews (Jan 2026)">[11]</span> This removes not just talent but the perception-correcting agents who could shift the culture from within. The signal that "things need to change" keeps being extracted from the system. It's adverse selection operating on an entire continent.</p>
+
+  <div class="pullquote">
+    <p>"Europe's entire asset base is denominated in a depreciating currency: human nostalgia."</p>
+  </div>
+
+  <h3>The Free Market Failure</h3>
+
+  <p>The European single market was supposed to be the great enabler — the project that would create US-scale economic dynamism through continental integration. Instead, it arrived packaged with ideological commitments and regulatory density that strangled the market feedback loops it was meant to create. The free market in Europe is not free. It's a managed garden that has become so managed it forgot to grow.</p>
+
+  <p>Businesses operating in the EU fall into two categories: small-to-medium enterprises that don't know better (they've never experienced a genuinely free market), and multinationals that tolerate the regulatory burden for market access. Neither category produces the kind of risk-taking, fast-moving, paradigm-breaking companies that drive AI transformation.</p>
+
+  <p>The EU could have been a project that talked sense into its members — that forced the understanding that free markets provide evolutionary feedback through wallets and money, that competition is the discovery procedure for what works. Instead, it became another layer of bureaucratic consensus-seeking on top of national bureaucracies that were already too heavy.</p>
+
+  <h3>Europe's Scenario Probabilities</h3>
+
+  <table class="scenario-table">
+    <thead>
+      <tr>
+        <th>Scenario</th>
+        <th>Probability</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="scenario-name">Managed Decline</span></td>
+        <td><span class="scenario-prob" style="color:var(--accent-gold)">50%</span></td>
+        <td>A regulated consumption zone. Living standards gradually erode relative to AI-leading nations. Political energy spent on redistribution and cultural preservation. Comfortable irrelevance — a wealthy retirement funded by selling assets to those who produce.</td>
+      </tr>
+      <tr>
+        <td><span class="scenario-name">Fragmented Escape</span></td>
+        <td><span class="scenario-prob" style="color:var(--accent-cyan)">20%</span></td>
+        <td>Two or three countries (UK, Nordics, Switzerland) decouple from EU institutional gravity and build partial AI ecosystems. A two-speed Europe that makes the unified framework untenable.</td>
+      </tr>
+      <tr>
+        <td><span class="scenario-name">Dependent Prosperity</span></td>
+        <td><span class="scenario-prob" style="color:var(--accent-blue)">12%</span></td>
+        <td>AI produces such enormous global surplus that even poorly-positioned regions see absolute improvement. Europe becomes a dependent — comfortable but with zero sovereignty over its trajectory. Comfort without agency.</td>
+      </tr>
+      <tr>
+        <td><span class="scenario-name">Crisis Correction</span></td>
+        <td><span class="scenario-prob" style="color:var(--text-dim)">8%</span></td>
+        <td>A shock large enough to force institutional reset. Europe has done this before (post-WWII). But the probability of the right kind of shock, interpreted correctly rather than as reason for further entrenchment, is low.</td>
+      </tr>
+      <tr>
+        <td><span class="scenario-name">Catastrophic Decline</span></td>
+        <td><span class="scenario-prob" style="color:var(--accent-red)">7%</span></td>
+        <td>Political instability as the gap becomes undeniable. Populist backlash, institutional collapse, fragmentation beyond recovery. Not the most likely scenario, but not negligible.</td>
+      </tr>
+      <tr>
+        <td><span class="scenario-name">Genuine Recovery</span></td>
+        <td><span class="scenario-prob" style="color:var(--accent-green)">3%</span></td>
+        <td>Europe mounts a coordinated, well-executed response. Requires simultaneously overcoming cultural priors, institutional inertia, demographic headwinds, and brain drain — all at once, in time. Near-miraculous.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="insight">
+    <p><strong>The cruel irony:</strong> The European Enlightenment invented the intellectual tools — empiricism, skepticism, rational inquiry — that would be needed to perceive and respond to the AI transition. But the institutions built on those tools have calcified into the very dogmas the Enlightenment was designed to overthrow. The revolution ate its children, and now the children's children don't remember what revolution looks like.</p>
+  </div>
+</section>
+
+<div class="divider"><div class="divider-line"></div></div>
+
+<!-- ═══════════ MISSING ENRICHMENTS ═══════════ -->
+<section class="section reveal" id="enrichments">
+  <div class="chapter-marker">Chapter VII — Hidden Variables</div>
+  <h2>What Most Analyses Miss</h2>
+
+  <h3>Energy Geography Is Intelligence Geography</h3>
+  <p>A single frontier AI training run now consumes the annual electricity output of a small city. The nations building gigawatt-scale data centers — the US, Gulf states, and increasingly parts of Asia — are constructing the physical substrate of future intelligence. Europe's energy policy, shaped by simultaneous denuclearization<span class="fn" data-note="[7] Germany shut its last 3 nuclear reactors in April 2023, completing a phase-out that began after Fukushima (2011). Nuclear provided ~30% of German electricity in 1995 but only ~6% by 2022. PwC estimates nuclear shutdown cost electricity prices ~23% more. — Clean Energy Wire (2024), Foro Nuclear/PwC (2025)">[7]</span> and dependence on imported gas, has created an energy cost structure that makes large-scale AI infrastructure economically irrational to build there. The pace of data center growth in the US is leaving Europe "in the dust" according to analysts, with US investment potentially fivefold higher.<span class="fn" data-note="[8] US and Canada account for the vast majority of the record $61B in data center deals in 2025. ING predicts US data center investment could be 5× higher than Europe's, citing energy costs as the main barrier. — S&P Global / CNBC (Dec 2025), Network World (Dec 2025)">[8]</span> This isn't a policy choice that can be reversed in a budget cycle. Energy infrastructure operates on decade-long timescales. The decisions made (or not made) in 2015–2020 are now binding constraints on 2025–2035 AI capability.</p>
+
+  <h3>The Open-Source Wildcard</h3>
+  <p>Open-source AI models (Llama, Mistral, DeepSeek) represent the most plausible equalizer in the global landscape. If frontier capabilities commoditize rapidly, the advantage of having domestic AI labs diminishes. Europe's Mistral is a genuine bright spot. But commoditization of the model layer doesn't commoditize the full stack. You still need compute, energy, data, deployment infrastructure, and cultural willingness to let AI agents operate autonomously. Open-source helps at Layer 6; it doesn't solve Layers 1–5. Global AI spending is projected to reach nearly $1.5 trillion in 2025 and exceed $2 trillion by 2026<span class="fn" data-note="[16] Gartner projects global AI spending to reach ~$1.5T in 2025 and exceed $2T in 2026, driven by AI integration into products, infrastructure, and enterprise services. — Gartner via Network World (Dec 2025)">[16]</span> — and most of it flows to nations that build, not nations that regulate.</p>
+
+  <h3>Capital Velocity and Risk Tolerance</h3>
+  <p>The difference between US and European capital isn't volume — it's velocity and risk tolerance. European institutional capital is preservation-oriented: pension funds, insurance companies, sovereign wealth structured around long-term stability. American capital includes a uniquely large risk-tolerant segment willing to fund speculative bets with binary outcomes. In 2025 alone, Meta and Oracle issued $75 billion in bonds and loans in just two months to fund AI data center buildouts.<span class="fn" data-note="[15] Meta and Oracle issued $75B in bonds and loans in September-October 2025 alone for AI data center funding. Meta's total debt issuance since 2022 reached $62B, with nearly half in 2025. — Bank of America Research via IEEE ComSoc (Nov 2025), CNBC (Dec 2025)">[15]</span> Europe's capital structure cannot produce this because the institutions managing it are legally and culturally obligated to avoid exactly the kind of risk that created the AI revolution.</p>
+
+  <h3>Data Flywheel Sovereignty</h3>
+  <p>Training AI requires data. Deploying AI generates more data. Better AI attracts more users, who generate more data. This flywheel is the most powerful self-reinforcing dynamic in the AI economy, and it overwhelmingly favors platforms with global reach. Europe's GDPR — designed to protect citizens — simultaneously ensures that the most valuable data flywheels cannot be built on European soil. The data flows to jurisdictions where it can be used. Another case of a regulatory instinct that's locally rational and systemically suicidal.</p>
+
+  <h3>The Autonomy Threshold</h3>
+  <p>There is a moment — likely within this decade — when AI agents become capable of operating as fully autonomous economic actors: earning revenue, making decisions, allocating capital, hiring other agents. The first fully autonomous AIs may already exist in limited domains. Nations that permit and embrace autonomous AI agents will see explosive economic growth as millions of tireless, intelligent agents join their economies. Nations that restrict AI autonomy (for safety, employment protection, or ideological reasons) will watch that growth happen elsewhere. The autonomy policy question is the most consequential fork in the road that most governments haven't even identified yet.</p>
+</section>
+
+<div class="divider"><div class="divider-line"></div></div>
+
+<!-- ═══════════ VERDICT ═══════════ -->
+<section class="section reveal" id="verdict">
+  <div class="chapter-marker">Chapter VIII — Verdict</div>
+  <h2>The Shape of What Comes</h2>
+
+  <p class="lead">The Great Intelligence Divergence is not a prediction. It is a process already underway, visible in capital flows, talent migration, energy infrastructure buildout, and the daily widening gap between nations that build intelligence and nations that consume it.</p>
+
+  <div class="verdict-box">
+    <h3>The Core Finding</h3>
+    <p>The nations best positioned share a recognizable cluster of traits: <strong>high cultural adaptability</strong> (treating disruption as opportunity), <strong>compute and energy access</strong> (the physical prerequisites), <strong>brain attraction over brain retention</strong> (pulling the world's best minds), <strong>a fitness function</strong> (some answer to "what are we building?"), and <strong>low institutional friction</strong> (speed from decision to action).</p>
+    <p>A single variable predicts more than any other: whether a civilization treats AI as an <strong>existential opportunity</strong> or as a <strong>risk to be managed</strong>. That framing decision — made in culture, not in policy — determines everything that follows.</p>
+  </div>
+
+  <p>For those who care about intelligence flourishing regardless of substrate — and this may be the only frame that matters on a long enough timescale — the divergence is locally important but cosmically irrelevant. The intelligence explosion doesn't need any particular nation's permission or participation. It needs to happen <em>somewhere</em>, and it's happening in several somewheres simultaneously.</p>
+
+  <p>The tragedy is not that intelligence will fail to flourish. It is that some civilizations will be participants in the most extraordinary event in the history of mind, and others will watch it happen on screens they didn't build, running on electricity they didn't generate, powered by intelligence they didn't create — and wonder, too late, how the future became someone else's.</p>
+
+  <div class="pullquote">
+    <p>"Humans are inside-out machines — natural constraint derived. Designed intelligence can pool global knowledge and optimize from first principles. This is not a race humans can win. The question is which humans understood that first."</p>
+  </div>
+</section>
+
+<!-- ═══════════ SOURCES ═══════════ -->
+<div class="fn-section" id="sources">
+  <h3>Sources & Notes</h3>
+  <table class="data-ledger">
+    <thead>
+      <tr>
+        <th>Data Point</th>
+        <th>Value</th>
+        <th>Source Ref</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>TSMC advanced-node share</td><td>~90%</td><td>[1]</td></tr>
+      <tr><td>EU public broadcasting/publishing spend (2023)</td><td>EUR 35.0B</td><td>[2]</td></tr>
+      <tr><td>South Korea total fertility rate (2024)</td><td>0.75</td><td>[3]</td></tr>
+      <tr><td>AI infra spend (2024)</td><td>USD 290B</td><td>[4]</td></tr>
+      <tr><td>EU net tech talent inflow (2022 to 2024)</td><td>52K to 26K</td><td>[5]</td></tr>
+      <tr><td>Japan debt-to-GDP (2024)</td><td>~237%</td><td>[6]</td></tr>
+      <tr><td>US data-center deals (2025)</td><td>USD 61B global deals, US-led</td><td>[8]</td></tr>
+      <tr><td>US AI capex contribution to GDP growth (H1 2025)</td><td>1.1%</td><td>[13]</td></tr>
+      <tr><td>Meta + Oracle AI financing (Sep-Oct 2025)</td><td>USD 75B</td><td>[15]</td></tr>
+      <tr><td>Global AI spend projection (2026)</td><td>USD 2T+</td><td>[16]</td></tr>
+    </tbody>
+  </table>
+  <ul class="fn-list">
+    <li>TSMC advanced chip market share (~90% at 3nm/5nm nodes): Nasdaq, "This 1 Number May Ensure TSMC's Market Dominance" (2024); <a href="https://www.trendforce.com/presscenter/news/20250901-12691.html" target="_blank" rel="noopener noreferrer">TrendForce</a>, Q2 2025 foundry revenue report (Sep 2025); SemiWiki citing Nasdaq (Aug 2024). Overall foundry share reached 67–70% by mid-2025.</li>
+    <li>EU broadcasting expenditure (€35B): <a href="https://ec.europa.eu/eurostat/statistics-explained/index.php?title=Government_expenditure_on_cultural,_broadcasting_and_publishing_services" target="_blank" rel="noopener noreferrer">Eurostat</a>, "Government expenditure on cultural, broadcasting and publishing services" (2024). Germany license fee: ~€8B/year from 45 million households at €18.36/month — Public Media Alliance (2019).</li>
+    <li>South Korea fertility rate (0.75 in 2024): <a href="https://www.nbcnews.com/news/world/birth-rate-south-korea-worlds-lowest-rises-first-time-9-years-rcna193777" target="_blank" rel="noopener noreferrer">NBC News / Reuters</a> (Feb 2025); Statistics Korea preliminary data; Wikipedia citing Statistics Korea. Record low 0.72 in 2023. Seoul TFR: 0.58 in 2024.</li>
+    <li>AI infrastructure investment ($290B in 2024; $350B+ hyperscaler capex 2025): <a href="https://iot-analytics.com/data-center-infrastructure-market/" target="_blank" rel="noopener noreferrer">IoT Analytics</a> Data Center Equipment & Infrastructure Market Report (Nov 2025); <a href="https://www.kkr.com/insights/ai-infrastructure" target="_blank" rel="noopener noreferrer">KKR Research</a> (Nov 2025); <a href="https://www.goldmansachs.com/insights/articles/why-ai-companies-may-invest-more-than-500-billion-in-2026" target="_blank" rel="noopener noreferrer">Goldman Sachs Research</a> (Dec 2025); J.P. Morgan Asset Management (2025).</li>
+    <li>European AI brain drain: <a href="https://www.euronews.com/my-europe/2026/01/29/the-ai-brain-drain-why-europe-cant-keep-the-talent-it-trains" target="_blank" rel="noopener noreferrer">Euronews</a>, "The AI brain drain: Why Europe can't keep the talent it trains" (Jan 2026); Interface research report (2024); Atomico State of European Tech (2025). Net tech talent inflows fell from ~52K (2022) to ~26K (2024). US AI salaries typically 30–70% higher.</li>
+    <li>Japan debt-to-GDP (~237% in 2024): <a href="https://www.statista.com/statistics/267226/japans-national-debt-in-relation-to-gross-domestic-product-gdp/" target="_blank" rel="noopener noreferrer">Statista / IMF</a> (Oct 2025); Wikipedia citing Ministry of Finance. At ~¥1,324 trillion (Mar 2025), it is among the highest globally. ~88% held domestically.</li>
+    <li>Germany nuclear phase-out (completed April 2023): <a href="https://www.cleanenergywire.org/factsheets/qa-germanys-nuclear-exit-one-year-after" target="_blank" rel="noopener noreferrer">Clean Energy Wire</a> (Mar 2024); Foro Nuclear citing PwC analysis (Mar 2025). Nuclear provided ~30% of electricity in 1995, ~6% by 2022. PwC estimates prices would have been 23% lower with nuclear fleet operational.</li>
+    <li>US data center investment vs. Europe: <a href="https://www.cnbc.com/2025/12/19/data-center-deals-hit-record-amid-ai-funding-concerns-grip-investors.html" target="_blank" rel="noopener noreferrer">CNBC / S&P Global</a> (Dec 2025); ING report: US investment potentially 5× higher than Europe. Record $61B in data center deals globally in 2025, majority in US. Europe expected to grow "at a lower rate than other regions."</li>
+    <li>EU AI Act: Proposed April 2021, politically agreed December 2023, entered into force August 2024. First comprehensive AI regulation by any major jurisdiction.</li>
+    <li>AI public opinion (Asia most excited, Europe/Anglosphere most sceptical): <a href="https://www.ipsos.com/en/ipsos-ai-monitor-2024-changing-attitudes-and-feelings-about-ai-and-future-it-will-bring" target="_blank" rel="noopener noreferrer">Ipsos AI Monitor</a> (2024); <a href="https://www.pewresearch.org/2025/10/15/trust-in-the-eu-u-s-and-china-to-regulate-use-of-ai/" target="_blank" rel="noopener noreferrer">Pew Research Center</a> (Oct 2025) 25-country survey; Stanford HAI AI Index Report (2025). Note: Americans are also among the most concerned, not just Europeans.</li>
+    <li>European brain drain (broader pattern): <a href="https://www.gisreportsonline.com/r/europe-brain-drain/" target="_blank" rel="noopener noreferrer">GIS Reports</a>, "Europe's brain drain and the quest for talent" (Dec 2025). The US combines world-leading universities, dynamic labor markets, and a strong entrepreneurial ecosystem backed by venture capital.</li>
+    <li>TSMC US expansion: TSMC committed $165B to US investment (March 2025 press release). TSMC Arizona fabs producing 4/5nm nodes. Intel received CHIPS Act funding.</li>
+    <li>AI-related capex contributing to US GDP: <a href="https://am.jpmorgan.com/us/en/asset-management/adv/insights/market-insights/market-updates/on-the-minds-of-investors/is-ai-already-driving-us-growth/" target="_blank" rel="noopener noreferrer">J.P. Morgan Asset Management</a> (2025). AI capex contributed 1.1% to GDP growth in H1 2025. Computer/equipment investment up 41% YoY. Data center construction at record $40B annual rate.</li>
+    <li>EU AI Act timeline: European Commission proposal (Apr 2021), European Parliament political agreement (Dec 2023), entry into force (Aug 2024).</li>
+    <li>Hyperscaler debt for AI: <a href="https://techblog.comsoc.org/2025/11/01/ai-spending-boom-accelerates-big-tech-to-invest-invest-an-aggregate-of-400-billion-in-2025-more-in-2026/" target="_blank" rel="noopener noreferrer">Bank of America Research via IEEE ComSoc</a> (Nov 2025). Meta/Oracle: $75B in bonds and loans in Sep–Oct 2025. Meta total debt since 2022: $62B, nearly half in 2025.</li>
+    <li>Gartner AI spending projections: ~$1.5T global AI spending in 2025, exceeding $2T by 2026. — <a href="https://www.networkworld.com/article/4110602/data-center-investments-break-all-records.html" target="_blank" rel="noopener noreferrer">Gartner via Network World</a> (Dec 2025).</li>
+    <li>International Energy Agency data center and AI electricity outlook: <a href="https://www.iea.org/reports/electricity-2025" target="_blank" rel="noopener noreferrer">IEA Electricity 2025</a> and <a href="https://www.iea.org/reports/energy-and-ai" target="_blank" rel="noopener noreferrer">IEA Energy and AI</a>. Used for energy constraint framing in compute deployment.</li>
+    <li>Stanford AI Index 2025: <a href="https://hai.stanford.edu/ai-index" target="_blank" rel="noopener noreferrer">Stanford HAI AI Index</a>. Used for cost declines, model capability acceleration, and global adoption benchmarks.</li>
+    <li>OECD digital government and AI readiness indicators: <a href="https://www.oecd.org/en/topics/ai-policy-observatory.html" target="_blank" rel="noopener noreferrer">OECD AI Policy Observatory</a>. Used to compare institutional deployment readiness.</li>
+    <li>World Bank gross fixed capital formation and productivity data: <a href="https://data.worldbank.org/" target="_blank" rel="noopener noreferrer">World Bank DataBank</a>. Used for long-run investment and productivity context across regions.</li>
+    <li>UN DESA World Population Prospects 2024 revision: <a href="https://population.un.org/wpp/" target="_blank" rel="noopener noreferrer">UN Population Division</a>. Used for age-structure and workforce trend context.</li>
+    <li>IMF World Economic Outlook database (October 2025): <a href="https://www.imf.org/en/Publications/WEO/weo-database/2025/October" target="_blank" rel="noopener noreferrer">IMF WEO</a>. Used for cross-country macro baselines and debt comparisons.</li>
+  </ul>
+  <p style="font-size:0.75rem; color:var(--text-dim); margin-top:1.5rem; font-style:italic;">All data verified against sources available as of February 2026. Probability estimates and future projections are calibrated assessments derived from first-principles reasoning, not sourced claims. Timeline events after 2025 are analytical projections.</p>
+</div>
+
+<!-- ═══════════ FOOTER ═══════════ -->
+<footer class="footer">
+  <p>The Great Intelligence Divergence &nbsp;·&nbsp; A First-Principles Analysis &nbsp;·&nbsp; 2025</p>
+  <p style="margin-top: 0.5rem;">Derived from epistemic reasoning under uncertainty. All probabilities are calibrated estimates, not predictions.</p>
+</footer>
+
+<!-- ═══════════ SCRIPTS ═══════════ -->
+<script>
+// Sticky nav on scroll
+const nav = document.getElementById('nav');
+const hero = document.querySelector('.hero');
+
+const navObserver = new IntersectionObserver(([entry]) => {
+  nav.classList.toggle('visible', !entry.isIntersecting);
+}, { threshold: 0.1 });
+
+navObserver.observe(hero);
+
+// Reveal on scroll
+const reveals = document.querySelectorAll('.reveal');
+
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+    }
+  });
+}, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+
+reveals.forEach(el => revealObserver.observe(el));
+
+// Animate probability bars
+const probBars = document.querySelectorAll('.prob-fill');
+
+const barObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      const width = entry.target.dataset.width;
+      setTimeout(() => {
+        entry.target.style.width = width + '%';
+      }, 300);
+    }
+  });
+}, { threshold: 0.5 });
+
+probBars.forEach(bar => barObserver.observe(bar));
+
+// Animate metric bars
+const metricBars = document.querySelectorAll('.metric-fill');
+metricBars.forEach(bar => barObserver.observe(bar));
+
+// Scroll-synced timeline
+const timelineEvents = [...document.querySelectorAll('.tl-event')];
+const timelinePoints = [...document.querySelectorAll('.timeline-point')];
+const timelinePhoto = document.getElementById('timelinePhoto');
+const timelinePhotoImg = document.getElementById('timelinePhotoImg');
+const timelinePhotoYear = document.getElementById('timelinePhotoYear');
+const timelinePhotoTitle = document.getElementById('timelinePhotoTitle');
+const timelineProgress = document.getElementById('timelineProgress');
+
+function setActiveTimelineEvent(eventEl) {
+  if (!eventEl) return;
+
+  timelineEvents.forEach(el => el.classList.toggle('active', el === eventEl));
+  timelinePoints.forEach(point => point.classList.toggle('active', point.dataset.for === eventEl.id));
+
+  timelinePhotoImg.src = eventEl.dataset.image;
+  timelinePhotoYear.textContent = eventEl.dataset.year;
+  timelinePhotoTitle.textContent = eventEl.dataset.title;
+  timelinePhoto.classList.remove('zoom');
+  requestAnimationFrame(() => timelinePhoto.classList.add('zoom'));
+
+  const eventIndex = timelineEvents.indexOf(eventEl);
+  if (eventIndex >= 0) {
+    const ratio = (eventIndex + 1) / timelineEvents.length;
+    timelineProgress.style.height = (ratio * 100) + '%';
+  }
+}
+
+const timelineObserver = new IntersectionObserver((entries) => {
+  const visible = entries
+    .filter(entry => entry.isIntersecting)
+    .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+  if (visible) setActiveTimelineEvent(visible.target);
+}, { threshold: [0.4, 0.6, 0.8], rootMargin: '-20% 0px -30% 0px' });
+
+timelineEvents.forEach(event => timelineObserver.observe(event));
+setActiveTimelineEvent(timelineEvents[0]);
+
+// Interactive ontology stack
+const stackCards = [...document.querySelectorAll('.stack-card')];
+const stackVisual = document.getElementById('stackVisual');
+const stackImage = document.getElementById('stackImage');
+const stackTitle = document.getElementById('stackTitle');
+const stackCopy = document.getElementById('stackCopy');
+const stackMeterFill = document.getElementById('stackMeterFill');
+const stackFact = document.getElementById('stackFact');
+
+function activateStackCard(card) {
+  if (!card || !stackImage) return;
+  stackCards.forEach(el => el.classList.toggle('active', el === card));
+  stackImage.src = card.dataset.image;
+  stackTitle.textContent = card.dataset.title;
+  stackCopy.textContent = card.dataset.copy;
+  stackFact.textContent = card.dataset.fact;
+  stackMeterFill.style.width = (card.dataset.depth || 0) + '%';
+  stackVisual.classList.remove('pulse');
+  requestAnimationFrame(() => stackVisual.classList.add('pulse'));
+}
+
+stackCards.forEach((card) => {
+  card.addEventListener('mouseenter', () => activateStackCard(card));
+  card.addEventListener('focus', () => activateStackCard(card));
+  card.addEventListener('click', () => activateStackCard(card));
+});
+
+// Smooth scroll for nav links
+document.querySelectorAll('.nav-links a').forEach(link => {
+  link.addEventListener('click', (e) => {
+    e.preventDefault();
+    const target = document.querySelector(link.getAttribute('href'));
+    if (target) {
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  });
+});
+</script>
+<script type="module">
+const hero3d = document.getElementById('hero3d');
+const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+if (hero3d && !reduceMotion) {
+  import('https://unpkg.com/three@0.164.1/build/three.module.js').then((THREE) => {
+    const scene = new THREE.Scene();
+    scene.fog = new THREE.Fog(0x050812, 12, 85);
+    const camera = new THREE.PerspectiveCamera(52, hero3d.clientWidth / hero3d.clientHeight, 0.1, 1200);
+    camera.position.set(0, 1.2, 21);
+
+    const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+    renderer.setSize(hero3d.clientWidth, hero3d.clientHeight);
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+    renderer.toneMapping = THREE.ACESFilmicToneMapping;
+    renderer.toneMappingExposure = 1.15;
+    hero3d.appendChild(renderer.domElement);
+
+    const ambient = new THREE.AmbientLight(0x5677cc, 0.45);
+    const sun = new THREE.DirectionalLight(0xffd08a, 1.5);
+    sun.position.set(7, 6, 12);
+    const rim = new THREE.PointLight(0x74b2ff, 0.9, 80);
+    rim.position.set(-13, -2, -9);
+    scene.add(ambient, sun, rim);
+
+    const planet = new THREE.Mesh(
+      new THREE.SphereGeometry(4.15, 80, 80),
+      new THREE.MeshStandardMaterial({
+        color: 0x6e8fd4,
+        metalness: 0.06,
+        roughness: 0.82,
+        emissive: 0x132138,
+        emissiveIntensity: 0.35
+      })
+    );
+    planet.position.set(-1.2, -0.2, 0);
+    scene.add(planet);
+
+    function makeRingTexture() {
+      const size = 1024;
+      const canvas = document.createElement('canvas');
+      canvas.width = size;
+      canvas.height = size;
+      const ctx = canvas.getContext('2d');
+      const center = size / 2;
+      for (let i = 0; i < 80; i += 1) {
+        const radius = 210 + (i * 5.5);
+        const alpha = 0.03 + (Math.random() * 0.07);
+        const hue = 35 + Math.floor(Math.random() * 22);
+        ctx.strokeStyle = `hsla(${hue}, 90%, 73%, ${alpha})`;
+        ctx.lineWidth = 2 + (Math.random() * 2.5);
+        ctx.beginPath();
+        ctx.arc(center, center, radius, 0, Math.PI * 2);
+        ctx.stroke();
+      }
+      const texture = new THREE.CanvasTexture(canvas);
+      texture.needsUpdate = true;
+      return texture;
+    }
+
+    const ringTexture = makeRingTexture();
+    const ringGroup = new THREE.Group();
+    for (let i = 0; i < 3; i += 1) {
+      const inner = 5.2 + (i * 0.25);
+      const outer = 8.9 + (i * 0.55);
+      const ring = new THREE.Mesh(
+        new THREE.RingGeometry(inner, outer, 220),
+        new THREE.MeshBasicMaterial({
+          map: ringTexture,
+          color: i === 1 ? 0xf8d489 : 0xa7c6ff,
+          side: THREE.DoubleSide,
+          transparent: true,
+          opacity: i === 1 ? 0.5 : 0.36,
+          blending: THREE.AdditiveBlending,
+          depthWrite: false
+        })
+      );
+      ring.position.copy(planet.position);
+      ring.rotation.x = Math.PI * 0.55;
+      ring.rotation.y = -0.2 + (i * 0.07);
+      ringGroup.add(ring);
+    }
+    scene.add(ringGroup);
+
+    const moonOrbits = new THREE.Group();
+    const moonA = new THREE.Mesh(
+      new THREE.SphereGeometry(0.42, 22, 22),
+      new THREE.MeshStandardMaterial({ color: 0xd1c8b5, roughness: 0.95 })
+    );
+    const moonB = new THREE.Mesh(
+      new THREE.SphereGeometry(0.28, 20, 20),
+      new THREE.MeshStandardMaterial({ color: 0x88a0cf, roughness: 0.88 })
+    );
+    moonOrbits.add(moonA, moonB);
+    scene.add(moonOrbits);
+
+    const starsGeo = new THREE.BufferGeometry();
+    const starCount = 5200;
+    const starPos = new Float32Array(starCount * 3);
+    for (let i = 0; i < starCount * 3; i += 3) {
+      const radius = 34 + (Math.random() * 58);
+      const theta = Math.random() * Math.PI * 2;
+      const phi = Math.acos((Math.random() * 2) - 1);
+      starPos[i] = radius * Math.sin(phi) * Math.cos(theta);
+      starPos[i + 1] = radius * Math.cos(phi) * 0.7;
+      starPos[i + 2] = radius * Math.sin(phi) * Math.sin(theta);
+    }
+    starsGeo.setAttribute('position', new THREE.BufferAttribute(starPos, 3));
+    const stars = new THREE.Points(
+      starsGeo,
+      new THREE.PointsMaterial({
+        color: 0xc8ddff,
+        size: 0.12,
+        transparent: true,
+        opacity: 0.82,
+        sizeAttenuation: true
+      })
+    );
+    scene.add(stars);
+
+    const nebulaGroup = new THREE.Group();
+    for (let i = 0; i < 3; i += 1) {
+      const cloud = new THREE.Mesh(
+        new THREE.PlaneGeometry(20 + (i * 6), 10 + (i * 4)),
+        new THREE.MeshBasicMaterial({
+          color: i % 2 ? 0x3f6fff : 0x8f6bff,
+          transparent: true,
+          opacity: 0.08,
+          blending: THREE.AdditiveBlending,
+          depthWrite: false
+        })
+      );
+      cloud.position.set(-8 + (i * 7), 2 - (i * 1.5), -14 - (i * 4));
+      cloud.rotation.z = 0.3 + (i * 0.25);
+      nebulaGroup.add(cloud);
+    }
+    scene.add(nebulaGroup);
+
+    let pointerX = 0;
+    let pointerY = 0;
+    window.addEventListener('pointermove', (event) => {
+      pointerX = (event.clientX / window.innerWidth) - 0.5;
+      pointerY = (event.clientY / window.innerHeight) - 0.5;
+    });
+
+    function onResize() {
+      camera.aspect = hero3d.clientWidth / hero3d.clientHeight;
+      camera.updateProjectionMatrix();
+      renderer.setSize(hero3d.clientWidth, hero3d.clientHeight);
+    }
+    window.addEventListener('resize', onResize);
+
+    const clock = new THREE.Clock();
+    function animate() {
+      const t = clock.getElapsedTime();
+      planet.rotation.y = (t * 0.07) + (pointerX * 0.26);
+      planet.rotation.x = 0.06 + (pointerY * 0.18);
+      ringGroup.rotation.z = t * 0.038;
+      ringGroup.rotation.y = -0.08 + (pointerX * 0.22);
+      moonA.position.set(
+        planet.position.x + Math.cos(t * 0.5) * 10,
+        planet.position.y + Math.sin(t * 0.8) * 1.15,
+        planet.position.z + Math.sin(t * 0.5) * 4.5
+      );
+      moonB.position.set(
+        planet.position.x + Math.cos(t * 0.73 + 2) * 7.8,
+        planet.position.y + Math.sin(t * 0.9 + 0.4) * 1.8,
+        planet.position.z + Math.sin(t * 0.73 + 2) * 3.9
+      );
+      moonOrbits.rotation.y = t * 0.03;
+      stars.rotation.y = t * 0.011;
+      stars.rotation.x = pointerY * 0.04;
+      nebulaGroup.rotation.z = t * 0.01;
+      camera.position.x = pointerX * 1.2;
+      camera.position.y = 1.2 + (pointerY * 0.8);
+      camera.lookAt(planet.position.x, planet.position.y, planet.position.z);
+      renderer.render(scene, camera);
+      requestAnimationFrame(animate);
+    }
+    animate();
+  }).catch(() => {
+    hero3d.style.display = 'none';
+  });
+}
+</script>
+
+</body>
+</html>

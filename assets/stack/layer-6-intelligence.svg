@@ -1,0 +1,12 @@
+<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1400 900'>
+  <rect width='1400' height='900' fill='#111833'/>
+  <g fill='none' stroke='#4f9cff' stroke-width='2' opacity='0.7'>
+    <path d='M180 740 C380 650, 500 630, 640 500 C760 390, 830 360, 980 260 C1110 175, 1210 145, 1290 110'/>
+    <path d='M180 760 C340 730, 430 700, 580 620 C760 530, 860 430, 1020 330 C1130 260, 1210 220, 1290 170'/>
+  </g>
+  <g fill='#f2c14e' fill-opacity='0.65'>
+    <circle cx='640' cy='500' r='9'/><circle cx='980' cy='260' r='9'/><circle cx='1290' cy='110' r='9'/>
+  </g>
+  <text x='110' y='170' fill='#eef1f8' font-family='Georgia,serif' font-size='64'>Intelligence</text>
+  <text x='110' y='222' fill='#a6b1c8' font-family='monospace' font-size='24'>Layer 6</text>
+</svg>

@@ -1,0 +1,11 @@
+<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1400 900'>
+  <rect width='1400' height='900' fill='#19152b'/>
+  <g fill='#f2c14e' fill-opacity='0.65'>
+    <rect x='180' y='560' width='95' height='170'/><rect x='320' y='500' width='95' height='230'/><rect x='460' y='460' width='95' height='270'/>
+    <rect x='600' y='390' width='95' height='340'/><rect x='740' y='320' width='95' height='410'/><rect x='880' y='250' width='95' height='480'/>
+    <rect x='1020' y='190' width='95' height='540'/>
+  </g>
+  <path d='M180 660 C420 620, 620 450, 840 350 C980 285, 1130 180, 1250 140' stroke='#2fd4d8' stroke-width='5' fill='none'/>
+  <text x='110' y='170' fill='#eef1f8' font-family='Georgia,serif' font-size='64'>Capital and Risk</text>
+  <text x='110' y='222' fill='#a6b1c8' font-family='monospace' font-size='24'>Layer 4</text>
+</svg>

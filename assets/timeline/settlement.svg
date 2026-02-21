@@ -1,0 +1,17 @@
+<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1600 900'>
+  <defs>
+    <linearGradient id='bg' x1='0' y1='0' x2='0' y2='1'>
+      <stop offset='0%' stop-color='#120d18'/><stop offset='100%' stop-color='#090b15'/>
+    </linearGradient>
+  </defs>
+  <rect width='1600' height='900' fill='url(#bg)'/>
+  <g fill='#f2c14e' fill-opacity='0.44'>
+    <polygon points='800,150 1000,420 800,690 600,420'/>
+  </g>
+  <g stroke='#4f9cff' stroke-width='2' fill='none' opacity='0.6'>
+    <polygon points='800,100 1060,420 800,740 540,420'/>
+    <polygon points='800,50 1120,420 800,800 480,420'/>
+  </g>
+  <text x='180' y='230' fill='#eef1f8' font-family='Georgia,serif' font-size='60'>Settlement</text>
+  <text x='180' y='290' fill='#a6b1c8' font-family='monospace' font-size='28'>2035-2040</text>
+</svg>

@@ -1,0 +1,12 @@
+<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1600 900'>
+  <defs>
+    <linearGradient id='bg' x1='0' y1='1' x2='1' y2='0'>
+      <stop offset='0%' stop-color='#0c1224'/><stop offset='100%' stop-color='#121032'/>
+    </linearGradient>
+  </defs>
+  <rect width='1600' height='900' fill='url(#bg)'/>
+  <path d='M160 760 C310 740, 400 650, 490 610 C590 560, 620 430, 760 390 C910 340, 970 250, 1140 200 C1250 165, 1340 140, 1450 95' stroke='#2fd4d8' stroke-width='5' fill='none'/>
+  <path d='M160 760 C320 760, 420 700, 520 670 C640 625, 690 600, 770 510 C890 390, 950 360, 1080 280 C1230 190, 1320 180, 1450 110' stroke='#f2c14e' stroke-width='6' fill='none'/>
+  <text x='180' y='230' fill='#eef1f8' font-family='Georgia,serif' font-size='60'>Recursive Takeoff</text>
+  <text x='180' y='290' fill='#a6b1c8' font-family='monospace' font-size='28'>2029-2031</text>
+</svg>

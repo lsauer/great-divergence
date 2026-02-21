@@ -1,0 +1,17 @@
+<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1600 900'>
+  <rect width='1600' height='900' fill='#11122b'/>
+  <g fill='none' stroke='#7b61ff' stroke-opacity='0.4'>
+    <ellipse cx='800' cy='450' rx='560' ry='220'/>
+    <ellipse cx='800' cy='450' rx='420' ry='160'/>
+    <ellipse cx='800' cy='450' rx='280' ry='105'/>
+  </g>
+  <g fill='#4f9cff'>
+    <circle cx='420' cy='430' r='12'/><circle cx='580' cy='360' r='12'/><circle cx='730' cy='500' r='12'/>
+    <circle cx='900' cy='350' r='12'/><circle cx='1080' cy='470' r='12'/><circle cx='1230' cy='390' r='12'/>
+  </g>
+  <g stroke='#2fd4d8' stroke-width='2'>
+    <path d='M420 430 L580 360 L730 500 L900 350 L1080 470 L1230 390' fill='none'/>
+  </g>
+  <text x='180' y='230' fill='#eef1f8' font-family='Georgia,serif' font-size='60'>The New Geography</text>
+  <text x='180' y='290' fill='#a6b1c8' font-family='monospace' font-size='28'>2032-2035</text>
+</svg>
