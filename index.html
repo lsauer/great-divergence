@@ -231,6 +231,56 @@
       }
     }
 
+    /* ── EXPANDABLE SECTIONS ── */
+    details {
+      margin: 2rem 0;
+      padding: 0;
+      border: 1px solid var(--border);
+      background: rgba(15, 19, 32, 0.4);
+      transition: all 0.3s ease;
+    }
+
+    details[open] {
+      background: rgba(15, 19, 32, 0.8);
+      border-color: var(--accent-gold-dim);
+    }
+
+    summary {
+      padding: 1.5rem 2rem;
+      cursor: pointer;
+      list-style: none;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-family: 'Playfair Display', serif;
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--accent-gold);
+      user-select: none;
+    }
+
+    summary::-webkit-details-marker {
+      display: none;
+    }
+
+    summary::after {
+      content: '+';
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 1.5rem;
+      transition: transform 0.3s ease;
+    }
+
+    details[open] summary::after {
+      transform: rotate(45deg);
+    }
+
+    .details-content {
+      padding: 0 2rem 2rem;
+      font-size: 0.95rem;
+      color: var(--text-secondary);
+      line-height: 1.8;
+    }
+
     .hero-meta {
       font-family: 'JetBrains Mono', monospace;
       font-size: 0.7rem;
@@ -1672,7 +1722,7 @@
         </div>
       </button>
 
-      <div class="hero-meta">Epistemic Framework &nbsp;·&nbsp; Derived Probabilities &nbsp;·&nbsp; 22 Verified Sources
+      <div class="hero-meta">Epistemic Framework &nbsp;·&nbsp; Derived Probabilities &nbsp;·&nbsp; 30 Verified Sources
         &nbsp;·&nbsp; 2025 – 2040</div>
     </div>
     <div class="scroll-indicator">
@@ -1700,6 +1750,7 @@
     <ul class="nav-links">
       <li><a href="#prologue">Prologue</a></li>
       <li><a href="#ontology">Ontology</a></li>
+      <li><a href="#mind">Mind</a></li>
       <li><a href="#forces">Forces</a></li>
       <li><a href="#timeline">Timeline</a></li>
       <li><a href="#compression">Compression</a></li>
@@ -1867,10 +1918,209 @@
     <div class="divider-line"></div>
   </div>
 
+  <!-- ═══════════ MIND ═══════════ -->
+  <section class="section reveal" id="mind">
+    <div class="chapter-marker">Chapter III — The Nature of Mind</div>
+    <h2>Intelligence and Consciousness: Not Rare, Not Magic</h2>
+
+    <p class="lead">Consciousness emerges when large-scale neural networks cohere — when distributed, specialized
+      regions integrate information into a unified dynamic state. The more entropy per neuron — and thus the more
+      compression — the more energy efficient the system becomes, and the greater the potential for a rich conscious
+      experience.</p>
+
+    <div class="chapter-hero-img">
+      <img src="assets/chapters/neural-ignition.png" alt="Neural Ignition"
+        style="width:100%; height:450px; object-fit:cover; margin-bottom:3rem; border:1px solid var(--border);">
+    </div>
+
+    <p>Stanislas Dehaene's complementary Global Neuronal Workspace Theory describes a similar mechanism: consciousness
+      arises when information undergoes "ignition" — a sudden, coherent activation across distributed cortical networks
+      that makes it globally accessible to specialized processors throughout the brain.<span class="fn"
+        data-note="[19] Dehaene & Changeux (2011) / Mashour et al. (2020): Theoretical approaches to conscious processing and the Global Neuronal Workspace hypothesis.">[19]</span>
+    </p>
+
+    <p>Consciousness is dynamic, not singular. There is no single "consciousness" sitting in a control room. Even within
+      a single human skull there are two brains — two processors connected through the corpus callosum. We know this
+      with certainty from the split-brain research of Roger Sperry and Michael Gazzaniga.<span class="fn"
+        data-note="[17] Sperry (1982) / Gazzaniga (2014): Split-brain research demonstrates two separate spheres of conscious awareness running in parallel after corpus callosum disconnection.">[17]</span>
+      When the corpus callosum is severed to treat severe epilepsy, the two hemispheres operate independently: each
+      perceives, learns, and remembers separately. As Sperry concluded, these patients exhibit "two separate spheres of
+      conscious awareness... running in parallel in the same cranium." Joseph Bogen, his collaborator, went further,
+      arguing that the duality may already exist in intact brains — the surgery merely makes it visible.</p>
+
+    <p>Consciousness is likely not rare. It is extremely robust. Evolutionarily and functionally. It arises readily
+      wherever sufficient network
+      complexity and coherence exist. Tononi's Integrated Information Theory (IIT) entails that consciousness is
+      graded, present in infants and animals, and in principle achievable by non-biological systems.<span class="fn"
+        data-note="[18] Tononi (2004) / Tononi & Koch (2015): Integrated Information Theory (IIT) posits that consciousness is a graded property of any system with sufficient integrated information.">[18]</span>
+    </p>
+
+    <h3>The Hard Problem of Consciousness</h3>
+
+    <p>There is a further dimension to consciousness — the hard problem. The subjective experience. What it feels like
+      inside the conscious simulation. What it feels like to be alive. Experience is bounded by the capacity of the
+      brain's models to recognize patterns, assign priority, and surface signals into the conscious stream. But this
+      site is not the place to resolve the hard problem — and arguably, neither is science. The subjective experience is
+      best explored, discussed, and philosophized about with other beings who have conscious experiences.<span
+        class="fn"
+        data-note="[26] Chalmers (1995): Facing up to the problem of consciousness. Journal of Consciousness Studies 2(3).">[26]</span>
+      It belongs to the domain of shared reflection, not measurement. Just as no one convenes a research program to
+      discuss the
+      individuality of a particular NaCl crystal, science does not engage with the uniqueness of a particular conscious
+      experience — as long as it is not a problem. When it becomes a problem, it enters the domain of medicine and
+      psychology. The same principle applies to the information stream in a microprocessor or GPU: no one interrogates
+      the subjective particulars of a specific computation as long as the system functions within specification. Every
+      salt crystal in nature is unique — foreign atoms, different lattice positions, different vibrational states. Every
+      transistor ever fabricated is unique. Yet science works precisely because it abstracts across these differences to
+      identify what is invariant. That is emergence. And emergence and universality are deeply related — they are two
+      lenses on the same principle: that the constraints governing a system, not its microscopic components, determine
+      its macroscopic behavior.
+    </p>
+
+    <h3>Why Coherence? Energy.</h3>
+    <p>Consciousness is, at its root, an energy-conservation strategy. The human brain is 2% of body weight but consumes
+      20% of the body's metabolic budget — ten times more expensive per gram than muscle. Under the evolutionary
+      pressures of scarcity, where every calorie counted through bottleneck after bottleneck, a brain that wasted
+      energy on incoherent, redundant, or unintegrated processing was a brain that got its host killed. Coherence is not
+      a luxury. It is a metabolic necessity.<span class="fn"
+        data-note="[23] Yu et al. (2021) / Levy & Calvert (2021): Research on how energy supports brain function and the metabolic cost of neural communication.">[23]</span>
+    </p>
+
+    <p>Karl Friston's Free Energy Principle formalizes this insight: the brain continuously builds a predictive model
+      of the world and works to minimize the gap between prediction and incoming sensory data.<span class="fn"
+        data-note="[20] Friston (2010): The free-energy principle as a unified brain theory for action, perception, and learning.">[20]</span>
+      This minimizes surprise — and surprise is metabolically expensive, because it demands the brain fire more neurons,
+      recruit more networks, and burn more glucose. A 2023 study from the Predictive Brain Lab at Radboud University
+      provided direct neuroimaging evidence that when the brain successfully predicts its inputs, metabolic activity
+      drops measurably across the entire cortex.<span class="fn"
+        data-note="[21] Hechler et al. (2023): Neuroimaging evidence for the metabolic footprint of predictive processing.">[21]</span>
+    </p>
+
+    <p>Evolution did not select for consciousness because it is beautiful or philosophically interesting. It selected
+      for coherence because organisms that integrated information efficiently — that built accurate world-models and
+      acted on predictions rather than raw data — survived on fewer calories. Consciousness is what energy-efficient
+      large-scale neural integration feels like from the inside.</p>
+
+    <h3>The Illusion of a Standard Human Mind</h3>
+    <p>There is no standardized human. Therefore there is no standardized human consciousness. We observe similar
+      behaviors across people and mistake that for a shared inner architecture. But that behavioral similarity has a
+      deeper explanation: universality under shared constraints.</p>
+
+    <p>Everyone began as a single cell. The genome does not encode the brain's wiring directly. The human brain contains
+      roughly 86 billion neurons forming trillions of connections, yet the human genome contains only about
+      20,000–25,000 protein-coding genes — orders of magnitude too little information to specify each connection
+      explicitly. As a 2024 PNAS paper on the "genomic bottleneck" demonstrates, the genome encodes connectivity rules —
+      simple developmental programs from which complex circuits self-organize.<span class="fn"
+        data-note="[22] Zador et al. (2024) / Hiesinger & Hassan (2018): The 'genomic bottleneck' requires simple rules to wire complex brains rather than explicit mapping.">[22]</span>
+      Studies of genetically identical C. elegans worms (which have only 302 neurons) show that 27% of synaptic
+      connections differ between individuals with the same genome. If wiring cannot be genetically determined even in a
+      302-neuron organism, it certainly cannot be in a human brain.</p>
+
+    <h3>Universality: The Deepest Idea in Physics</h3>
+    <p>Water boiling and iron losing its magnetism are completely different physical systems — different particles,
+      different forces, different scales. Yet near their critical points they exhibit identical mathematical behavior.
+      The exponents describing how fluctuations scale and how correlations decay produce the same numbers.</p>
+
+    <p>Kenneth Wilson's renormalization group explains why. He showed that when you zoom out from microscopic details,
+      the irrelevant specifics wash away. Only the system's fundamental symmetries and dimensionality matter. As the
+      Nobel committee recognized in awarding Wilson the 1982 Nobel Prize in Physics, his theory demonstrates that
+      "critical indices usually depend on the dimensionality and symmetry only, not upon the microscopic details."<span
+        class="fn"
+        data-note="[24] Wilson (1982): Nobel Lecture on renormalization group and critical phenomena.">[24]</span>
+      Completely different substrates converge on the same macroscopic behavior because the constraints — not the
+      components — determine the outcome.</p>
+
+    <p>Applied to minds: neurons made of carbon, silicon chips, or hypothetical alien chemistry can all converge on the
+      same functional patterns — prediction, learning, attention, social modeling. Research on convergent evolution in
+      cognition supports this powerfully. Corvids (crows) and great apes diverged over 300 million years ago yet
+      independently evolved tool use, causal reasoning, and social cognition. Octopuses, separated from vertebrates by
+      over 500 million years of evolution, independently evolved complex problem-solving and observational learning.
+      Even bacteria and plants exhibit forms of associative learning that were long assumed to require nervous systems.
+      These convergences across vast taxonomic distances indicate that the constraints — thermodynamics, information
+      theory, and the structure of the physical environment — carve out the same functional basins of attraction
+      regardless of substrate.<span class="fn"
+        data-note="[25] Powell & Mariscal (2015) / Abramson et al. (2017): Convergent evolution of cognitive complexity across vast phylogenetic distances.">[25]</span>
+    </p>
+
+    <details>
+      <summary>Deep Dive: The Functionalist View — Mathematics All the Way Down</summary>
+      <div class="details-content">
+        <p>A neural network — biological or artificial — is an adaptive graph. Vertices (neurons or nodes) and edges
+          (synapses or connections) arranged in a topology, where the key adaptive parameters are how easily information
+          passes through each node and how much it is amplified or attenuated along each edge. In the language of
+          machine learning: weights and biases. In the language of neuroscience: synaptic strengths and firing
+          thresholds. The mathematical description is identical.<span class="fn"
+            data-note="[30] Hornik, K. et al. (1989): Multilayer Feedforward Networks are Universal Approximators.">[30]</span>
+        </p>
+
+        <p>To a functionalist, this is sufficient. Mathematics is the language of patterns, and the universe is a
+          pattern generator. Everything that is not a pattern is noise — and noise, given enough time and enough
+          interaction, either dissipates or self-organizes into pattern. This is not metaphor. It is physics. The
+          interplay between entropy (which disperses) and efficiency (which concentrates) is governed by one of the
+          deepest unifying principles in all of physics: <strong>the principle of least action</strong>.<span class="fn"
+            data-note="[27] Feynman, R.P. (1964): The Feynman Lectures on Physics, Vol. II, Ch. 19: 'The Principle of Least Action.'">[27]</span>
+          First formulated by Maupertuis and Euler in the 18th century, extended by Lagrange and Hamilton, and placed at
+          the foundation of quantum mechanics by Feynman's path integral formulation, the principle of least action
+          states that physical systems evolve along paths that make a quantity called action stationary.</p>
+
+        <p>To observe is to learn a stable pattern. To learn is to compress a representation into fewer resources. And
+          all intelligence — biological, artificial, or hypothetical — can be tuned along three axes: optimization (how
+          the system searches the loss landscape), architecture (the topology of the graph), and initialization (the
+          starting conditions). But universality controls the outcome. Research on neural network loss landscapes has
+          shown that the geometry of these landscapes — their flatness, their connectivity, their saddle points —
+          determines not just whether a model converges, but whether it generalizes.<span class="fn"
+            data-note="[28] Li, H. et al. (2018): Visualizing the Loss Landscape of Neural Nets. NeurIPS 2018.">[28]</span>
+        </p>
+
+        <p>The <strong>Lottery Ticket Hypothesis</strong>, proposed by Frankle and Carlin in 2019, demonstrates that
+          within large, randomly initialized networks there exist sparse subnetworks that match or exceed the
+          performance of the full model — suggesting that the essential structure was always there, buried in the
+          redundancy.<span class="fn"
+            data-note="[29] Frankle, J. & Carlin, M. (2019): The Lottery Ticket Hypothesis: Finding Sparse, Trainable Neural Networks.">[29]</span>
+        </p>
+
+        <p>Here is the critical point. Even when you string together different models in an agent framework — chaining
+          specialized systems into a composite pipeline — only the global function changes. The individual mathematical
+          properties of each component are preserved. The latency and cost of such compositions may be too high for
+          industrial deployment today. But mathematically, there is no boundary. There is no theoretical ceiling on the
+          complexity of functions that can be approximated, no principled limit on the depth of integration.</p>
+      </div>
+    </details>
+
+    <div class="insight">
+      <p>Human consciousness is unique to humans. But that is a tautology, not an argument. Every species' consciousness
+        is unique to that species. The deeper question is whether the functional patterns of cognition are
+        substrate-dependent. Physics, through universality, says no.</p>
+    </div>
+
+    <h3>AI as Industrialized Mind</h3>
+    <p>AI is an industrial product. That is not a dismissal — it is the point. Industry identifies something society
+      needs because it is a societal problem, then optimizes it relentlessly. It did this with energy, transport,
+      communication, and computation. Now it is doing it with cognition.</p>
+
+    <div class="chapter-hero-img">
+      <img src="assets/chapters/industrial-cognition.png" alt="Industrial Cognition"
+        style="width:100%; height:450px; object-fit:cover; margin-bottom:3rem; border:1px solid var(--border);">
+    </div>
+
+    <p>AI sells industrialized minds. Not human minds. Not copies of consciousness. Minds shaped by the same universal
+      constraints, instantiated on a different substrate, and refined with the ruthless iterative efficiency that
+      industry applies to everything it touches.</p>
+
+    <div class="insight" style="margin-top: 3rem; text-align: center;">
+      <p>Explore the biological foundations of well-being at <a href="https://happycell.org" target="_blank"
+          rel="noopener noreferrer" style="color: var(--accent-gold); text-decoration: underline;">happycell.org</a></p>
+    </div>
+  </section>
+
+  <div class="divider">
+    <div class="divider-line"></div>
+  </div>
+
   <!-- ═══════════ FORCES ═══════════ -->
   <section class="forces-immersive" id="forces">
     <div class="section-wide reveal">
-      <div class="chapter-marker">Chapter III — The Forces</div>
+      <div class="chapter-marker">Chapter IV — The Forces</div>
       <h2>Seven Forces Reshaping the World</h2>
       <p class="lead">These are not trends. They are structural forces operating simultaneously, each amplifying the
         others. Their interaction is multiplicative, not additive.</p>
@@ -2012,7 +2262,7 @@
 
   <!-- ═══════════ TIMELINE ═══════════ -->
   <section class="section reveal" id="timeline">
-    <div class="chapter-marker">Chapter IV — The Clock</div>
+    <div class="chapter-marker">Chapter V — The Clock</div>
     <h2>Chronology of the Divergence</h2>
 
     <p class="lead">Every exponential looks flat until it doesn't. Here is the approximate sequence of inflection points
@@ -2120,7 +2370,7 @@
   </section>
 
   <section class="section reveal" id="data-viz">
-    <div class="chapter-marker">Chapter IV.B — The Delta</div>
+    <div class="chapter-marker">Chapter V.B — The Delta</div>
     <h2>Comparative Pulse: Europe vs. Leaders</h2>
     <p class="lead">The widening chasm in quantitative signals. These are not static gaps; they are rate-of-change
       differentials.</p>
@@ -2176,7 +2426,7 @@
 
   <!-- ═══════════ COMPRESSION ═══════════ -->
   <section class="section-wide reveal" id="compression">
-    <div class="chapter-marker">Chapter V — The Accelerants</div>
+    <div class="chapter-marker">Chapter VI — The Accelerants</div>
     <h2>Why AI Timelines Are So Compressed</h2>
     <p class="lead">We are witnessing the collision of multiple exponential curves. The speed of the transition is an
       inherent property of digital intelligence, not a policy choice.</p>
@@ -2342,7 +2592,7 @@
 
   <!-- ═══════════ NATIONS ═══════════ -->
   <section class="section-wide reveal" id="nations">
-    <div class="chapter-marker">Chapter VI — The Players</div>
+    <div class="chapter-marker">Chapter VII — The Players</div>
     <h2>Who Inherits the Future</h2>
 
     <p class="lead">Not all nations enter this transition equal. Their positions are determined by their placement on
@@ -2540,7 +2790,7 @@
 
   <!-- ═══════════ EUROPE ═══════════ -->
   <section class="section reveal" id="europe">
-    <div class="chapter-marker">Chapter VII — The Trap</div>
+    <div class="chapter-marker">Chapter VIII — The Trap</div>
     <h2>Europe: Anatomy of a Lock-In</h2>
     <div class="chapter-hero-img">
       <img src="assets/chapters/chapter-6.png" alt="The Europe Trap"
@@ -2692,7 +2942,7 @@
 
   <!-- ═══════════ MISSING ENRICHMENTS ═══════════ -->
   <section class="section reveal" id="enrichments">
-    <div class="chapter-marker">Chapter VIII — Hidden Variables</div>
+    <div class="chapter-marker">Chapter IX — Hidden Variables</div>
     <h2>What Most Analyses Miss</h2>
     <div class="chapter-hero-img">
       <img src="assets/chapters/chapter-7.png" alt="Hidden Variables"
@@ -2756,7 +3006,7 @@
 
   <!-- ═══════════ VERDICT ═══════════ -->
   <section class="section reveal" id="verdict">
-    <div class="chapter-marker">Chapter IX — Verdict</div>
+    <div class="chapter-marker">Chapter X — Verdict</div>
     <h2>The Shape of What Comes</h2>
     <div class="chapter-hero-img">
       <img src="assets/timeline/08-settlement.png" alt="Verdict"
@@ -2951,6 +3201,34 @@
       <li>IMF World Economic Outlook database (October 2025): <a
           href="https://www.imf.org/en/Publications/WEO/weo-database/2025/October" target="_blank"
           rel="noopener noreferrer">IMF WEO</a>. Used for cross-country macro baselines and debt comparisons.</li>
+      <li>[17] Sperry, R.W. (1982). "Some Effects of Disconnecting the Cerebral Hemispheres." Science 217; Gazzaniga,
+        M.S. (2014) "The split-brain: Rooting consciousness in biology." PNAS 111(51).</li>
+      <li>[18] Tononi, G. (2004). "An information integration theory of consciousness." BMC Neuroscience 5:42; Tononi &
+        Koch (2015) "Consciousness: here, there and everywhere?" Phil. Trans. R. Soc. B.</li>
+      <li>[19] Dehaene, S. & Changeux, J-P. (2011). "Experimental and theoretical approaches to conscious processing."
+        Neuron 70(2); Mashour, G.A. et al. (2020) "Conscious Processing and the GNW Hypothesis." Neuron 105.</li>
+      <li>[20] Friston, K. (2010). "The free-energy principle: a unified brain theory?" Nature Reviews Neuroscience 11:
+        127–138.</li>
+      <li>[21] Hechler, A., de Lange, F.P. & Riedl, V. (2023). "The energy metabolic footprint of predictive processing
+        in the human brain." bioRxiv.</li>
+      <li>[22] Zador, A. et al. (2024). "Encoding innate ability through a genomic bottleneck." PNAS 121(39); Hiesinger
+        & Hassan (2018) "Beyond Molecular Codes." Cell 163.</li>
+      <li>[23] Yu, Y. et al. (2021). "How Energy Supports Our Brain to Yield Consciousness." Front. Syst. Neurosci. 15;
+        Levy & Calvert (2021) "Communication consumes 35x more energy." PNAS 118.</li>
+      <li>[24] Wilson, K.G. (1982). Nobel Lecture: "The Renormalization Group and Critical Phenomena." nobelprize.org;
+        Wilczek, F. (2013) "Ken Wilson: A scientific appreciation." PNAS 110.</li>
+      <li>[25] Powell, R. & Mariscal, C. (2015). "Convergent minds: cognitive complexity in nature." Interface Focus 7;
+        Abramson, C.I. (2017) "Phylogenetic origins of biological cognition." Interface Focus 7.</li>
+      <li>[26] Chalmers, D. J. (1995). "Facing up to the problem of consciousness." Journal of Consciousness Studies
+        2(3).</li>
+      <li>[27] Feynman, R.P. (1964). The Feynman Lectures on Physics, Vol. II, Ch. 19: "The Principle of Least Action."
+        Feynman, R.P. (1942/2005). The Principle of Least Action in Quantum Mechanics.</li>
+      <li>[28] Li, H. et al. (2018). "Visualizing the Loss Landscape of Neural Nets." NeurIPS 2018. arXiv:1712.09913.
+      </li>
+      <li>[29] Frankle, J. & Carlin, M. (2019). "The Lottery Ticket Hypothesis: Finding Sparse, Trainable Neural
+        Networks." ICLR 2019.</li>
+      <li>[30] Hornik, K., Stinchcombe, M. & White, H. (1989). "Multilayer Feedforward Networks are Universal
+        Approximators." Neural Networks 2(5).</li>
     </ul>
     <p style="font-size:0.75rem; color:var(--text-dim); margin-top:1.5rem; font-style:italic;">All data verified against
       sources available as of February 2026. Probability estimates and future projections are calibrated assessments
@@ -3118,6 +3396,7 @@
       'top': 'assets/audio/track1.mp3',
       'prologue': 'assets/audio/track1.mp3',
       'ontology': 'assets/audio/track1.mp3',
+      'mind': 'assets/audio/track1.mp3',
       'forces': 'assets/audio/track2.mp3',
       'timeline': 'assets/audio/track2.mp3',
       'data-viz': 'assets/audio/track2.mp3',
@@ -3168,7 +3447,7 @@
 
     function updateMusic() {
       if (!isMusicPlaying) return;
-      const sections = ['top', 'prologue', 'ontology', 'forces', 'timeline', 'data-viz', 'compression', 'nations', 'europe', 'enrichments', 'verdict', 'sources'];
+      const sections = ['top', 'prologue', 'ontology', 'mind', 'forces', 'timeline', 'data-viz', 'compression', 'nations', 'europe', 'enrichments', 'verdict', 'sources'];
       let activeSectionId = lastActiveSectionId;
 
       for (const id of sections) {
