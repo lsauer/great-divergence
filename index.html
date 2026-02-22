@@ -133,10 +133,102 @@
       font-size: 1.25rem;
       color: var(--text-secondary);
       max-width: 650px;
-      margin: 0 auto 3rem;
+      margin: 0 auto 2.5rem;
       font-weight: 300;
       opacity: 0;
       animation: fadeUp 1s 0.7s forwards;
+    }
+
+    /* ── HERO AUDIO TRIGGER ── */
+    .hero-audio-trigger {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 3rem;
+      cursor: pointer;
+      opacity: 0;
+      animation: fadeUp 1s 0.9s forwards;
+      background: none;
+      border: none;
+      color: inherit;
+    }
+
+    .audio-symbol {
+      width: 54px;
+      height: 54px;
+      border-radius: 50%;
+      border: 1px solid rgba(242, 193, 78, 0.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .audio-symbol::before {
+      content: '';
+      position: absolute;
+      inset: -4px;
+      border-radius: 50%;
+      border: 1px solid var(--accent-gold);
+      opacity: 0.4;
+      animation: pulse-ring 2s cubic-bezier(0.45, 0, 0.55, 1) infinite;
+    }
+
+    .hero-audio-trigger:hover .audio-symbol {
+      border-color: var(--accent-gold);
+      background: rgba(242, 193, 78, 0.05);
+      transform: scale(1.05);
+    }
+
+    @keyframes pulse-ring {
+      0% {
+        transform: scale(0.9);
+        opacity: 0.6;
+      }
+
+      100% {
+        transform: scale(1.4);
+        opacity: 0;
+      }
+    }
+
+    .audio-waves {
+      display: flex;
+      gap: 3px;
+      align-items: center;
+    }
+
+    .audio-wave {
+      width: 2px;
+      height: 12px;
+      background: var(--accent-gold);
+      border-radius: 2px;
+    }
+
+    .hero-audio-trigger.active .audio-wave {
+      animation: wave-height 0.8s ease-in-out infinite;
+    }
+
+    .audio-wave:nth-child(2) {
+      animation-delay: 0.2s;
+    }
+
+    .audio-wave:nth-child(3) {
+      animation-delay: 0.4s;
+    }
+
+    @keyframes wave-height {
+
+      0%,
+      100% {
+        height: 8px;
+      }
+
+      50% {
+        height: 20px;
+      }
     }
 
     .hero-meta {
@@ -1569,6 +1661,17 @@
         Twice in history, civilizations have split into those who shape the future and those who become shaped by it.
         The first divergence took centuries. This one will take years.
       </p>
+
+      <button class="hero-audio-trigger" id="heroAudioTrigger" title="Activate Immersive Audio Experience">
+        <div class="audio-symbol">
+          <div class="audio-waves">
+            <div class="audio-wave"></div>
+            <div class="audio-wave"></div>
+            <div class="audio-wave"></div>
+          </div>
+        </div>
+      </button>
+
       <div class="hero-meta">Epistemic Framework &nbsp;·&nbsp; Derived Probabilities &nbsp;·&nbsp; 22 Verified Sources
         &nbsp;·&nbsp; 2025 – 2040</div>
     </div>
@@ -1599,6 +1702,7 @@
       <li><a href="#ontology">Ontology</a></li>
       <li><a href="#forces">Forces</a></li>
       <li><a href="#timeline">Timeline</a></li>
+      <li><a href="#compression">Compression</a></li>
       <li><a href="#nations">Nations</a></li>
       <li><a href="#europe">Europe</a></li>
       <li><a href="#verdict">Verdict</a></li>
@@ -2070,9 +2174,175 @@
     <div class="divider-line"></div>
   </div>
 
+  <!-- ═══════════ COMPRESSION ═══════════ -->
+  <section class="section-wide reveal" id="compression">
+    <div class="chapter-marker">Chapter V — The Accelerants</div>
+    <h2>Why AI Timelines Are So Compressed</h2>
+    <p class="lead">We are witnessing the collision of multiple exponential curves. The speed of the transition is an
+      inherent property of digital intelligence, not a policy choice.</p>
+
+    <div class="compression-grid">
+      <div class="compression-item">
+        <div class="comp-num">01</div>
+        <div class="comp-text">
+          <h4>Scaling Laws Turned AI Into Engineering</h4>
+          <p>Once researchers proved that performance improves predictably with compute, data, and parameters,
+            capability
+            jumps became plannable. AI stopped being a field of sporadic breakthroughs and became something you could
+            reliably invest in.</p>
+        </div>
+      </div>
+
+      <div class="compression-item">
+        <div class="comp-num">02</div>
+        <div class="comp-text">
+          <h4>An Unprecedented Capital Feedback Loop</h4>
+          <p>Predictable returns triggered billions in investment. Larger training runs produce more impressive demos,
+            which attract more capital, which funds even larger runs. The cycle between demonstration and funding now
+            operates in months, not years.</p>
+        </div>
+      </div>
+
+      <div class="compression-item">
+        <div class="comp-num">03</div>
+        <div class="comp-text">
+          <h4>Two Exponentials at Once</h4>
+          <p>Algorithmic efficiency gains — mixture of experts, better training recipes, distillation, improved
+            attention
+            — compound on top of hardware scaling. Progress is riding two exponential curves simultaneously.</p>
+        </div>
+      </div>
+
+      <div class="compression-item">
+        <div class="comp-num">04</div>
+        <div class="comp-text">
+          <h4>The Talent Dam Broke</h4>
+          <p>The best researchers from physics, neuroscience, and mathematics flooded into AI. And increasingly, AI
+            systems themselves accelerate research — writing code, running experiments, reviewing literature. The early
+            edge of recursive improvement is already here.</p>
+        </div>
+      </div>
+
+      <div class="compression-item">
+        <div class="comp-num">05</div>
+        <div class="comp-text">
+          <h4>Generalization Was Underestimated</h4>
+          <p>The old assumption was that you'd need separate systems for separate domains. A single architecture
+            (transformers) generalizing across reasoning, code, vision, and agentic behavior meant progress in one area
+            cascades into all others instantly.</p>
+        </div>
+      </div>
+
+      <div class="compression-item">
+        <div class="comp-num">06</div>
+        <div class="comp-text">
+          <h4>Trillion-Dollar Infrastructure Was Already Built</h4>
+          <p>GPU supply chains, cloud platforms, and internet-scale data existed for gaming, social media, and cloud
+            services. AI research leveraged infrastructure investments that had already been made for other reasons.</p>
+        </div>
+      </div>
+
+      <div class="compression-item">
+        <div class="comp-num">07</div>
+        <div class="comp-text">
+          <h4>Human Linearity Bias</h4>
+          <p>We instinctively project the future as a straight line from the past. But knowledge and technology
+            compound.
+            What was cutting-edge in one generation becomes invisible commodity in the next. The world accelerates — we
+            just don't feel it until it's undeniable.</p>
+        </div>
+      </div>
+
+      <div class="compression-item">
+        <div class="comp-num">08</div>
+        <div class="comp-text">
+          <h4>Digitization Makes It Exponential</h4>
+          <p>As Ray Kurzweil has shown empirically: once a field goes digital, it goes exponential. The roundtrip time
+            from discovery to progress is no longer constrained by atoms and mass-inertia. Moving bits is essentially
+            free. Moving matter takes enormous energy. AI research now lives almost entirely in bits.</p>
+        </div>
+      </div>
+
+      <div class="compression-item">
+        <div class="comp-num">09</div>
+        <div class="comp-text">
+          <h4>A Global Land Grab Fueled by Fear and Ambition</h4>
+          <p>There is enormous pent-up wealth in the world. Investors and builders are willing to forgo profits in the
+            short term to secure position. The motivation is dual: the opportunity to capture outsized value, and the
+            fear
+            of being left behind economically or cognitively.</p>
+        </div>
+      </div>
+
+      <div class="compression-item">
+        <div class="comp-num">10</div>
+        <div class="comp-text">
+          <h4>The Majority Haven't Even Started</h4>
+          <p>The vast majority of people and organizations have not yet meaningfully engaged with AI. What we're seeing
+            now is the early wave. The compounding effects will intensify as adoption broadens.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <style>
+    .compression-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+      gap: 3rem;
+      margin-top: 4rem;
+    }
+
+    .compression-item {
+      display: flex;
+      gap: 1.5rem;
+      padding: 2rem;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      transition: border-color 0.3s ease;
+    }
+
+    .compression-item:hover {
+      border-color: var(--accent-gold-dim);
+    }
+
+    .comp-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.5rem;
+      font-weight: 900;
+      color: var(--accent-gold);
+      line-height: 1;
+      opacity: 0.3;
+    }
+
+    .comp-text h4 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.25rem;
+      margin-bottom: 0.75rem;
+      color: var(--text-primary);
+    }
+
+    .comp-text p {
+      font-size: 0.95rem;
+      margin: 0;
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+
+    @media (max-width: 600px) {
+      .compression-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+
+  <div class="divider">
+    <div class="divider-line"></div>
+  </div>
+
   <!-- ═══════════ NATIONS ═══════════ -->
   <section class="section-wide reveal" id="nations">
-    <div class="chapter-marker">Chapter V — The Players</div>
+    <div class="chapter-marker">Chapter VI — The Players</div>
     <h2>Who Inherits the Future</h2>
 
     <p class="lead">Not all nations enter this transition equal. Their positions are determined by their placement on
@@ -2270,7 +2540,7 @@
 
   <!-- ═══════════ EUROPE ═══════════ -->
   <section class="section reveal" id="europe">
-    <div class="chapter-marker">Chapter VI — The Trap</div>
+    <div class="chapter-marker">Chapter VII — The Trap</div>
     <h2>Europe: Anatomy of a Lock-In</h2>
     <div class="chapter-hero-img">
       <img src="assets/chapters/chapter-6.png" alt="The Europe Trap"
@@ -2422,7 +2692,7 @@
 
   <!-- ═══════════ MISSING ENRICHMENTS ═══════════ -->
   <section class="section reveal" id="enrichments">
-    <div class="chapter-marker">Chapter VII — Hidden Variables</div>
+    <div class="chapter-marker">Chapter VIII — Hidden Variables</div>
     <h2>What Most Analyses Miss</h2>
     <div class="chapter-hero-img">
       <img src="assets/chapters/chapter-7.png" alt="Hidden Variables"
@@ -2486,7 +2756,7 @@
 
   <!-- ═══════════ VERDICT ═══════════ -->
   <section class="section reveal" id="verdict">
-    <div class="chapter-marker">Chapter VIII — Verdict</div>
+    <div class="chapter-marker">Chapter IX — Verdict</div>
     <h2>The Shape of What Comes</h2>
     <div class="chapter-hero-img">
       <img src="assets/timeline/08-settlement.png" alt="Verdict"
@@ -2851,6 +3121,7 @@
       'forces': 'assets/audio/track2.mp3',
       'timeline': 'assets/audio/track2.mp3',
       'data-viz': 'assets/audio/track2.mp3',
+      'compression': 'assets/audio/track2.mp3',
       'nations': 'assets/audio/track3.mp3',
       'europe': 'assets/audio/track3.mp3',
       'enrichments': 'assets/audio/track3.mp3',
@@ -2897,7 +3168,7 @@
 
     function updateMusic() {
       if (!isMusicPlaying) return;
-      const sections = ['top', 'prologue', 'ontology', 'forces', 'timeline', 'data-viz', 'nations', 'europe', 'enrichments', 'verdict', 'sources'];
+      const sections = ['top', 'prologue', 'ontology', 'forces', 'timeline', 'data-viz', 'compression', 'nations', 'europe', 'enrichments', 'verdict', 'sources'];
       let activeSectionId = lastActiveSectionId;
 
       for (const id of sections) {
@@ -2919,11 +3190,14 @@
       }
     }
 
-    musicToggle.addEventListener('click', () => {
+    const heroAudioTrigger = document.getElementById('heroAudioTrigger');
+
+    function toggleMusic() {
       if (isMusicPlaying) {
         activePlayer.pause();
         inactivePlayer.pause();
         musicToggle.classList.remove('playing');
+        heroAudioTrigger.classList.remove('active');
         isMusicPlaying = false;
       } else {
         const firstTrack = tracks['top'];
@@ -2935,9 +3209,13 @@
           alert('Please interact with the page first to enable audio.');
         });
         musicToggle.classList.add('playing');
+        heroAudioTrigger.classList.add('active');
         isMusicPlaying = true;
       }
-    });
+    }
+
+    musicToggle.addEventListener('click', toggleMusic);
+    heroAudioTrigger.addEventListener('click', toggleMusic);
 
     window.addEventListener('scroll', updateMusic);
 
