@@ -955,20 +955,21 @@
       position: absolute;
       top: 0;
       bottom: 0;
-      width: 50%;
-      /* Smaller width */
+      width: 700px;
+      /* Fixed width to prevent edge-to-edge spread */
+      max-width: 80vw;
       z-index: 1;
       transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
     }
 
-    /* Constrain image positions to the 1000px content area */
+    /* Constrain image positions closer to the content area */
     .force-section:nth-child(odd) .force-image-container {
-      left: calc(50% - 500px);
+      left: calc(50% - 450px);
       transform: translateX(-5%);
     }
 
     .force-section:nth-child(even) .force-image-container {
-      right: calc(50% - 500px);
+      right: calc(50% - 450px);
       transform: translateX(5%);
     }
 
@@ -980,8 +981,8 @@
       content: '';
       position: absolute;
       inset: 0;
-      /* Subtle gradient fades */
-      background: linear-gradient(to right, var(--bg-deep) 0%, transparent 15%, transparent 85%, var(--bg-deep) 100%);
+      /* Stronger gradient fades to pull visuals together */
+      background: linear-gradient(to right, var(--bg-deep) 0%, transparent 25%, transparent 75%, var(--bg-deep) 100%);
     }
 
     .force-img {
@@ -2832,63 +2833,104 @@
     }, { threshold: 0.3 });
     forceSections.forEach(sec => forceSectionObserver.observe(sec));
 
-    // Background Music System
+    // Background Music System — Dual-Audio Crossfade
     const musicToggle = document.getElementById('musicToggle');
-    const bgAudio = document.getElementById('bgAudio');
+    const audioA = document.getElementById('bgAudio');
+    const audioB = document.createElement('audio');
+    audioB.loop = true;
+    document.body.appendChild(audioB);
+
     let isMusicPlaying = false;
+    let activePlayer = audioA;
+    let inactivePlayer = audioB;
 
     const tracks = {
-      'top': 'https://archive.org/download/trance_music_collection/Ambient%20Trance.mp3',
-      'prologue': 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3',
-      'ontology': 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3',
-      'forces': 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3',
-      'timeline': 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-4.mp3',
-      'nations': 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-8.mp3',
-      'europe': 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-10.mp3',
-      'verdict': 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-16.mp3'
+      'top': 'assets/audio/track1.mp3',
+      'prologue': 'assets/audio/track1.mp3',
+      'ontology': 'assets/audio/track1.mp3',
+      'forces': 'assets/audio/track2.mp3',
+      'timeline': 'assets/audio/track2.mp3',
+      'data-viz': 'assets/audio/track2.mp3',
+      'nations': 'assets/audio/track3.mp3',
+      'europe': 'assets/audio/track3.mp3',
+      'enrichments': 'assets/audio/track3.mp3',
+      'verdict': 'assets/audio/track4.mp3',
+      'sources': 'assets/audio/track4.mp3'
     };
 
-    let currentTrackId = 'top';
+    let currentTrackSrc = '';
+
+    function crossfade(newSrc) {
+      if (!isMusicPlaying) return;
+      if (newSrc === currentTrackSrc) return;
+      currentTrackSrc = newSrc;
+
+      // Swap players
+      const nextPlayer = inactivePlayer;
+      const prevPlayer = activePlayer;
+
+      nextPlayer.src = newSrc;
+      nextPlayer.volume = 0;
+      nextPlayer.play().catch(e => console.log('Crossfade play blocked', e));
+
+      // 2 second crossfade
+      let progress = 0;
+      const step = 0.05;
+      const interval = setInterval(() => {
+        progress += step;
+        if (progress >= 1) {
+          nextPlayer.volume = 1;
+          prevPlayer.volume = 0;
+          prevPlayer.pause();
+          clearInterval(interval);
+        } else {
+          nextPlayer.volume = progress;
+          prevPlayer.volume = 1 - progress;
+        }
+      }, 50);
+
+      activePlayer = nextPlayer;
+      inactivePlayer = prevPlayer;
+    }
+
+    let lastActiveSectionId = 'top';
 
     function updateMusic() {
       if (!isMusicPlaying) return;
-      const sections = ['top', 'prologue', 'ontology', 'forces', 'timeline', 'nations', 'europe', 'verdict'];
-      let activeSection = 'top';
+      const sections = ['top', 'prologue', 'ontology', 'forces', 'timeline', 'data-viz', 'nations', 'europe', 'enrichments', 'verdict', 'sources'];
+      let activeSectionId = lastActiveSectionId;
 
       for (const id of sections) {
         const el = document.getElementById(id);
         if (el) {
           const rect = el.getBoundingClientRect();
+          // If the section covers the center of the screen
           if (rect.top < window.innerHeight / 2 && rect.bottom > window.innerHeight / 2) {
-            activeSection = id;
+            activeSectionId = id;
             break;
           }
         }
       }
 
-      if (activeSection !== currentTrackId) {
-        currentTrackId = activeSection;
-        const nextSrc = tracks[activeSection];
-        if (nextSrc && bgAudio.src !== nextSrc) {
-          const wasPlaying = !bgAudio.paused;
-          bgAudio.style.opacity = 0;
-          setTimeout(() => {
-            bgAudio.src = nextSrc;
-            if (wasPlaying) bgAudio.play().catch(e => console.log('Music start prevented', e));
-            bgAudio.style.opacity = 1;
-          }, 500);
-        }
+      if (activeSectionId !== lastActiveSectionId) {
+        lastActiveSectionId = activeSectionId;
+        const nextTrack = tracks[activeSectionId];
+        if (nextTrack) crossfade(nextTrack);
       }
     }
 
     musicToggle.addEventListener('click', () => {
       if (isMusicPlaying) {
-        bgAudio.pause();
+        activePlayer.pause();
+        inactivePlayer.pause();
         musicToggle.classList.remove('playing');
         isMusicPlaying = false;
       } else {
-        if (!bgAudio.src) bgAudio.src = tracks[currentTrackId];
-        bgAudio.play().catch(e => {
+        const firstTrack = tracks['top'];
+        if (!activePlayer.src) activePlayer.src = firstTrack;
+        currentTrackSrc = firstTrack;
+        activePlayer.volume = 1;
+        activePlayer.play().catch(e => {
           console.log('Audio play failed', e);
           alert('Please interact with the page first to enable audio.');
         });
