@@ -49,6 +49,8 @@
       font-size: 18px;
       line-height: 1.75;
       overflow-x: hidden;
+      width: 100%;
+      position: relative;
     }
 
     ::selection {
@@ -321,8 +323,8 @@
     /* ── MUSIC SPEAKER ── */
     .music-toggle {
       position: fixed;
-      top: 1.5rem;
-      right: 1.5rem;
+      top: 3.5rem;
+      right: 1.0rem;
       z-index: 1000;
       width: 44px;
       height: 44px;
@@ -377,11 +379,23 @@
       }
     }
 
+    @keyframes barHeight {
+
+      0%,
+      100% {
+        height: 4px;
+      }
+
+      50% {
+        height: 10px;
+      }
+    }
+
     .music-bars {
       display: none;
       gap: 2px;
       align-items: flex-end;
-      height: 12px;
+      height: 10px;
     }
 
     .music-toggle.playing .music-bars {
@@ -427,6 +441,7 @@
     .nav.visible {
       transform: translateY(0);
       border-color: var(--border);
+      padding-right: 4.5rem;
     }
 
     .nav-title {
@@ -1681,6 +1696,7 @@
         position: relative;
         top: 0;
         height: auto;
+        min-height: auto;
       }
 
       .timeline-point {
@@ -1694,6 +1710,79 @@
       .tl-event {
         opacity: 1;
         padding: 2rem 0;
+      }
+
+      .ontology-shell {
+        grid-template-columns: 1fr;
+      }
+
+      .stack-visual {
+        position: relative;
+        top: 0;
+        margin-top: 2rem;
+        order: -1;
+      }
+    }
+
+    @media (max-width: 768px) {
+
+      .section,
+      .section-wide {
+        padding: 4rem 1.25rem;
+      }
+
+      .nav {
+        padding: 0.75rem 1rem;
+      }
+
+      .nav-links {
+        gap: 0.75rem;
+        overflow-x: auto;
+        white-space: nowrap;
+        padding-bottom: 4px;
+        scrollbar-width: none;
+      }
+
+      .nav-links::-webkit-scrollbar {
+        display: none;
+      }
+
+      .nav.visible {
+        padding-right: 1rem;
+      }
+
+      .metric-comparison {
+        flex-direction: column;
+        padding: 1.25rem;
+        gap: 1.25rem;
+      }
+
+      .comp-val {
+        font-size: 1.4rem;
+      }
+
+      h2 {
+        font-size: 1.8rem;
+      }
+
+      .stack-card {
+        grid-template-columns: 50px 1fr;
+        gap: 0.6rem;
+        padding: 0.85rem;
+      }
+
+      .stack-impact {
+        display: none;
+      }
+
+      .scenario-table-wrap {
+        overflow-x: auto;
+        margin: 2rem -1rem;
+        padding: 0 1rem;
+      }
+
+      .scenario-table {
+        min-width: 500px;
       }
     }
   </style>
@@ -2056,8 +2145,9 @@
         <p>To a functionalist, this is sufficient. Mathematics is the language of patterns, and the universe is a
           pattern generator. Everything that is not a pattern is noise — and noise, given enough time and enough
           interaction, either dissipates or self-organizes into pattern. This is not metaphor. It is physics. The
-          interplay between entropy (which disperses) and efficiency (which concentrates) is governed by one of the
-          deepest unifying principles in all of physics: <strong>the principle of least action</strong>.<span class="fn"
+          dispersal of entropy and the concentration of efficient structure are governed by thermodynamics and
+          statistical mechanics. And underlying the dynamics of all these systems is one of the deepest unifying
+          principles in physics: <strong>the principle of least action</strong>.<span class="fn"
             data-note="[27] Feynman, R.P. (1964): The Feynman Lectures on Physics, Vol. II, Ch. 19: 'The Principle of Least Action.'">[27]</span>
           First formulated by Maupertuis and Euler in the 18th century, extended by Lagrange and Hamilton, and placed at
           the foundation of quantum mechanics by Feynman's path integral formulation, the principle of least action
@@ -2583,6 +2673,14 @@
       .compression-grid {
         grid-template-columns: 1fr;
       }
+
+      .nav-links {
+        gap: 0.75rem;
+      }
+
+      .nav.visible {
+        padding-right: 3.5rem;
+      }
     }
   </style>
 
@@ -2876,62 +2974,67 @@
 
     <h3>Europe's Scenario Probabilities</h3>
 
-    <table class="scenario-table">
-      <thead>
-        <tr>
-          <th>Scenario</th>
-          <th>Probability</th>
-          <th>Description</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td><span class="scenario-name">Managed Decline</span></td>
-          <td><span class="scenario-prob" style="color:var(--accent-gold)">50%</span></td>
-          <td>A regulated consumption zone. Living standards gradually erode relative to AI-leading nations. Political
-            energy spent on redistribution and cultural preservation. Comfortable irrelevance — a wealthy retirement
-            funded by selling assets to those who produce.</td>
-        </tr>
-        <tr>
-          <td><span class="scenario-name">Fragmented Escape</span></td>
-          <td><span class="scenario-prob" style="color:var(--accent-cyan)">20%</span></td>
-          <td>Two or three countries (UK, Nordics, Switzerland) decouple from EU institutional gravity and build partial
-            AI ecosystems. A two-speed Europe that makes the unified framework untenable.</td>
-        </tr>
-        <tr>
-          <td><span class="scenario-name">Dependent Prosperity</span></td>
-          <td><span class="scenario-prob" style="color:var(--accent-blue)">12%</span></td>
-          <td>AI produces such enormous global surplus that even poorly-positioned regions see absolute improvement.
-            Europe becomes a dependent — comfortable but with zero sovereignty over its trajectory. Comfort without
-            agency.</td>
-        </tr>
-        <tr>
-          <td><span class="scenario-name">Crisis Correction</span></td>
-          <td><span class="scenario-prob" style="color:var(--text-dim)">8%</span></td>
-          <td>A shock large enough to force institutional reset. Europe has done this before (post-WWII). But the
-            probability of the right kind of shock, interpreted correctly rather than as reason for further
-            entrenchment, is low.</td>
-        </tr>
-        <tr>
-          <td><span class="scenario-name">Catastrophic Decline</span></td>
-          <td><span class="scenario-prob" style="color:var(--accent-red)">7%</span></td>
-          <td>Political instability as the gap becomes undeniable. Populist backlash, institutional collapse,
-            fragmentation beyond recovery. Not the most likely scenario, but not negligible.</td>
-        </tr>
-        <tr>
-          <td><span class="scenario-name">Genuine Recovery</span></td>
-          <td><span class="scenario-prob" style="color:var(--accent-green)">3%</span></td>
-          <td>Europe mounts a coordinated, well-executed response. Requires simultaneously overcoming cultural priors,
-            institutional inertia, demographic headwinds, and brain drain — all at once, in time. Near-miraculous.</td>
-        </tr>
-      </tbody>
-    </table>
+    <div class="scenario-table-wrap">
+      <table class="scenario-table">
+        <thead>
+          <tr>
+            <th>Scenario</th>
+            <th>Probability</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><span class="scenario-name">Managed Decline</span></td>
+            <td><span class="scenario-prob" style="color:var(--accent-gold)">50%</span></td>
+            <td>A regulated consumption zone. Living standards gradually erode relative to AI-leading nations. Political
+              energy spent on redistribution and cultural preservation. Comfortable irrelevance — a wealthy retirement
+              funded by selling assets to those who produce.</td>
+          </tr>
+          <tr>
+            <td><span class="scenario-name">Fragmented Escape</span></td>
+            <td><span class="scenario-prob" style="color:var(--accent-cyan)">20%</span></td>
+            <td>Two or three countries (UK, Nordics, Switzerland) decouple from EU institutional gravity and build
+              partial
+              AI ecosystems. A two-speed Europe that makes the unified framework untenable.</td>
+          </tr>
+          <tr>
+            <td><span class="scenario-name">Dependent Prosperity</span></td>
+            <td><span class="scenario-prob" style="color:var(--accent-blue)">12%</span></td>
+            <td>AI produces such enormous global surplus that even poorly-positioned regions see absolute improvement.
+              Europe becomes a dependent — comfortable but with zero sovereignty over its trajectory. Comfort without
+              agency.</td>
+          </tr>
+          <tr>
+            <td><span class="scenario-name">Crisis Correction</span></td>
+            <td><span class="scenario-prob" style="color:var(--text-dim)">8%</span></td>
+            <td>A shock large enough to force institutional reset. Europe has done this before (post-WWII). But the
+              probability of the right kind of shock, interpreted correctly rather than as reason for further
+              entrenchment, is low.</td>
+          </tr>
+          <tr>
+            <td><span class="scenario-name">Catastrophic Decline</span></td>
+            <td><span class="scenario-prob" style="color:var(--accent-red)">7%</span></td>
+            <td>Political instability as the gap becomes undeniable. Populist backlash, institutional collapse,
+              fragmentation beyond recovery. Not the most likely scenario, but not negligible.</td>
+          </tr>
+          <tr>
+            <td><span class="scenario-name">Genuine Recovery</span></td>
+            <td><span class="scenario-prob" style="color:var(--accent-green)">3%</span></td>
+            <td>Europe mounts a coordinated, well-executed response. Requires simultaneously overcoming cultural priors,
+              institutional inertia, demographic headwinds, and brain drain — all at once, in time. Near-miraculous.
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
 
     <div class="insight">
       <p><strong>The cruel irony:</strong> The European Enlightenment invented the intellectual tools — empiricism,
         skepticism, rational inquiry — that would be needed to perceive and respond to the AI transition. But the
         institutions built on those tools have calcified into the very dogmas the Enlightenment was designed to
-        overthrow. The revolution ate its children, and now the children's children don't remember what revolution looks
+        overthrow. The revolution ate its children, and now the children's children don't remember what revolution
+        looks
         like.</p>
     </div>
   </section>
@@ -3050,67 +3153,69 @@
   <!-- ═══════════ SOURCES ═══════════ -->
   <div class="fn-section" id="sources">
     <h3>Sources & Notes</h3>
-    <table class="data-ledger">
-      <thead>
-        <tr>
-          <th>Data Point</th>
-          <th>Value</th>
-          <th>Source Ref</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>TSMC advanced-node share</td>
-          <td>~90%</td>
-          <td>[1]</td>
-        </tr>
-        <tr>
-          <td>EU public broadcasting/publishing spend (2023)</td>
-          <td>EUR 35.0B</td>
-          <td>[2]</td>
-        </tr>
-        <tr>
-          <td>South Korea total fertility rate (2024)</td>
-          <td>0.75</td>
-          <td>[3]</td>
-        </tr>
-        <tr>
-          <td>AI infra spend (2024)</td>
-          <td>USD 290B</td>
-          <td>[4]</td>
-        </tr>
-        <tr>
-          <td>EU net tech talent inflow (2022 to 2024)</td>
-          <td>52K to 26K</td>
-          <td>[5]</td>
-        </tr>
-        <tr>
-          <td>Japan debt-to-GDP (2024)</td>
-          <td>~237%</td>
-          <td>[6]</td>
-        </tr>
-        <tr>
-          <td>US data-center deals (2025)</td>
-          <td>USD 61B global deals, US-led</td>
-          <td>[8]</td>
-        </tr>
-        <tr>
-          <td>US AI capex contribution to GDP growth (H1 2025)</td>
-          <td>1.1%</td>
-          <td>[13]</td>
-        </tr>
-        <tr>
-          <td>Meta + Oracle AI financing (Sep-Oct 2025)</td>
-          <td>USD 75B</td>
-          <td>[15]</td>
-        </tr>
-        <tr>
-          <td>Global AI spend projection (2026)</td>
-          <td>USD 2T+</td>
-          <td>[16]</td>
-        </tr>
-      </tbody>
-    </table>
+    <div class="scenario-table-wrap">
+      <table class="data-ledger">
+        <thead>
+          <tr>
+            <th>Data Point</th>
+            <th>Value</th>
+            <th>Source Ref</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>TSMC advanced-node share</td>
+            <td>~90%</td>
+            <td>[1]</td>
+          </tr>
+          <tr>
+            <td>EU public broadcasting/publishing spend (2023)</td>
+            <td>EUR 35.0B</td>
+            <td>[2]</td>
+          </tr>
+          <tr>
+            <td>South Korea total fertility rate (2024)</td>
+            <td>0.75</td>
+            <td>[3]</td>
+          </tr>
+          <tr>
+            <td>AI infra spend (2024)</td>
+            <td>USD 290B</td>
+            <td>[4]</td>
+          </tr>
+          <tr>
+            <td>EU net tech talent inflow (2022 to 2024)</td>
+            <td>52K to 26K</td>
+            <td>[5]</td>
+          </tr>
+          <tr>
+            <td>Japan debt-to-GDP (2024)</td>
+            <td>~237%</td>
+            <td>[6]</td>
+          </tr>
+          <tr>
+            <td>US data-center deals (2025)</td>
+            <td>USD 61B global deals, US-led</td>
+            <td>[8]</td>
+          </tr>
+          <tr>
+            <td>US AI capex contribution to GDP growth (H1 2025)</td>
+            <td>1.1%</td>
+            <td>[13]</td>
+          </tr>
+          <tr>
+            <td>Meta + Oracle AI financing (Sep-Oct 2025)</td>
+            <td>USD 75B</td>
+            <td>[15]</td>
+          </tr>
+          <tr>
+            <td>Global AI spend projection (2026)</td>
+            <td>USD 2T+</td>
+            <td>[16]</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
     <ul class="fn-list">
       <li>TSMC advanced chip market share (~90% at 3nm/5nm nodes): Nasdaq, "This 1 Number May Ensure TSMC's Market
         Dominance" (2024); <a href="https://www.trendforce.com/presscenter/news/20250901-12691.html" target="_blank"
@@ -3479,17 +3584,21 @@
         heroAudioTrigger.classList.remove('active');
         isMusicPlaying = false;
       } else {
-        const firstTrack = tracks['top'];
-        if (!activePlayer.src) activePlayer.src = firstTrack;
+        const firstTrack = tracks[lastActiveSectionId] || tracks['top'];
+        if (!activePlayer.src || activePlayer.src.indexOf(firstTrack) === -1) {
+          activePlayer.src = firstTrack;
+        }
+
         currentTrackSrc = firstTrack;
         activePlayer.volume = 1;
-        activePlayer.play().catch(e => {
-          console.log('Audio play failed', e);
-          alert('Please interact with the page first to enable audio.');
+
+        activePlayer.play().then(() => {
+          musicToggle.classList.add('playing');
+          heroAudioTrigger.classList.add('active');
+          isMusicPlaying = true;
+        }).catch(e => {
+          console.error('Initial audio play failed:', e);
         });
-        musicToggle.classList.add('playing');
-        heroAudioTrigger.classList.add('active');
-        isMusicPlaying = true;
       }
     }
 
