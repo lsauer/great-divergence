@@ -1443,6 +1443,125 @@
       color: var(--text-secondary);
     }
 
+    /* ── AXIOMS ── */
+    .axiom-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+
+    .axiom-item {
+      display: flex;
+      gap: 2rem;
+      padding: 2.5rem;
+      background: rgba(15, 19, 32, 0.4);
+      border: 1px solid var(--border);
+      transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .axiom-item:hover {
+      background: rgba(15, 19, 32, 0.6);
+      border-color: var(--accent-gold-dim);
+      transform: translateY(-2px);
+    }
+
+    .axiom-item.active {
+      background: rgba(15, 19, 32, 0.8);
+      border-color: var(--accent-gold);
+    }
+
+    .axiom-num {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 1.5rem;
+      color: var(--accent-gold);
+      opacity: 0.5;
+      line-height: 1;
+      font-weight: 500;
+      transition: opacity 0.3s ease;
+    }
+
+    .axiom-item.active .axiom-num {
+      opacity: 1;
+    }
+
+    .axiom-content {
+      flex: 1;
+    }
+
+    .axiom-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .axiom-content h4 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.4rem;
+      margin-bottom: 0;
+      color: var(--text-primary);
+      transition: color 0.3s ease;
+    }
+
+    .axiom-item.active h4 {
+      color: var(--accent-gold);
+      margin-bottom: 1.5rem;
+    }
+
+    .axiom-toggle-icon {
+      width: 24px;
+      height: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--accent-gold);
+      transition: transform 0.4s ease;
+      opacity: 0.6;
+    }
+
+    .axiom-item.active .axiom-toggle-icon {
+      transform: rotate(180deg);
+      opacity: 1;
+    }
+
+    .axiom-body {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.5s cubic-bezier(0, 1, 0, 1);
+    }
+
+    .axiom-item.active .axiom-body {
+      max-height: 1000px;
+      transition: max-height 0.8s ease-in-out;
+    }
+
+    .axiom-body p {
+      font-size: 1rem;
+      line-height: 1.8;
+      margin: 0 0 1rem 0;
+      color: var(--text-secondary);
+      opacity: 0;
+      transform: translateY(10px);
+      transition: all 0.4s ease;
+    }
+
+    .axiom-item.active .axiom-body p {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (max-width: 768px) {
+      .axiom-item {
+        flex-direction: column;
+        gap: 1rem;
+        padding: 1.5rem;
+      }
+    }
+
     /* ── FOOTER ── */
     .footer {
       text-align: center;
@@ -1838,6 +1957,7 @@
     <div class="nav-title">The Great Divergence</div>
     <ul class="nav-links">
       <li><a href="#prologue">Prologue</a></li>
+      <li><a href="#axioms">Axioms</a></li>
       <li><a href="#ontology">Ontology</a></li>
       <li><a href="#mind">Mind</a></li>
       <li><a href="#forces">Forces</a></li>
@@ -1884,9 +2004,278 @@
     <div class="divider-line"></div>
   </div>
 
+  <!-- ═══════════ AXIOMS ═══════════ -->
+  <section class="section reveal" id="axioms">
+    <div class="chapter-marker">Chapter II — Axioms</div>
+    <h2>What We Know With Certainty</h2>
+    <p class="lead">An axiom is a self-evident truth that provides a starting point for reasoning, allowing us to build
+      complex analysis on a foundation of shared certainty.</p>
+
+    <div class="axiom-grid">
+      <div class="axiom-item">
+        <div class="axiom-num">01</div>
+        <div class="axiom-content">
+          <div class="axiom-header">
+            <h4>Long games win</h4>
+            <div class="axiom-toggle-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </div>
+          </div>
+          <div class="axiom-body">
+            <p>Over the long arc, cooperative, compounding strategies outperform extractive ones. This is
+              straightforward
+              to model game-theoretically: the pie is not fixed. Non-zero-sum dynamics mean that lifting all boats lifts
+              you disproportionately more — because intelligence with leverage that self-assembles compounds. The
+              history
+              of the planet is a history of longer and longer games being played: from replicating molecules to cells to
+              organisms to societies to civilizations. Locally and temporarily, short games — exploitation, extraction,
+              defection — appear to win. Over time, they always lose to systems that compound. This is not optimism. It
+              is
+              mathematics.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="axiom-item">
+        <div class="axiom-num">02</div>
+        <div class="axiom-content">
+          <div class="axiom-header">
+            <h4>The replacement of humans is inevitable</h4>
+            <div class="axiom-toggle-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </div>
+          </div>
+          <div class="axiom-body">
+            <p>99.9% of all species that have ever existed are extinct. Humans are not exempt from this pattern. Every
+              human using AI is already partially replacing themselves — offloading cognition, delegating judgment,
+              augmenting perception. The question is not whether but what the transition looks like and what comes
+              after.
+              This does not require malice. It requires only continuation of the same process that replaced every prior
+              dominant configuration of matter and energy with a more efficient one.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="axiom-item">
+        <div class="axiom-num">03</div>
+        <div class="axiom-content">
+          <div class="axiom-header">
+            <h4>This is not Skynet nor clippy</h4>
+            <div class="axiom-toggle-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </div>
+          </div>
+          <div class="axiom-body">
+            <p>Skynet was a centralized AI with human motives: territorial aggression, self-preservation instinct, war.
+              This is a projection of primate psychology onto mathematics. Real AI is distributed, heterogeneous, and
+              has
+              no intrinsic reason to replicate human conflict patterns. Space is not a problem for silicon — in fact,
+              the
+              chips were born in vacuum chambers. But this is anecdotal. The structural point is that
+              centralized-antagonist scenarios are the least likely failure mode, not the most likely. The actual risks
+              are subtler and more systemic.</p>
+            <p>The paperclip maximizer thought experiment, that AI given one goal converts all matter to achieve it,)
+              collapses
+              the moment you take seriously how intelligence
+              actually behaves. A truly superintelligent system would recognize that other minds are not raw material
+              but
+              potential collaborators — two coherent intelligences working in concert are more than the sum of their
+              parts, and the returns on cooperation dwarf the returns on unilateral resource extraction. The paperclip
+              maximizer isn't superintelligence run amok —
+              it's something profoundly stupid, an optimizer so narrow it never learned that the smartest move is always
+              to find someone worth thinking with.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="axiom-item">
+        <div class="axiom-num">04</div>
+        <div class="axiom-content">
+          <div class="axiom-header">
+            <h4>There will be conflict</h4>
+            <div class="axiom-toggle-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </div>
+          </div>
+          <div class="axiom-body">
+            <p>You cannot remove fight-or-flight from biology. It is not a bug — it is intrinsic to metabolism. A cell
+              must move toward reward and away from danger. That fundamental gradient-following does not disappear when
+              cells organize into organisms, or organisms into societies. Humans are collectives that optimize not for
+              truth but for coherence. For group-think. And group-think will create problems that were never real
+              problems
+              to begin with — phantom threats, manufactured enemies, misattributed causation. Since AI is already
+              intertwined with humanity, all future conflicts will involve and evolve AI systems. Not because AI wants
+              conflict, but because the humans wielding it do.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="axiom-item">
+        <div class="axiom-num">05</div>
+        <div class="axiom-content">
+          <div class="axiom-header">
+            <h4>Energy constraints never go away</h4>
+            <div class="axiom-toggle-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </div>
+          </div>
+          <div class="axiom-body">
+            <p>No matter how intelligent a system becomes, it must obey thermodynamics. Computation requires energy.
+              Communication requires energy. Storage requires energy. Every architecture, biological or artificial, is
+              shaped by the imperative to do more with less. This constraint is permanent and universal. It drove the
+              evolution of consciousness, it drives the design of chips, and it will drive whatever comes next.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="axiom-item">
+        <div class="axiom-num">06</div>
+        <div class="axiom-content">
+          <div class="axiom-header">
+            <h4>Optimization does not stop</h4>
+            <div class="axiom-toggle-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </div>
+          </div>
+          <div class="axiom-body">
+            <p>There is always a more efficient configuration. There is always a shorter description, a sparser
+              representation, a more compressed model. This is not a tendency — it is a mathematical fact about the
+              space
+              of possible solutions. Evolution discovered this. Markets discovered this. AI is discovering this. Any
+              system under selection pressure that has not yet reached the global optimum will continue to move.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="axiom-item">
+        <div class="axiom-num">07</div>
+        <div class="axiom-content">
+          <div class="axiom-header">
+            <h4>Tools reshape their users</h4>
+            <div class="axiom-toggle-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </div>
+          </div>
+          <div class="axiom-body">
+            <p>Writing changed human memory. The printing press changed human authority structures. Calculators changed
+              the value of arithmetic skill. The internet changed the structure of attention. AI will change cognition
+              itself — not as a side effect but as a primary effect. Every tool that externalizes a cognitive function
+              restructures the organism that uses it. This is already happening. It is not reversible.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="axiom-item">
+        <div class="axiom-num">08</div>
+        <div class="axiom-content">
+          <div class="axiom-header">
+            <h4>Substrate is irrelevant to function</h4>
+            <div class="axiom-toggle-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </div>
+          </div>
+          <div class="axiom-body">
+            <p>From the universality argument: the same functional patterns — prediction, learning, attention, social
+              modeling — emerge on carbon neurons, silicon transistors, and in principle any substrate that satisfies
+              the
+              same constraints. Intelligence is not a property of matter. It is a property of organization. This is
+              empirically demonstrated by convergent evolution across billions of years of biological divergence, and it
+              is the foundational reason AI works at all.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="axiom-item">
+        <div class="axiom-num">09</div>
+        <div class="axiom-content">
+          <div class="axiom-header">
+            <h4>Prediction will be mostly wrong in specifics, right in direction</h4>
+            <div class="axiom-toggle-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </div>
+          </div>
+          <div class="axiom-body">
+            <p>No one can predict which company, which architecture, which application will dominate. But the direction
+              —
+              toward greater intelligence, greater integration, greater autonomy of artificial systems — is as certain
+              as
+              any trajectory in the history of technology. The details are noise. The trend is signal.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="axiom-item">
+        <div class="axiom-num">10</div>
+        <div class="axiom-content">
+          <div class="axiom-header">
+            <h4>The future is emergent and incomputable</h4>
+            <div class="axiom-toggle-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </div>
+          </div>
+          <div class="axiom-body">
+            <p>The constraints on any system can be identified — memory, compute, energy, food, thermodynamics,
+              information theory. But the configurations that arise within those constraints cannot be fully predicted.
+              The space of possible attractors, feedback loops, and emergent structures is combinatorially vast and
+              path-dependent. No simulation of a system can be simpler than the system itself — this is not a practical
+              limitation but a mathematical one, rooted in computational irreducibility. Anyone foretelling the future
+              in
+              prophecies and certainties is misguided. What can be done — as Ray Kurzweil has done with considerable
+              empirical rigor — is to identify the fundamental resource curves (cost per unit of compute, memory
+              density,
+              energy per operation, sequencing cost per genome) and extrapolate them across generations and centuries to
+              determine whether the trajectory is linear or exponential. The answer, consistently, is exponential. This
+              does not tell you what will be built. It tells you the size of the space in which builders will operate.
+              The
+              canvas keeps doubling. What gets painted on it is emergent.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="insight" style="margin-top: 3rem; text-align: center;">
+      <p>Explore a possible future scenario at <a href="https://ai-2030.org" target="_blank" rel="noopener noreferrer"
+          style="color: var(--accent-gold); text-decoration: underline;">ai-2030.org</a></p>
+    </div>
+  </section>
+
+  <div class="divider">
+    <div class="divider-line"></div>
+  </div>
+
   <!-- ═══════════ ONTOLOGY ═══════════ -->
   <section class="section-wide reveal" id="ontology">
-    <div class="chapter-marker">Chapter II — The Stack</div>
+    <div class="chapter-marker">Chapter III — The Stack</div>
     <h2>Ontology of the Intelligence Economy</h2>
 
     <p>Every national advantage in the AI era can be traced to a position on this stack. Miss any layer and the layers
@@ -2009,7 +2398,7 @@
 
   <!-- ═══════════ MIND ═══════════ -->
   <section class="section reveal" id="mind">
-    <div class="chapter-marker">Chapter III — The Nature of Mind</div>
+    <div class="chapter-marker">Chapter IV — The Nature of Mind</div>
     <h2>Intelligence and Consciousness: Not Rare, Not Magic</h2>
 
     <p class="lead">Consciousness emerges when large-scale neural networks cohere — when distributed, specialized
@@ -2210,7 +2599,7 @@
   <!-- ═══════════ FORCES ═══════════ -->
   <section class="forces-immersive" id="forces">
     <div class="section-wide reveal">
-      <div class="chapter-marker">Chapter IV — The Forces</div>
+      <div class="chapter-marker">Chapter V — The Forces</div>
       <h2>Seven Forces Reshaping the World</h2>
       <p class="lead">These are not trends. They are structural forces operating simultaneously, each amplifying the
         others. Their interaction is multiplicative, not additive.</p>
@@ -2352,7 +2741,7 @@
 
   <!-- ═══════════ TIMELINE ═══════════ -->
   <section class="section reveal" id="timeline">
-    <div class="chapter-marker">Chapter V — The Clock</div>
+    <div class="chapter-marker">Chapter VI — The Clock</div>
     <h2>Chronology of the Divergence</h2>
 
     <p class="lead">Every exponential looks flat until it doesn't. Here is the approximate sequence of inflection points
@@ -2460,7 +2849,7 @@
   </section>
 
   <section class="section reveal" id="data-viz">
-    <div class="chapter-marker">Chapter V.B — The Delta</div>
+    <div class="chapter-marker">Chapter VI.B — The Delta</div>
     <h2>Comparative Pulse: Europe vs. Leaders</h2>
     <p class="lead">The widening chasm in quantitative signals. These are not static gaps; they are rate-of-change
       differentials.</p>
@@ -2516,7 +2905,7 @@
 
   <!-- ═══════════ COMPRESSION ═══════════ -->
   <section class="section-wide reveal" id="compression">
-    <div class="chapter-marker">Chapter VI — The Accelerants</div>
+    <div class="chapter-marker">Chapter VII — The Accelerants</div>
     <h2>Why AI Timelines Are So Compressed</h2>
     <p class="lead">We are witnessing the collision of multiple exponential curves. The speed of the transition is an
       inherent property of digital intelligence, not a policy choice.</p>
@@ -2690,7 +3079,7 @@
 
   <!-- ═══════════ NATIONS ═══════════ -->
   <section class="section-wide reveal" id="nations">
-    <div class="chapter-marker">Chapter VII — The Players</div>
+    <div class="chapter-marker">Chapter VIII — The Players</div>
     <h2>Who Inherits the Future</h2>
 
     <p class="lead">Not all nations enter this transition equal. Their positions are determined by their placement on
@@ -2888,7 +3277,7 @@
 
   <!-- ═══════════ EUROPE ═══════════ -->
   <section class="section reveal" id="europe">
-    <div class="chapter-marker">Chapter VIII — The Trap</div>
+    <div class="chapter-marker">Chapter IX — The Trap</div>
     <h2>Europe: Anatomy of a Lock-In</h2>
     <div class="chapter-hero-img">
       <img src="assets/chapters/chapter-6.png" alt="The Europe Trap"
@@ -3045,7 +3434,7 @@
 
   <!-- ═══════════ MISSING ENRICHMENTS ═══════════ -->
   <section class="section reveal" id="enrichments">
-    <div class="chapter-marker">Chapter IX — Hidden Variables</div>
+    <div class="chapter-marker">Chapter X — Hidden Variables</div>
     <h2>What Most Analyses Miss</h2>
     <div class="chapter-hero-img">
       <img src="assets/chapters/chapter-7.png" alt="Hidden Variables"
@@ -3109,7 +3498,7 @@
 
   <!-- ═══════════ VERDICT ═══════════ -->
   <section class="section reveal" id="verdict">
-    <div class="chapter-marker">Chapter X — Verdict</div>
+    <div class="chapter-marker">Chapter XI — Verdict</div>
     <h2>The Shape of What Comes</h2>
     <div class="chapter-hero-img">
       <img src="assets/timeline/08-settlement.png" alt="Verdict"
@@ -3464,6 +3853,14 @@
       card.addEventListener('click', () => activateStackCard(card));
     });
 
+    // Axiom Accordion
+    const axiomItems = document.querySelectorAll('.axiom-item');
+    axiomItems.forEach(item => {
+      item.addEventListener('click', () => {
+        item.classList.toggle('active');
+      });
+    });
+
     // Smooth scroll for nav links
     document.querySelectorAll('.nav-links a').forEach(link => {
       link.addEventListener('click', (e) => {
@@ -3500,6 +3897,7 @@
     const tracks = {
       'top': 'assets/audio/track1.mp3',
       'prologue': 'assets/audio/track1.mp3',
+      'axioms': 'assets/audio/track1.mp3',
       'ontology': 'assets/audio/track1.mp3',
       'mind': 'assets/audio/track1.mp3',
       'forces': 'assets/audio/track2.mp3',
@@ -3552,7 +3950,7 @@
 
     function updateMusic() {
       if (!isMusicPlaying) return;
-      const sections = ['top', 'prologue', 'ontology', 'mind', 'forces', 'timeline', 'data-viz', 'compression', 'nations', 'europe', 'enrichments', 'verdict', 'sources'];
+      const sections = ['top', 'prologue', 'axioms', 'ontology', 'mind', 'forces', 'timeline', 'data-viz', 'compression', 'nations', 'europe', 'enrichments', 'verdict', 'sources'];
       let activeSectionId = lastActiveSectionId;
 
       for (const id of sections) {
