@@ -1,9 +1,21 @@
-<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1400 900'>
-  <rect width='1400' height='900' fill='#22151a'/>
-  <polygon points='650,170 520,500 680,500 560,760 890,390 720,390 840,170' fill='#f2c14e' fill-opacity='0.85'/>
-  <g stroke='#ff6b6b' stroke-width='2' opacity='0.55'>
-    <line x1='160' y1='710' x2='1240' y2='710'/><line x1='190' y1='660' x2='1210' y2='660'/><line x1='230' y1='610' x2='1170' y2='610'/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 900">
+  <defs>
+    <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#22151a"/>
+      <stop offset="100%" stop-color="#0a0506"/>
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="6" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+  </defs>
+  <rect width="1400" height="900" fill="url(#grad1)"/>
+  <g transform="translate(700, 480)" filter="url(#glow)">
+    <polygon points="0,-280 -120,50 40,50 -100,280 220,-80 50,-80 180,-280" fill="#f2c14e" opacity="0.9"/>
   </g>
-  <text x='110' y='170' fill='#eef1f8' font-family='Georgia,serif' font-size='64'>Energy</text>
-  <text x='110' y='222' fill='#a6b1c8' font-family='monospace' font-size='24'>Layer 1</text>
+  <g stroke="#ff6b6b" stroke-width="2" opacity="0.3">
+    <path d="M100 700 L 1300 700 M 150 750 L 1250 750 M 200 800 L 1200 800" fill="none"/>
+  </g>
+  <text x="80" y="120" fill="#f2c14e" font-family="JetBrains Mono, monospace" font-size="20" letter-spacing="0.4em">LAYER 01</text>
+  <text x="80" y="200" fill="#eef1f8" font-family="Playfair Display, serif" font-size="72" font-weight="900">Energy</text>
 </svg>

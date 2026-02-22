@@ -1,12 +1,25 @@
-<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1400 900'>
-  <rect width='1400' height='900' fill='#111833'/>
-  <g fill='none' stroke='#4f9cff' stroke-width='2' opacity='0.7'>
-    <path d='M180 740 C380 650, 500 630, 640 500 C760 390, 830 360, 980 260 C1110 175, 1210 145, 1290 110'/>
-    <path d='M180 760 C340 730, 430 700, 580 620 C760 530, 860 430, 1020 330 C1130 260, 1210 220, 1290 170'/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 900">
+  <defs>
+    <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#111833"/>
+      <stop offset="100%" stop-color="#06070d"/>
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+  </defs>
+  <rect width="1400" height="900" fill="url(#grad1)"/>
+  <g opacity="0.1" stroke="#4f9cff" stroke-width="0.5">
+    <path d="M0 0 L 1400 900 M 0 900 L 1400 0"/>
+    <circle cx="700" cy="450" r="300" fill="none"/>
   </g>
-  <g fill='#f2c14e' fill-opacity='0.65'>
-    <circle cx='640' cy='500' r='9'/><circle cx='980' cy='260' r='9'/><circle cx='1290' cy='110' r='9'/>
+  <g transform="translate(150, 650)">
+    <path d="M0 100 C 200 -50, 400 -50, 600 -150 S 800 -350, 1100 -500" fill="none" stroke="#4f9cff" stroke-width="3" opacity="0.6" filter="url(#glow)"/>
+    <path d="M50 120 C 250 -20, 450 -20, 650 -120 S 850 -320, 1150 -470" fill="none" stroke="#2fd4d8" stroke-width="2" opacity="0.4"/>
+    <circle cx="600" cy="-150" r="12" fill="#f2c14e" filter="url(#glow)"/>
+    <circle cx="1100" cy="-500" r="15" fill="#f2c14e" filter="url(#glow)"/>
   </g>
-  <text x='110' y='170' fill='#eef1f8' font-family='Georgia,serif' font-size='64'>Intelligence</text>
-  <text x='110' y='222' fill='#a6b1c8' font-family='monospace' font-size='24'>Layer 6</text>
+  <text x="80" y="120" fill="#f2c14e" font-family="JetBrains Mono, monospace" font-size="20" letter-spacing="0.4em">LAYER 06</text>
+  <text x="80" y="200" fill="#eef1f8" font-family="Playfair Display, serif" font-size="72" font-weight="900">Intelligence</text>
 </svg>

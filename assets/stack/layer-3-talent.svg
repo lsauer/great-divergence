@@ -1,11 +1,22 @@
-<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1400 900'>
-  <rect width='1400' height='900' fill='#121d2e'/>
-  <g fill='#4f9cff' fill-opacity='0.65'>
-    <circle cx='270' cy='350' r='70'/><circle cx='470' cy='430' r='78'/><circle cx='690' cy='320' r='74'/><circle cx='920' cy='430' r='80'/><circle cx='1130' cy='330' r='76'/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 900">
+  <defs>
+    <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#121d2e"/>
+      <stop offset="100%" stop-color="#050a12"/>
+    </linearGradient>
+  </defs>
+  <rect width="1400" height="900" fill="url(#grad1)"/>
+  <g transform="translate(700, 450)">
+    <circle cx="-250" cy="-50" r="90" fill="#4f9cff" opacity="0.4"/>
+    <circle cx="0" cy="100" r="110" fill="#4f9cff" opacity="0.6"/>
+    <circle cx="280" cy="-80" r="100" fill="#4f9cff" opacity="0.5"/>
+    <g stroke="#f2c14e" stroke-width="3" opacity="0.8">
+      <path d="M-250 -50 L 0 100 L 280 -80" fill="none"/>
+      <circle cx="-250" cy="-50" r="6" fill="#f2c14e"/>
+      <circle cx="0" cy="100" r="6" fill="#f2c14e"/>
+      <circle cx="280" cy="-80" r="6" fill="#f2c14e"/>
+    </g>
   </g>
-  <g stroke='#f2c14e' stroke-width='3' opacity='0.75'>
-    <line x1='270' y1='350' x2='470' y2='430'/><line x1='470' y1='430' x2='690' y2='320'/><line x1='690' y1='320' x2='920' y2='430'/><line x1='920' y1='430' x2='1130' y2='330'/>
-  </g>
-  <text x='110' y='170' fill='#eef1f8' font-family='Georgia,serif' font-size='64'>Talent and Culture</text>
-  <text x='110' y='222' fill='#a6b1c8' font-family='monospace' font-size='24'>Layer 3</text>
+  <text x="80" y="120" fill="#f2c14e" font-family="JetBrains Mono, monospace" font-size="20" letter-spacing="0.4em">LAYER 03</text>
+  <text x="80" y="200" fill="#eef1f8" font-family="Playfair Display, serif" font-size="72" font-weight="900">Talent &amp; Culture</text>
 </svg>

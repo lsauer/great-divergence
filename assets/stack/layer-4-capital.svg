@@ -1,11 +1,19 @@
-<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1400 900'>
-  <rect width='1400' height='900' fill='#19152b'/>
-  <g fill='#f2c14e' fill-opacity='0.65'>
-    <rect x='180' y='560' width='95' height='170'/><rect x='320' y='500' width='95' height='230'/><rect x='460' y='460' width='95' height='270'/>
-    <rect x='600' y='390' width='95' height='340'/><rect x='740' y='320' width='95' height='410'/><rect x='880' y='250' width='95' height='480'/>
-    <rect x='1020' y='190' width='95' height='540'/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 900">
+  <defs>
+    <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#19152b"/>
+      <stop offset="100%" stop-color="#080612"/>
+    </linearGradient>
+  </defs>
+  <rect width="1400" height="900" fill="url(#grad1)"/>
+  <g transform="translate(150, 700)">
+    <rect x="0" y="-100" width="100" height="100" fill="#f2c14e" opacity="0.3"/>
+    <rect x="140" y="-180" width="100" height="180" fill="#f2c14e" opacity="0.4"/>
+    <rect x="280" y="-280" width="100" height="280" fill="#f2c14e" opacity="0.5"/>
+    <rect x="420" y="-450" width="100" height="450" fill="#f2c14e" opacity="0.7"/>
+    <rect x="560" y="-550" width="100" height="550" fill="#f2c14e" opacity="0.9"/>
+    <path d="M50 -100 L 190 -180 L 330 -280 L 470 -450 L 610 -550 L 1100 -620" fill="none" stroke="#2fd4d8" stroke-width="6" stroke-linecap="round" opacity="0.8"/>
   </g>
-  <path d='M180 660 C420 620, 620 450, 840 350 C980 285, 1130 180, 1250 140' stroke='#2fd4d8' stroke-width='5' fill='none'/>
-  <text x='110' y='170' fill='#eef1f8' font-family='Georgia,serif' font-size='64'>Capital and Risk</text>
-  <text x='110' y='222' fill='#a6b1c8' font-family='monospace' font-size='24'>Layer 4</text>
+  <text x="80" y="120" fill="#f2c14e" font-family="JetBrains Mono, monospace" font-size="20" letter-spacing="0.4em">LAYER 04</text>
+  <text x="80" y="200" fill="#eef1f8" font-family="Playfair Display, serif" font-size="72" font-weight="900">Capital &amp; Risk</text>
 </svg>

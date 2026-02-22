@@ -1,12 +1,28 @@
-<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1400 900'>
-  <rect width='1400' height='900' fill='#0d1f2e'/>
-  <g fill='none' stroke='#2fd4d8' stroke-width='2' opacity='0.5'>
-    <path d='M120 240 H1280'/><path d='M120 340 H1280'/><path d='M120 440 H1280'/><path d='M120 540 H1280'/><path d='M120 640 H1280'/>
-    <path d='M240 140 V760'/><path d='M420 140 V760'/><path d='M600 140 V760'/><path d='M780 140 V760'/><path d='M960 140 V760'/><path d='M1140 140 V760'/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 900">
+  <defs>
+    <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0d1f2e"/>
+      <stop offset="100%" stop-color="#05080b"/>
+    </linearGradient>
+  </defs>
+  <rect width="1400" height="900" fill="url(#grad1)"/>
+  <g fill="none" stroke="#2fd4d8" stroke-width="1" opacity="0.15">
+    <pattern id="grid" width="60" height="60" patternUnits="userSpaceOnUse">
+      <path d="M 60 0 L 0 0 0 60" fill="none" stroke="#2fd4d8" stroke-width="0.5"/>
+    </pattern>
+    <rect width="1400" height="900" fill="url(#grid)"/>
   </g>
-  <g fill='#4f9cff' fill-opacity='0.75'>
-    <rect x='250' y='250' width='150' height='80'/><rect x='610' y='430' width='160' height='90'/><rect x='970' y='340' width='150' height='85'/>
+  <g transform="translate(700, 450)">
+    <rect x="-300" y="-180" width="600" height="360" rx="10" fill="none" stroke="#4f9cff" stroke-width="2" opacity="0.3"/>
+    <g fill="#4f9cff" opacity="0.8">
+      <rect x="-240" y="-40" width="120" height="80" rx="4"/>
+      <rect x="-40" y="-120" width="140" height="90" rx="4"/>
+      <rect x="120" y="30" width="130" height="70" rx="4"/>
+    </g>
+    <g stroke="#2fd4d8" stroke-width="1" opacity="0.5">
+      <circle cx="-180" cy="0" r="150" fill="none" stroke-dasharray="10 5"/>
+    </g>
   </g>
-  <text x='110' y='170' fill='#eef1f8' font-family='Georgia,serif' font-size='64'>Data and Feedback</text>
-  <text x='110' y='222' fill='#a6b1c8' font-family='monospace' font-size='24'>Layer 5</text>
+  <text x="80" y="120" fill="#f2c14e" font-family="JetBrains Mono, monospace" font-size="20" letter-spacing="0.4em">LAYER 05</text>
+  <text x="80" y="200" fill="#eef1f8" font-family="Playfair Display, serif" font-size="72" font-weight="900">Data &amp; Feedback</text>
 </svg>

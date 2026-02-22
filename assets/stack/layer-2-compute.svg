@@ -1,10 +1,26 @@
-<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1400 900'>
-  <rect width='1400' height='900' fill='#12152a'/>
-  <rect x='300' y='220' width='800' height='460' fill='none' stroke='#4f9cff' stroke-width='4'/>
-  <rect x='420' y='300' width='560' height='300' fill='#1b2542' stroke='#2fd4d8' stroke-width='2'/>
-  <g stroke='#f2c14e' stroke-width='4'>
-    <line x1='420' y1='450' x2='180' y2='450'/><line x1='980' y1='450' x2='1220' y2='450'/><line x1='700' y1='300' x2='700' y2='120'/><line x1='700' y1='600' x2='700' y2='780'/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 900">
+  <defs>
+    <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#12152a"/>
+      <stop offset="100%" stop-color="#05060d"/>
+    </linearGradient>
+  </defs>
+  <rect width="1400" height="900" fill="url(#grad1)"/>
+  <g transform="translate(300, 250)">
+    <rect x="0" y="0" width="800" height="450" fill="none" stroke="#4f9cff" stroke-width="2" opacity="0.3"/>
+    <rect x="150" y="100" width="500" height="250" fill="#1b2542" stroke="#2fd4d8" stroke-width="2" opacity="0.8"/>
+    <g stroke="#f2c14e" stroke-width="3">
+      <line x1="150" y1="225" x2="-50" y2="225"/>
+      <line x1="650" y1="225" x2="850" y2="225"/>
+      <line x1="400" y1="100" x2="400" y2="-50"/>
+      <line x1="400" y1="350" x2="400" y2="500"/>
+    </g>
+    <g fill="#2fd4d8">
+      <rect x="250" y="180" width="40" height="40" opacity="0.6"/>
+      <rect x="350" y="180" width="40" height="40" opacity="0.6"/>
+      <rect x="450" y="180" width="40" height="40" opacity="0.6"/>
+    </g>
   </g>
-  <text x='110' y='170' fill='#eef1f8' font-family='Georgia,serif' font-size='64'>Compute</text>
-  <text x='110' y='222' fill='#a6b1c8' font-family='monospace' font-size='24'>Layer 2</text>
+  <text x="80" y="120" fill="#f2c14e" font-family="JetBrains Mono, monospace" font-size="20" letter-spacing="0.4em">LAYER 02</text>
+  <text x="80" y="200" fill="#eef1f8" font-family="Playfair Display, serif" font-size="72" font-weight="900">Compute</text>
 </svg>
