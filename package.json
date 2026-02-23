@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "lint": "htmlhint index.html",
+    "lint:fix": "prettier --write index.html && htmlhint index.html",
     "format": "prettier --write index.html",
     "format:check": "prettier --check index.html",
     "a11y": "pa11y index.html",
