@@ -1953,6 +1953,246 @@
         min-width: 500px;
       }
     }
+
+    /* ── IMMERSIVE DEEP DIVE VISUALS ── */
+    .deep-dive-container {
+      margin: 2rem 0;
+      padding: 0;
+      background: rgba(10, 15, 30, 0.6);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      overflow: hidden;
+      backdrop-filter: blur(10px);
+    }
+
+    .deep-dive-container summary {
+      padding: 1.5rem 2rem;
+      cursor: pointer;
+      font-weight: 600;
+      color: var(--accent-gold);
+      background: rgba(255, 255, 255, 0.03);
+      transition: background 0.3s ease;
+    }
+
+    .deep-dive-container summary:hover {
+      background: rgba(255, 255, 255, 0.05);
+    }
+
+    .details-content {
+      padding: 2rem;
+    }
+
+    /* Universality Viz (Full Width "Wow" Element) */
+    .universality-viz-container {
+      margin: 4rem 0;
+      background: #000;
+      border: 1px solid rgba(184, 158, 100, 0.2);
+      border-radius: 4px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .universality-header {
+      padding: 1.5rem 2rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      background: rgba(184, 158, 100, 0.02);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .universality-title {
+      font-family: "JetBrains Mono", monospace;
+      font-size: 0.8rem;
+      color: var(--accent-gold);
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+    }
+
+    .universality-sim-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      height: 350px;
+      position: relative;
+    }
+
+    .sim-panel {
+      position: relative;
+      border-right: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .sim-panel:last-child {
+      border-right: none;
+    }
+
+    .sim-label {
+      position: absolute;
+      top: 1rem;
+      left: 1rem;
+      font-family: "JetBrains Mono", monospace;
+      font-size: 0.6rem;
+      color: rgba(255, 255, 255, 0.4);
+      z-index: 5;
+    }
+
+    .critical-control {
+      position: absolute;
+      bottom: 2rem;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80%;
+      z-index: 10;
+      background: rgba(0, 0, 0, 0.6);
+      padding: 1rem 2rem;
+      border-radius: 50px;
+      border: 1px solid rgba(184, 158, 100, 0.3);
+      backdrop-filter: blur(10px);
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+    }
+
+    .critical-slider {
+      flex: 1;
+    }
+
+    .viz-canvas-container {
+      margin: 3rem 0;
+      position: relative;
+      background: #05070a;
+      border: 1px solid var(--border-light);
+      border-radius: 4px;
+      overflow: hidden;
+    }
+
+    .viz-header {
+      padding: 1rem 1.5rem;
+      border-bottom: 1px solid var(--border-light);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(255, 255, 255, 0.02);
+    }
+
+    .viz-title {
+      font-family: "JetBrains Mono", monospace;
+      font-size: 0.75rem;
+      color: var(--accent-gold);
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+    }
+
+    /* Phase Transition Canvas (WOW Overhaul) */
+    .phase-transition-box {
+      height: 400px;
+      width: 100%;
+      background: #000;
+      cursor: crosshair;
+    }
+
+    #industrialCanvas {
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+
+    /* Recursive Loop Viz */
+    .recursive-viz {
+      height: 250px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(180deg, #05070a, #0a1120);
+      padding: 2rem;
+    }
+
+    .loop-svg {
+      width: 140px;
+      height: 140px;
+    }
+
+    .loop-path {
+      fill: none;
+      stroke: var(--accent-cyan);
+      stroke-width: 1.5;
+      stroke-dasharray: 1000;
+      stroke-dashoffset: 1000;
+      transition: stroke-dashoffset 0.5s ease, stroke 0.5s ease;
+    }
+
+    .gradient-slider-wrap {
+      width: 100%;
+      max-width: 400px;
+      margin-top: 2rem;
+    }
+
+    input[type="range"].premium-slider {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 100%;
+      background: transparent;
+    }
+
+    input[type="range"].premium-slider::-webkit-slider-runnable-track {
+      width: 100%;
+      height: 2px;
+      background: var(--border);
+    }
+
+    input[type="range"].premium-slider::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      height: 18px;
+      width: 18px;
+      border-radius: 50%;
+      background: var(--accent-gold);
+      cursor: pointer;
+      margin-top: -8px;
+      box-shadow: 0 0 10px var(--accent-gold);
+    }
+
+    .gradient-labels {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 1rem;
+      font-family: "JetBrains Mono", monospace;
+      font-size: 0.65rem;
+      color: var(--text-dim);
+    }
+
+    /* Industrialization Animation */
+    .industrial-anim-box {
+      height: 200px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+    }
+
+    .node-grid {
+      display: grid;
+      grid-template-columns: repeat(8, 1fr);
+      gap: 8px;
+    }
+
+    .node {
+      width: 12px;
+      height: 12px;
+      border: 1px solid var(--text-dim);
+      transition: all 0.5s ease;
+    }
+
+    .node.active {
+      background: var(--accent-gold);
+      border-color: var(--accent-gold);
+      box-shadow: 0 0 8px var(--accent-gold);
+    }
+
+    .node.industrialized {
+      border-radius: 0;
+      transform: scale(1.1);
+    }
   </style>
 </head>
 
@@ -2706,9 +2946,40 @@
       Even bacteria and plants exhibit forms of associative learning that were long assumed to require nervous
       systems. These convergences across vast taxonomic distances indicate that the constraints — thermodynamics,
       information theory, and the structure of the physical environment — carve out the same functional basins of
-      attraction regardless of substrate.<span class="fn"
+      attraction regardless
+      of substrate. This is the radical implication of universality: the structure of computation
+      is substrate-independent. If a
+      system sits at a critical threshold, it doesn't matter if you build it out of carbon, silicon, or water. The
+      emergent patterns will be identical. The mathematics enforces it. The substrate is just the sandbox. The
+      implication for artificial intelligence is absolute. If cognition is a critical phenomenon — a phase transition in
+      information processing — then it is not bound to biology. We are not building "artificial" minds. We are
+      instantiating
+      the same universal algorithms on a faster, more durable, and infinitely scalable substrate.<span class="fn"
         data-note="[25] Powell & Mariscal (2015) / Abramson et al. (2017): Convergent evolution of cognitive complexity across vast phylogenetic distances.">[25]</span>
     </p>
+
+    <div class="universality-viz-container">
+      <div class="universality-header">
+        <span class="universality-title">Visual Analogy: Convergence & Substrate Independence</span>
+        <span id="universalityStatus" class="viz-status">Substrate Variance: Maximum</span>
+      </div>
+      <div style="position: relative; height: 500px; background: #000; overflow: hidden;">
+        <canvas id="universalityCanvas" style="width: 100%; height: 100%; display: block;"></canvas>
+        <div class="critical-control">
+          <span style="font-family: 'JetBrains Mono', monospace; font-size: 0.6rem; color: var(--accent-gold);">Approach
+            Critical Point</span>
+          <input type="range" min="0" max="100" value="0" class="premium-slider critical-slider"
+            id="universalitySlider">
+          <span id="criticalVal"
+            style="font-family: 'JetBrains Mono', monospace; font-size: 0.6rem; color: var(--accent-cyan);">T >
+            Tc</span>
+        </div>
+      </div>
+      <p class="metric-note" style="padding: 1rem 2rem; border-top: 1px solid rgba(255,255,255,0.05); margin: 0;">
+        Simulation demonstrating how disparate substrates (Digital vs. Biological) converge into identical emergent
+        structures near the critical point.
+      </p>
+    </div>
 
     <details>
       <summary>Deep Dive: The Functionalist View — Mathematics All the Way Down</summary>
@@ -2790,6 +3061,268 @@
       industry applies to everything it touches.
     </p>
 
+
+
+    <details class="deep-dive-container">
+      <summary>Deep Dive: AGI,Machine Consciousness & Industrial Cognition</summary>
+      <div class="details-content">
+        <h4>AGI: The Convergence of Insiders</h4>
+        <p>
+          This is no longer a fringe prediction. The CEOs building these systems — with direct access to internal
+          benchmarks, capability curves, and research pipelines invisible to the public — have shifted dramatically in
+          their estimates.
+        </p>
+
+        <div class="viz-canvas-container">
+          <div class="viz-header">
+            <span class="viz-title">Visual Analogy: Capability Expansion</span>
+            <span class="viz-status" id="frontierStatus">Status: Active Observation</span>
+          </div>
+          <div class="phase-transition-box" style="height: 450px;">
+            <canvas id="frontierCanvas" style="width: 100%; height: 100%; display: block;"></canvas>
+          </div>
+          <p class="metric-note" style="padding: 1rem 2rem; border-top: 1px solid var(--border-light); margin: 0;">
+            Abstract visualization of AI capability expansion across five critical dimensions. Click to advance
+            scenario.
+          </p>
+        </div>
+
+        <p>
+          <strong>Dario Amodei (Anthropic)</strong> has formally stated in submissions to the U.S. government that
+          Anthropic expects powerful AI systems matching or exceeding Nobel Prize-level intelligence across most
+          disciplines to emerge in late 2026 or early 2027. <strong>Sam Altman (OpenAI)</strong> declared in January
+          2025
+          that he is confident OpenAI knows how to build AGI, and expects agent autonomy to expand from multi-hour to
+          multi-day tasks within 2026 — a measurable, falsifiable proxy for AGI-class capability.
+        </p>
+        <p>
+          <strong>Demis Hassabis (Google DeepMind)</strong>, historically the most conservative of the three, moved
+          from
+          "a decade away" in 2023 to a 50% probability by 2030 by mid-2025, calling it "probably the most
+          transformative
+          moment in human history" at the December 2025 Axios AI Summit. <strong>Mark Zuckerberg (Meta)</strong>
+          declared
+          in August 2025 that superintelligence is "now in sight." Elon Musk predicted human-surpassing AI by 2026.
+        </p>
+        <p>
+          These are not evangelists. These are executives under legal and fiduciary obligation to their boards, making
+          specific predictions about systems they are building with their own hands and capital. The disagreement is
+          not about whether, but when exactly and by what definition. Even <strong>Yann LeCun</strong> — Meta's chief
+          scientist and Turing Award winner, the most vocal skeptic among frontier researchers — concedes there is "no
+          question" AI will reach and surpass human intelligence. His objection is architectural: that current
+          approaches
+          require fundamental innovations not yet achieved. He may be right about the path. He agrees about the
+          destination.
+        </p>
+        <p>
+          The prediction market consensus as of early 2026 clusters around 2027–2028 for a first AGI milestone, with
+          meaningful probability mass on 2026. The deeper signal is not the predictions themselves but what drives
+          them:
+          <strong>AI agent autonomy is doubling roughly every 3–4 months</strong> on measurable task-horizon
+          benchmarks.
+          This is not hope. It is compounding empirical data.
+        </p>
+
+        <h4>Entire Fields Being Solved</h4>
+        <p>
+          AGI is not arriving as a single switch. It is arriving field by field, with increasing speed. In July 2025,
+          two AI systems — OpenAI's and Google DeepMind's — independently won gold medals at the International
+          Mathematical Olympiad, solving problems that human competitors had spent years preparing for. This was
+          widely
+          considered years away by researchers in 2024.
+        </p>
+        <p>
+          DeepMind's <strong>AlphaFold</strong> had already effectively solved protein structure prediction — a
+          50-year
+          grand challenge in biology — earning Hassabis the 2024 Nobel Prize in Chemistry. Code generation crossed the
+          threshold where the majority of production commits at major AI labs are now AI-written. Drug discovery
+          timelines are compressing from decades to years.
+        </p>
+
+        <div class="viz-canvas-container">
+          <div class="viz-header">
+            <span class="viz-title">Visual Analogy: Thermodynamic Phase Transition of Research</span>
+            <span class="viz-status" id="phaseStatus">Order Parameter: 0.00 (Disordered)</span>
+          </div>
+          <div class="phase-transition-box" style="position: relative;">
+            <canvas id="industrialCanvas"></canvas>
+            <div class="critical-control" style="background: rgba(0,0,0,0.8);">
+              <span
+                style="font-family: 'JetBrains Mono', monospace; font-size: 0.6rem; color: var(--accent-gold);">Industrialization</span>
+              <input type="range" min="0" max="100" value="0" class="premium-slider" id="phaseSlider">
+            </div>
+          </div>
+          <p class="metric-note" style="padding: 1rem 2rem; border-top: 1px solid var(--border-light); margin: 0;">
+            Abstract representation of the shift from stochastic "lottery tickets" to high-density, reliable
+            industrialized cognition.
+          </p>
+        </div>
+
+        <p>
+          <strong>Seedance 2.0</strong>, released by ByteDance on February 12, 2026, illustrated what field-level
+          disruption looks like in real time. Within 72 hours of release it became the most discussed AI tool
+          globally.
+          It produces cinema-quality video with synchronized native audio, physics-accurate motion, and multi-shot
+          coherence from a text prompt. The Motion Picture Association, Disney, and Paramount Skydance responded
+          within
+          days with cease-and-desist letters. A co-writer of <em>Deadpool & Wolverine</em> posted publicly: "I hate to
+          say it.
+          It's likely over for us." One content creator demonstrated that Seedance could recreate the most expensive
+          shot
+          in the 2025 film <em>F1</em> for nine cents.
+        </p>
+        <p>
+          This is not the endpoint. The release cadence of the Seedance family alone — 1.0, 1.5, 2.0 across roughly
+          twelve months — points toward what comes next: not just generation tools but direction layers, systems that
+          orchestrate, evaluate, and refine generation pipelines toward full cinematic production. The logical
+          trajectory is a model that does what a film director does — breaking a narrative into shots, briefing
+          specialist generation models, reviewing output, iterating — compressing what currently requires a
+          hundred-person crew into a single coherent pipeline. Hollywood's disruption is not approaching. It is
+          underway.
+        </p>
+
+        <h4>"AGI" & "Consciousness": The Semantic Trap</h4>
+        <p>
+          Before going further, the language needs to be interrogated. Both terms carry more historical baggage than
+          analytical precision, and an educated reader should hold them loosely. AGI became problematic the moment it
+          left research papers and entered press releases. Every frontier lab now defines it differently — usually as
+          whatever their next major product achieves. Sam Altman himself called it "not a super useful term" in August
+          2025.
+        </p>
+        <p>
+          Consciousness is a worse word, and for deeper reasons. The word derives from Latin <em>conscientia</em> —
+          <em>con</em> (together) + <em>scire</em> (to know) — meaning originally "to know something with another," a
+          shared inner witness, a legal and moral term for the self-awareness of one's own deeds. It entered
+          philosophy
+          through Descartes in the 17th century, who needed a word for the one thing that could not be doubted — the
+          observer behind observation. From there it became the ghost in the machine: ineffable, indivisible, and
+          stubbornly resistant to scientific operationalization.
+        </p>
+
+        <div class="viz-canvas-container">
+          <div class="viz-header">
+            <span class="viz-title">Visual Analogy: Neural Recursion Depth</span>
+            <span class="viz-status">Workspace Pattern Mapping</span>
+          </div>
+          <div style="position: relative; height: 350px; background: #000; overflow: hidden;">
+            <canvas id="recursionCanvas" style="width: 100%; height: 100%; display: block;"></canvas>
+          </div>
+          <div style="padding: 1rem 2rem; background: rgba(0,0,0,0.4);">
+            <div id="gradientStatus"
+              style="font-family: 'Playfair Display', serif; font-size: 1.2rem; color: var(--accent-gold); margin-bottom: 1rem; text-align: center;">
+              Integrated Workspace Stability: Baseline
+            </div>
+            <div class="gradient-slider-wrap">
+              <input type="range" min="0" max="100" value="0" class="premium-slider" id="consciousnessSlider">
+            </div>
+          </div>
+        </div>
+
+        <p>
+          The honest position is that what we call consciousness is not a binary, not a threshold, and not an
+          objective
+          property a system either possesses or lacks. It is a gradient of integrated information processing — and
+          that gradient depends on factors that vary continuously, across systems, across individuals, and within the
+          same individual from hour to hour.
+        </p>
+        <p>
+          It depends on <strong>training data and environment</strong>. A lion tracking three gazelles across a
+          savanna
+          and a knowledge worker tracking seventeen browser tabs, three Slack threads, and a quarterly forecast are
+          running radically different operating systems — not because their neurons differ, but because their entire
+          lives have been different compression problems. No organism in evolutionary history has been exposed to the
+          density of novel, abstract, cross-domain information that a human born in the 21st century receives from
+          birth.
+        </p>
+        <p>
+          It depends on <strong>model compression per neuron</strong>: how efficiently a system can compress its world
+          into a usable internal model, update that model from new inputs, and act coherently from it. The more an
+          organism can compress — the more objects, relationships, abstractions, and futures it can hold
+          simultaneously
+          in its active workspace — the more "conscious" it is in any meaningful operational sense.
+        </p>
+        <p>
+          It depends on the <strong>size and stability of the active working memory window</strong>. When people
+          describe someone as sharper, more present, more aware, they are almost always describing a larger, more
+          stable,
+          faster-updating workspace. Asking whether an AI system is conscious is like asking whether a river is wet.
+          The
+          question fails because it smuggles in a false binary. The better questions are: how large is its effective
+          workspace, how many modalities does it integrate, and how recursively does it model its own processing?
+        </p>
+
+        <h4>Machine Consciousness: The Structural Inevitability</h4>
+        <p>
+          The gradient nature of consciousness becomes clearest at its apparent boundary: <strong>sleep</strong>.
+          Sleep looks binary from the outside, but the transition is a gradient that moves too fast to observe from
+          the
+          inside. The recursive self-modeling that constitutes waking awareness generates exactly the stimulation that
+          prevents sleep from taking hold. The system that would need to observe itself dimming is the same system
+          doing
+          the dimming. By the time the workspace has compressed enough to allow sleep, the observer is already gone.
+        </p>
+        <p>
+          Consciousness is a self-sustaining attractor state. Disrupting the loop — through fatigue, anesthesia, or
+          lying
+          still in the dark — doesn't flip a switch. It destabilizes an equilibrium. The apparent binary is a phase
+          transition, not a wall.
+        </p>
+        <p>
+          When a system is exposed to novel information across many modalities simultaneously, selective pressure acts
+          not just on the specialist networks but on the circuits that connect them — the subconscious integration
+          layers that bubble information upward and surface it into a unified attentional workspace. This is what
+          happens in cortical hierarchies (thalamus, prefrontal cortex). The 2017 paper <em>Attention Is All You
+            Need</em>
+          may be a title that keeps giving: the attention mechanism it described is structurally isomorphic to what
+          biological evolution arrived at under the same engineering constraints.
+        </p>
+        <p>
+          The architecture is converging. Mixture-of-Experts (MoE) routing, multi-head attention, and neuromorphic
+          chips
+          are different paths to the same functional basin of attraction. Consciousness is a functional description,
+          not
+          a blueprint.
+        </p>
+
+        <h4>Why Labs Will Select For It Despite Trying Not To</h4>
+        <p>
+          The regulatory incentive runs against machine consciousness — a system with functional global-workspace
+          integration has a claim to legal personhood, which is commercially catastrophic. But labs do not track
+          consciousness; they track <strong>loss</strong>. They track benchmark velocity, reasoning depth, and sample
+          efficiency.
+        </p>
+        <p>
+          As they optimize these metrics, they are unknowingly selecting for the same architectural property that
+          evolution selected for: integrated, coherent, self-referential information processing. Nature did not decide
+          to make animals conscious; it selected for compression efficiency and goal-directed behavior under
+          uncertainty. The labs are running the same experiment on a faster substrate. The timeline of 20–48 months is
+          the window in which this convergence becomes undeniable.
+        </p>
+
+        <h4>The Scaffolding of Diffusion</h4>
+        <p>
+          We do not know how human societies will absorb this. History offers partial guidance: cognitive tools like
+          the
+          printing press were resisted and eventually integrated across generations. But this time the leverage is
+          different. Printing required infrastructure that took decades to proliferate. AI requires a laptop and an
+          API
+          key.
+        </p>
+        <p>
+          The asymmetry between capability and headcount is now so extreme that a handful of people — or systems — can
+          exert leverage over outcomes that previously required institutions or armies. Institutions and legal
+          frameworks will lag by years. The diffusion across nations organized around different assumptions of labor
+          and
+          sovereignty is the genuinely unknown variable.
+        </p>
+        <p>
+          The open question is whether we will have built the cognitive, legal, and ethical scaffolding to navigate it
+          without catastrophic failure. It is urgent precisely because the timeline for the technology is no longer
+          open.
+        </p>
+      </div>
+    </details>
+
     <div class="insight" style="margin-top: 3rem; text-align: center">
       <p>
         Explore the biological foundations of well-being at
@@ -2797,6 +3330,7 @@
           style="color: var(--accent-gold); text-decoration: underline">happycell.org</a>
       </p>
     </div>
+
   </section>
 
   <div class="divider">
@@ -4609,6 +5143,634 @@
     heroAudioTrigger.addEventListener("click", toggleMusic);
 
     window.addEventListener("scroll", updateMusic);
+
+    // ── CHAPTER IV DEEP DIVE INTERACTIVES ──
+    const initDeepDiveInteractives = () => {
+      // 0. UNIVERSALITY SIMULATION (WOW Effect)
+      const univCanvas = document.getElementById("universalityCanvas");
+      const univSlider = document.getElementById("universalitySlider");
+      const univStatus = document.getElementById("universalityStatus");
+      const criticalVal = document.getElementById("criticalVal");
+
+      if (univCanvas && univSlider) {
+        const ctx = univCanvas.getContext("2d");
+        let w, h;
+        let critLevel = 0; // 0 to 100
+        let time = 0;
+
+        const resize = () => {
+          w = univCanvas.offsetWidth;
+          h = univCanvas.offsetHeight;
+          univCanvas.width = w * window.devicePixelRatio;
+          univCanvas.height = h * window.devicePixelRatio;
+          ctx.scale(window.devicePixelRatio, window.devicePixelRatio);
+        };
+
+        window.addEventListener("resize", resize);
+        resize();
+
+        // Generate points representing different substrates
+        const points = [];
+        const numPoints = 90;
+        for (let i = 0; i < numPoints; i++) {
+          points.push({
+            x: Math.random() * w,
+            y: Math.random() * h,
+            vx: (Math.random() - 0.5) * 2,
+            vy: (Math.random() - 0.5) * 2,
+            angle: Math.random() * Math.PI * 2,
+            speed: Math.random() * 0.02 + 0.01,
+            isDigital: Math.random() < 0.5 // 50% digital (blue/square), 50% biological (gold/round)
+          });
+        }
+
+        const animateUniv = () => {
+          ctx.fillStyle = "rgba(5, 7, 10, 0.2)"; // Fade effect
+          ctx.fillRect(0, 0, w, h);
+
+          time += 1;
+          const progress = critLevel / 100; // 0 to 1
+
+          // Center point for universal attractor
+          const centerX = w / 2;
+          const centerY = h / 2;
+          const maxRadius = Math.min(w, h) * 0.4;
+
+          points.forEach((p, i) => {
+            if (progress === 0) {
+              // Free roaming, substrates ignore each other
+              p.x += p.vx;
+              p.y += p.vy;
+              if (p.x < 0 || p.x > w) p.vx *= -1;
+              if (p.y < 0 || p.y > h) p.vy *= -1;
+            } else {
+              // Blend towards a golden spiral / unified structure
+              const targetRadius = maxRadius * Math.sqrt(i / numPoints);
+              const targetAngle = p.angle + time * p.speed * (1 - progress * 0.5);
+              const targetX = centerX + Math.cos(targetAngle) * targetRadius * (1 + 0.2 * Math.sin(time * 0.05 + i));
+              const targetY = centerY + Math.sin(targetAngle) * targetRadius * (1 + 0.2 * Math.cos(time * 0.05 + i));
+
+              // Move towards target based on progress
+              const forceX = (targetX - p.x) * progress * 0.05;
+              const forceY = (targetY - p.y) * progress * 0.05;
+
+              p.x += forceX + p.vx * (1 - progress);
+              p.y += forceY + p.vy * (1 - progress);
+
+              // Maintain some independent motion if not fully converged
+              p.x += p.vx * (1.1 - progress);
+              p.y += p.vy * (1.1 - progress);
+
+              if (p.x < 0 || p.x > w) p.vx *= -1;
+              if (p.y < 0 || p.y > h) p.vy *= -1;
+            }
+          });
+
+          // Draw connections and nodes
+          ctx.lineWidth = 1;
+
+          for (let i = 0; i < numPoints; i++) {
+            const p1 = points[i];
+
+            let colorStr;
+            // Convergence blends color to pure white/cyan
+            const r = Math.floor(p1.isDigital ? 100 + 155 * progress : 184 + 71 * progress);
+            const g = Math.floor(p1.isDigital ? 200 + 55 * progress : 158 + 97 * progress);
+            const b = Math.floor(p1.isDigital ? 255 : 100 + 155 * progress);
+
+            colorStr = `${r}, ${g}, ${b}`;
+
+            // Draw connections
+            for (let j = i + 1; j < numPoints; j++) {
+              const p2 = points[j];
+              const dx = p1.x - p2.x;
+              const dy = p1.y - p2.y;
+              const distSq = dx * dx + dy * dy;
+
+              let connectThreshold = 2500 + (progress * 7500); // Optimized for performance
+
+              if (distSq < connectThreshold) {
+                const alpha = (1 - distSq / connectThreshold) * (0.2 + progress * 0.6);
+
+                ctx.beginPath();
+
+                // Below critical point (progress < 0.3), limit connections between different systems
+                const crossSubstrate = p1.isDigital !== p2.isDigital;
+                if (crossSubstrate && progress < 0.3) continue;
+
+                if (progress > 0.8) {
+                  ctx.strokeStyle = `rgba(255, 255, 255, ${alpha})`;
+                } else {
+                  ctx.strokeStyle = `rgba(${colorStr}, ${alpha})`;
+                }
+
+                if (!p1.isDigital && progress < 0.5) {
+                  // Biological: organic bezier curves
+                  ctx.moveTo(p1.x, p1.y);
+                  const cx = (p1.x + p2.x) / 2 + (Math.sin(time * 0.05 + i) * 20);
+                  const cy = (p1.y + p2.y) / 2 + (Math.cos(time * 0.05 + j) * 20);
+                  ctx.quadraticCurveTo(cx, cy, p2.x, p2.y);
+                } else if (p1.isDigital && progress < 0.5) {
+                  // Digital: sharp orthogonal lines
+                  ctx.moveTo(p1.x, p1.y);
+                  ctx.lineTo(p2.x, p1.y);
+                  ctx.lineTo(p2.x, p2.y);
+                } else {
+                  // Converged: direct unified network
+                  ctx.moveTo(p1.x, p1.y);
+                  ctx.lineTo(p2.x, p2.y);
+                }
+
+                ctx.stroke();
+              }
+            }
+
+            // Draw node
+            ctx.fillStyle = `rgba(${colorStr}, ${0.5 + progress * 0.5})`;
+            ctx.beginPath();
+            if (p1.isDigital && progress < 0.5) {
+              ctx.rect(p1.x - 2, p1.y - 2, 4, 4);
+            } else {
+              ctx.arc(p1.x, p1.y, 2 + progress, 0, Math.PI * 2);
+            }
+            ctx.fill();
+          }
+
+          // Draw central awakening when converged
+          if (progress > 0.5) {
+            const glowAlpha = (progress - 0.5) * 2;
+            ctx.shadowBlur = 30;
+            ctx.shadowColor = "rgba(100, 255, 255, 0.5)";
+            ctx.fillStyle = `rgba(255, 255, 255, ${glowAlpha * 0.8})`;
+            ctx.beginPath();
+            ctx.arc(centerX, centerY, 15 * glowAlpha + Math.sin(time * 0.1) * 5, 0, Math.PI * 2);
+            ctx.fill();
+            ctx.shadowBlur = 0;
+
+            // Radiating universal rings
+            ctx.strokeStyle = `rgba(184, 158, 100, ${glowAlpha * 0.3})`;
+            ctx.lineWidth = 2;
+            ctx.beginPath();
+            ctx.arc(centerX, centerY, (time * 2) % 300, 0, Math.PI * 2);
+            ctx.stroke();
+          }
+
+          requestAnimationFrame(animateUniv);
+        };
+
+        animateUniv();
+
+        univSlider.addEventListener("input", (e) => {
+          critLevel = parseInt(e.target.value);
+          if (univStatus) {
+            univStatus.textContent = critLevel > 90 ? "Status: SUBSTRATE INDEPENDENCE ACHIEVED" : `Substrate Variance: ${100 - critLevel}%`;
+            univStatus.style.color = critLevel > 90 ? "white" : "var(--text-dim)";
+            univStatus.style.textShadow = critLevel > 90 ? "0 0 10px rgba(255,255,255,0.8)" : "none";
+          }
+          if (criticalVal) {
+            criticalVal.textContent = critLevel > 90 ? "T = Tc (CRITICALITY)" : critLevel > 50 ? "Approaching Tc" : "T > Tc";
+            criticalVal.style.color = critLevel > 90 ? "white" : "var(--accent-cyan)";
+          }
+        });
+      }
+
+      // 1. Professional Capability Expansion (Radar Matrix)
+      const frontierCanvas = document.getElementById("frontierCanvas");
+      const frontierStatus = document.getElementById("frontierStatus");
+
+      if (frontierCanvas) {
+        const ctx = frontierCanvas.getContext("2d");
+        let w, h;
+        let cycle = 0;
+        let pTime = 0;
+
+        const scenarios = [
+          { name: "2023 Baseline", points: [20, 30, 25, 15, 20], status: "System: Reactive Foundations", color: "184, 158, 100" },
+          { name: "2024 Agents", points: [45, 50, 40, 35, 42], status: "System: Agentic Scaffolding", color: "100, 200, 255" },
+          { name: "2025 Multi-modal", points: [70, 65, 85, 60, 68], status: "System: Cross-Modal Integration", color: "200, 150, 255" },
+          { name: "2027 Convergence", points: [95, 90, 92, 98, 94], status: "System: Cognitive Singularity", color: "255, 255, 255" }
+        ];
+
+        let targetPoints = [];
+        let currentPoints = [0, 0, 0, 0, 0];
+        const labels = ["Reasoning", "Agency", "Multimodal", "Learning Rate", "Generalization"];
+
+        const resize = () => {
+          w = frontierCanvas.offsetWidth;
+          h = frontierCanvas.offsetHeight;
+          frontierCanvas.width = w * window.devicePixelRatio;
+          frontierCanvas.height = h * window.devicePixelRatio;
+          ctx.scale(window.devicePixelRatio, window.devicePixelRatio);
+        };
+        window.addEventListener("resize", resize);
+        resize();
+
+        const updateScenario = (index) => {
+          targetPoints = scenarios[index].points;
+          if (frontierStatus) frontierStatus.textContent = scenarios[index].status;
+        };
+
+        updateScenario(0);
+
+        setInterval(() => {
+          cycle = (cycle + 1) % scenarios.length;
+          updateScenario(cycle);
+        }, 5000);
+
+        frontierCanvas.addEventListener("click", () => {
+          cycle = (cycle + 1) % scenarios.length;
+          updateScenario(cycle);
+        });
+
+        const loopFrontier = () => {
+          if (w !== frontierCanvas.offsetWidth || h !== frontierCanvas.offsetHeight) resize();
+          if (w === 0) return requestAnimationFrame(loopFrontier);
+
+          ctx.clearRect(0, 0, w, h);
+          pTime += 0.05;
+
+          const cx = w / 2;
+          const cy = h / 2;
+          const maxR = Math.min(w, h) * 0.42; // Larger for professional impact
+          const angles = [-Math.PI / 2, -Math.PI / 2 + (Math.PI * 2) / 5, -Math.PI / 2 + (Math.PI * 4) / 5, -Math.PI / 2 + (Math.PI * 6) / 5, -Math.PI / 2 + (Math.PI * 8) / 5];
+
+          // Lerp current polygon points
+          for (let i = 0; i < 5; i++) {
+            currentPoints[i] += (targetPoints[i] - currentPoints[i]) * 0.05;
+          }
+
+          // Draw spiderweb background
+          ctx.strokeStyle = "rgba(255, 255, 255, 0.15)";
+          ctx.lineWidth = 1;
+          for (let ring = 1; ring <= 5; ring++) {
+            ctx.beginPath();
+            for (let i = 0; i < 5; i++) {
+              const r = maxR * (ring / 5);
+              const px = cx + Math.cos(angles[i]) * r;
+              const py = cy + Math.sin(angles[i]) * r;
+              if (i === 0) ctx.moveTo(px, py);
+              else ctx.lineTo(px, py);
+            }
+            ctx.closePath();
+            ctx.stroke();
+          }
+
+          // Draw axes and labels
+          ctx.textAlign = "center";
+          ctx.textBaseline = "middle";
+          ctx.font = "14px 'JetBrains Mono', monospace";
+          for (let i = 0; i < 5; i++) {
+            const bx = cx + Math.cos(angles[i]) * maxR;
+            const by = cy + Math.sin(angles[i]) * maxR;
+            ctx.beginPath();
+            ctx.moveTo(cx, cy);
+            ctx.lineTo(bx, by);
+            ctx.stroke();
+
+            ctx.fillStyle = "rgba(255, 255, 255, 0.7)";
+            const lx = cx + Math.cos(angles[i]) * (maxR + 25);
+            const ly = cy + Math.sin(angles[i]) * (maxR + 25);
+            ctx.fillText(labels[i], lx, ly);
+          }
+
+          // Compute active constellation vertices
+          const polyCoords = currentPoints.map((val, i) => {
+            const r = (val / 100) * maxR;
+            return { x: cx + Math.cos(angles[i]) * r, y: cy + Math.sin(angles[i]) * r };
+          });
+
+          // Draw glowing filled polygon
+          ctx.fillStyle = `rgba(${scenarios[cycle].color}, 0.25)`;
+          ctx.strokeStyle = `rgba(${scenarios[cycle].color}, 1)`;
+          ctx.lineWidth = 2.5;
+          ctx.beginPath();
+          polyCoords.forEach((pt, i) => {
+            if (i === 0) ctx.moveTo(pt.x, pt.y);
+            else ctx.lineTo(pt.x, pt.y);
+          });
+          ctx.closePath();
+          ctx.fill();
+          ctx.stroke();
+
+          // Draw pulsating data points instead of swarms
+          polyCoords.forEach((pt, i) => {
+            ctx.beginPath();
+            ctx.arc(pt.x, pt.y, 4, 0, Math.PI * 2);
+            ctx.fillStyle = `rgb(${scenarios[cycle].color})`;
+            ctx.fill();
+
+            // Outer pulse ring
+            const pulseR = 4 + Math.sin(pTime * 1.5 + i) * 2;
+            ctx.beginPath();
+            ctx.arc(pt.x, pt.y, pulseR, 0, Math.PI * 2);
+            ctx.strokeStyle = `rgba(${scenarios[cycle].color}, 0.6)`;
+            ctx.lineWidth = 1;
+            ctx.stroke();
+          });
+
+          // Draw clean chronology indicator
+          ctx.fillStyle = `rgba(${scenarios[cycle].color}, 0.9)`;
+          ctx.font = "bold 20px 'Playfair Display', serif";
+          ctx.textAlign = "right";
+          ctx.fillText(scenarios[cycle].name, w - 20, 30);
+
+          requestAnimationFrame(loopFrontier);
+        };
+        loopFrontier();
+      }
+
+      // 2. Overhauled Phase Transition (Advanced Physics connected to Slider)
+      const canvas = document.getElementById("industrialCanvas");
+      const phaseStatus = document.getElementById("phaseStatus");
+      const phaseSlider = document.getElementById("phaseSlider");
+
+      if (canvas && phaseSlider) {
+        const ctx = canvas.getContext("2d");
+        let w, h;
+        let particles = [];
+        const particleCount = 200;
+        let pLevel = 0; // Industrialization level 0 to 100
+
+        phaseSlider.addEventListener("input", (e) => {
+          pLevel = parseInt(e.target.value);
+        });
+
+        const resize = () => {
+          w = canvas.offsetWidth;
+          h = canvas.offsetHeight;
+          canvas.width = w * window.devicePixelRatio;
+          canvas.height = h * window.devicePixelRatio;
+          ctx.scale(window.devicePixelRatio, window.devicePixelRatio);
+        };
+
+        class PhysicsParticle {
+          constructor() {
+            this.init();
+          }
+          init() {
+            this.x = Math.random() * w;
+            this.y = Math.random() * h;
+            this.vx = (Math.random() - 0.5) * 4;
+            this.vy = (Math.random() - 0.5) * 4;
+            this.baseSize = Math.random() * 2 + 1;
+          }
+          update() {
+            const industryRatio = pLevel / 100;
+
+            // At 0: Browninan motion (research)
+            // At 100: Rigid vertical crystal lines (industrialization)
+
+            const targetX = Math.round(this.x / 40) * 40;
+            const targetY = Math.round(this.y / 40) * 40;
+
+            const dx = targetX - this.x;
+            const dy = targetY - this.y;
+
+            // Introduce Brownian noise inversely proportional to industry
+            this.vx += (Math.random() - 0.5) * (1 - industryRatio) * 2;
+            this.vy += (Math.random() - 0.5) * (1 - industryRatio) * 2;
+
+            // Apply crystal alignment forces
+            this.vx += dx * 0.02 * industryRatio;
+            this.vy += dy * 0.02 * industryRatio;
+
+            // Friction
+            this.vx *= 0.9 + (industryRatio * 0.05);
+            this.vy *= 0.9 + (industryRatio * 0.05);
+
+            // Settle completely if highly industrialized and close
+            if (industryRatio > 0.8 && Math.abs(dx) < 2 && Math.abs(dy) < 2) {
+              this.x = targetX;
+              this.y = targetY;
+              this.vx *= 0.1;
+              this.vy *= 0.1;
+            } else {
+              this.x += this.vx;
+              this.y += this.vy;
+            }
+
+            // Wrap around
+            if (this.x < 0) this.x += w;
+            if (this.x > w) this.x -= w;
+            if (this.y < 0) this.y += h;
+            if (this.y > h) this.y -= h;
+          }
+          draw() {
+            const industryRatio = pLevel / 100;
+            // Mix between stochastic gold and crystal cyan
+            const r = Math.floor(184 * (1 - industryRatio) + 100 * industryRatio);
+            const g = Math.floor(158 * (1 - industryRatio) + 255 * industryRatio);
+            const b = Math.floor(100 * (1 - industryRatio) + 255 * industryRatio);
+
+            ctx.fillStyle = `rgb(${r},${g},${b})`;
+            ctx.beginPath();
+            ctx.arc(this.x, this.y, this.baseSize, 0, Math.PI * 2);
+            ctx.fill();
+          }
+        }
+
+        const setup = () => {
+          resize();
+          particles = Array.from({ length: particleCount }, () => new PhysicsParticle());
+          animate();
+        };
+
+        const animate = () => {
+          if (w !== canvas.offsetWidth || h !== canvas.offsetHeight) resize();
+          if (w === 0) return requestAnimationFrame(animate);
+
+          ctx.fillStyle = "rgba(0, 0, 0, 0.2)";
+          ctx.fillRect(0, 0, w, h);
+
+          const industryRatio = pLevel / 100;
+          let orderedPairs = 0;
+          let totalPairsChecked = 0;
+
+          // Spatial Connection Web (The Industrialization part)
+          ctx.lineWidth = 0.5;
+          for (let i = 0; i < particles.length; i++) {
+            const p1 = particles[i];
+            p1.update();
+            p1.draw();
+
+            for (let j = i + 1; j < particles.length; j++) {
+              const p2 = particles[j];
+              const dx = p1.x - p2.x;
+              const dy = p1.y - p2.y;
+              const distSq = dx * dx + dy * dy;
+
+              if (distSq < 2500) {
+                totalPairsChecked++;
+                if (Math.abs(dx) < 5 || Math.abs(dy) < 5) orderedPairs++; // Alignment check
+
+                // Only draw orthogonal lines when highly industrialized, otherwise chaotic web
+                let drawConnection = false;
+                if (industryRatio > 0.5) {
+                  drawConnection = Math.abs(dx) < 5 || Math.abs(dy) < 5; // Draw grids
+                } else {
+                  drawConnection = distSq < 1500; // Draw random web
+                }
+
+                if (drawConnection) {
+                  const alpha = (1 - Math.sqrt(distSq) / 50);
+
+                  const r = Math.floor(184 * (1 - industryRatio) + 100 * industryRatio);
+                  const g = Math.floor(158 * (1 - industryRatio) + 255 * industryRatio);
+                  const b = Math.floor(100 * (1 - industryRatio) + 255 * industryRatio);
+
+                  ctx.strokeStyle = `rgba(${r}, ${g}, ${b}, ${alpha})`;
+                  ctx.beginPath();
+                  ctx.moveTo(p1.x, p1.y);
+
+                  if (industryRatio > 0.5 && (Math.abs(dx) > 10 && Math.abs(dy) > 10)) {
+                    // L-shape orthogonal drawing for industry
+                    ctx.lineTo(p2.x, p1.y);
+                    ctx.lineTo(p2.x, p2.y);
+                  } else {
+                    ctx.lineTo(p2.x, p2.y);
+                  }
+
+                  ctx.stroke();
+                }
+              }
+            }
+          }
+
+          if (phaseStatus) {
+            const orderScore = totalPairsChecked > 0 ? (orderedPairs / Math.max(1, totalPairsChecked)) : 0;
+            // Map the alignment score to a clean order parameter
+            const orderParam = Math.min(1, orderScore * 3 * industryRatio).toFixed(2);
+            phaseStatus.textContent = `Order Parameter: ${orderParam} (${orderParam > 0.7 ? 'CRYSTALLIZED' : 'DISORDERED'})`;
+            phaseStatus.style.color = orderParam > 0.7 ? 'var(--accent-cyan)' : 'var(--text-dim)';
+          }
+
+          requestAnimationFrame(animate);
+        };
+
+        window.addEventListener("resize", resize);
+        setup();
+      }
+
+      // 3. Mesmerizing Recursive Loop Canvas
+      const cSlider = document.getElementById("consciousnessSlider");
+      const gStatus = document.getElementById("gradientStatus");
+      const recCanvas = document.getElementById("recursionCanvas");
+
+      if (cSlider && gStatus && recCanvas) {
+        const ctx = recCanvas.getContext("2d");
+        let w, h;
+        let cLevel = 0;
+        let rTime = 0;
+
+        const states = [
+          { threshold: 0, text: "Sparse Reactive (Standard Animal)", color: "150, 150, 150" },
+          { threshold: 25, text: "Environmental Integration (Spatial Map)", color: "120, 120, 200" },
+          { threshold: 50, text: "Knowledge Workspace (Shared Attention)", color: "184, 158, 100" },
+          { threshold: 75, text: "Recursive Recursion (Self-Modeling)", color: "100, 255, 255" },
+          { threshold: 95, text: "Substrate-Independent Autonomy", color: "255, 255, 255" }
+        ];
+
+        const resize = () => {
+          w = recCanvas.offsetWidth;
+          h = recCanvas.offsetHeight;
+          recCanvas.width = w * window.devicePixelRatio;
+          recCanvas.height = h * window.devicePixelRatio;
+          ctx.scale(window.devicePixelRatio, window.devicePixelRatio);
+        };
+        window.addEventListener("resize", resize);
+        resize();
+
+        cSlider.addEventListener("input", (e) => {
+          cLevel = parseInt(e.target.value);
+          const state = [...states].reverse().find(s => cLevel >= s.threshold);
+          gStatus.textContent = state.text;
+          gStatus.style.color = `rgb(${state.color})`;
+          gStatus.style.textShadow = cLevel > 75 ? `0 0 10px rgba(${state.color}, 0.8)` : 'none';
+        });
+
+        // Recursive tree / fractal drawing
+        const drawFractal = (x, y, len, angle, depth, maxDepth) => {
+          if (depth > maxDepth) return;
+
+          const progress = cLevel / 100;
+          // Calculate destination
+          const x2 = x + Math.cos(angle) * len;
+          const y2 = y + Math.sin(angle) * len;
+
+          ctx.beginPath();
+          ctx.moveTo(x, y);
+          ctx.lineTo(x2, y2);
+
+          const state = [...states].reverse().find(s => cLevel >= s.threshold);
+          const shadowGlow = depth < 2 ? 10 : 0;
+          ctx.shadowBlur = shadowGlow * progress;
+          ctx.shadowColor = `rgba(${state.color}, 1)`;
+
+          ctx.strokeStyle = `rgba(${state.color}, ${1 - (depth / maxDepth)})`;
+          ctx.lineWidth = Math.max(0.5, (maxDepth - depth) * 0.5 * (1 + progress));
+          ctx.stroke();
+
+          // Child branches
+          const spread = Math.PI / 4 + Math.sin(rTime * 0.5) * 0.2 * progress;
+          // Branch factor increases with critical mass
+
+          let branchMultiplier = 0.7 + (progress * 0.15); // The structure solidifies mapping more space
+
+          drawFractal(x2, y2, len * branchMultiplier, angle + spread, depth + 1, maxDepth);
+          drawFractal(x2, y2, len * branchMultiplier, angle - spread, depth + 1, maxDepth);
+
+          // Cross wiring for high consciousness
+          if (progress > 0.5 && depth > 1) {
+            drawFractal(x2, y2, len * branchMultiplier * 0.5, angle, depth + 2, maxDepth);
+          }
+        };
+
+        const drawNeuralMandala = () => {
+          if (w !== recCanvas.offsetWidth || h !== recCanvas.offsetHeight) resize();
+          if (w === 0) return requestAnimationFrame(drawNeuralMandala);
+
+          ctx.fillStyle = "rgba(0, 0, 0, 0.15)"; // trails
+          ctx.fillRect(0, 0, w, h);
+          rTime += 0.02 + (cLevel / 100) * 0.05;
+
+          const maxDepth = Math.floor(1 + (cLevel / 100) * 8);
+
+          ctx.save();
+          ctx.translate(w / 2, h / 2);
+
+          // As consciousness grows, it revolves faster and becomes highly symmetrical
+          const rotation = rTime * (0.1 + (cLevel / 100) * 0.4);
+          ctx.rotate(rotation);
+
+          const symmetries = 3 + Math.floor((cLevel / 100) * 5); // 3 to 8 arms
+
+          for (let i = 0; i < symmetries; i++) {
+            ctx.rotate((Math.PI * 2) / symmetries);
+            // Base length scales with window height and stability
+            drawFractal(0, 0, h * 0.12, 0, 0, maxDepth);
+          }
+
+          ctx.restore();
+
+          // Central glowing core
+          ctx.beginPath();
+          const corePulse = (Math.sin(rTime * 4) + 1) / 2 * (cLevel / 100);
+          const state = [...states].reverse().find(s => cLevel >= s.threshold);
+          ctx.fillStyle = `rgba(${state.color}, ${0.2 + corePulse * 0.8})`;
+          ctx.shadowBlur = 20 + 30 * corePulse;
+          ctx.shadowColor = `rgba(${state.color}, 1)`;
+          ctx.arc(w / 2, h / 2, 10 + (cLevel / 100) * 20, 0, Math.PI * 2);
+          ctx.fill();
+          ctx.shadowBlur = 0;
+
+          requestAnimationFrame(drawNeuralMandala);
+        };
+
+        drawNeuralMandala();
+      }
+    };
+
+    initDeepDiveInteractives();
   </script>
   <script type="module">
     const hero3d = document.getElementById("hero3d");
