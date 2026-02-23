@@ -1,0 +1,32 @@
+{
+  "name": "europoor",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "lint": "htmlhint index.html",
+    "format": "prettier --write index.html",
+    "format:check": "prettier --check index.html",
+    "a11y": "pa11y index.html",
+    "deploy": "netlify deploy --dir=. --prod",
+    "build": "echo 'No build step required for this static site'"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lsauer/great-divergence.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/lsauer/great-divergence/issues"
+  },
+  "homepage": "https://github.com/lsauer/great-divergence#readme",
+  "devDependencies": {
+    "htmlhint": "^1.9.1",
+    "netlify-cli": "^23.15.1",
+    "pa11y": "^9.1.0",
+    "prettier": "^3.8.1"
+  }
+}
