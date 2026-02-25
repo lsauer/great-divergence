@@ -9,7 +9,6 @@
     "format": "prettier --write index.html",
     "format:check": "prettier --check index.html",
     "a11y": "pa11y index.html",
-    "deploy": "netlify deploy --dir=. --prod",
     "build": "echo 'No build step required for this static site'"
   },
   "repository": {
@@ -26,7 +25,6 @@
   "homepage": "https://github.com/lsauer/great-divergence#readme",
   "devDependencies": {
     "htmlhint": "^1.9.1",
-    "netlify-cli": "^23.15.1",
     "pa11y": "^9.1.0",
     "prettier": "^3.8.1"
   }
