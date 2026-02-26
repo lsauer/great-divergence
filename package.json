@@ -8,7 +8,7 @@
     "lint:fix": "prettier --write index.html && htmlhint index.html",
     "format": "prettier --write index.html",
     "format:check": "prettier --check index.html",
-    "a11y": "pa11y index.html",
+    "a11y": "pa11y --chrome-launch-config '{\"args\":[\"--no-sandbox\"]}' index.html",
     "build": "echo 'No build step required for this static site'"
   },
   "repository": {
