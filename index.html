@@ -1626,6 +1626,15 @@
       50% { opacity: 0; }
     }
 
+    @keyframes spin-slow {
+      to { transform: rotate(360deg); }
+    }
+
+    @keyframes shimmer {
+      0%, 100% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+    }
+
     @keyframes fadeUp {
       from {
         opacity: 0;
@@ -3086,6 +3095,70 @@
     </div>
   </section>
 
+  <!-- ═══════════ AI-FUTURE BANNER 1 ═══════════ -->
+  <a href="https://ai-future.org" target="_blank" rel="noopener" class="reveal" style="text-decoration: none; display: block;">
+    <div style="
+      max-width: 860px;
+      margin: 2rem auto;
+      padding: 2.5rem 3rem;
+      position: relative;
+      text-align: center;
+      background: radial-gradient(ellipse at center, rgba(47, 212, 216, 0.06) 0%, transparent 70%);
+    ">
+      <!-- Orbital rings -->
+      <div style="
+        position: absolute;
+        inset: 0;
+        border: 1px solid rgba(47, 212, 216, 0.08);
+        border-radius: 50%;
+        margin: auto;
+        width: 280px;
+        height: 280px;
+        animation: spin-slow 30s linear infinite;
+      "></div>
+      <div style="
+        position: absolute;
+        inset: 0;
+        border: 1px dashed rgba(242, 193, 78, 0.06);
+        border-radius: 50%;
+        margin: auto;
+        width: 340px;
+        height: 340px;
+        animation: spin-slow 45s linear infinite reverse;
+      "></div>
+
+      <p style="
+        font-family: 'JetBrains Mono', monospace;
+        font-size: 0.55rem;
+        letter-spacing: 0.4em;
+        color: rgba(47, 212, 216, 0.5);
+        text-transform: uppercase;
+        margin-bottom: 1rem;
+        position: relative;
+      ">◇ &nbsp;Charting what comes next&nbsp; ◇</p>
+      <p style="
+        font-family: 'Cormorant Garamond', serif;
+        font-size: 1.6rem;
+        color: #d4cbb3;
+        line-height: 1.5;
+        position: relative;
+      ">The stack is laid. The question is<br>who builds the world on top of it.</p>
+      <div style="
+        margin: 1.2rem auto 0;
+        padding: 0.5rem 1.8rem;
+        display: inline-block;
+        border: 1px solid rgba(47, 212, 216, 0.25);
+        border-radius: 20px;
+        font-family: 'JetBrains Mono', monospace;
+        font-size: 0.6rem;
+        letter-spacing: 0.2em;
+        color: rgba(47, 212, 216, 0.7);
+        position: relative;
+        transition: all 0.3s ease;
+      " onmouseover="this.style.background='rgba(47, 212, 216, 0.08)'; this.style.borderColor='rgba(47, 212, 216, 0.5)'" onmouseout="this.style.background='transparent'; this.style.borderColor='rgba(47, 212, 216, 0.25)'">ai-future.org</div>
+    </div>
+  </a>
+
   <div class="divider">
     <div class="divider-line"></div>
   </div>
@@ -3591,13 +3664,40 @@
       </div>
     </details>
 
-    <div class="insight" style="margin-top: 3rem; text-align: center">
-      <p>
-        Explore the biological foundations of well-being at
-        <a href="https://happycell.org" target="_blank" rel="noopener noreferrer"
-          style="color: var(--accent-gold); text-decoration: underline">happycell.org</a>
-      </p>
-    </div>
+    <a href="https://happycell.org" target="_blank" rel="noopener" style="text-decoration: none; display: block;">
+      <div style="
+        max-width: 720px;
+        margin: 3rem auto 0;
+        padding: 2.5rem 3rem;
+        text-align: center;
+        border-top: 1px solid rgba(242, 193, 78, 0.15);
+        border-bottom: 1px solid rgba(242, 193, 78, 0.15);
+        transition: border-color 0.4s ease;
+      " onmouseover="this.style.borderColor='rgba(242, 193, 78, 0.4)'" onmouseout="this.style.borderColor='rgba(242, 193, 78, 0.15)'">
+        <p style="
+          font-family: 'JetBrains Mono', monospace;
+          font-size: 0.6rem;
+          letter-spacing: 0.35em;
+          color: rgba(242, 193, 78, 0.5);
+          text-transform: uppercase;
+          margin-bottom: 0.75rem;
+        ">Meanwhile, a quieter question</p>
+        <p style="
+          font-family: 'Cormorant Garamond', serif;
+          font-size: 1.4rem;
+          color: #c8b88a;
+          line-height: 1.6;
+          font-style: italic;
+        ">If intelligence diverges — does happiness converge?</p>
+        <p style="
+          font-family: 'JetBrains Mono', monospace;
+          font-size: 0.65rem;
+          letter-spacing: 0.2em;
+          color: rgba(242, 193, 78, 0.6);
+          margin-top: 1rem;
+        ">happycell.org &nbsp;·&nbsp; a journey into the meaning of happiness</p>
+      </div>
+    </a>
   </section>
 
   <div class="divider">
@@ -3901,9 +4001,9 @@
       transition: border-color 0.4s ease, background 0.4s ease;
     " onmouseover="this.style.borderColor='rgba(47, 212, 216, 0.5)'; this.style.background='linear-gradient(135deg, rgba(47, 212, 216, 0.08) 0%, rgba(242, 193, 78, 0.06) 100%)'" onmouseout="this.style.borderColor='rgba(47, 212, 216, 0.2)'; this.style.background='linear-gradient(135deg, rgba(47, 212, 216, 0.04) 0%, rgba(242, 193, 78, 0.04) 100%)'">
       <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1rem;">
-        <span style="font-size: 0.55rem; color: rgba(47, 212, 216, 0.6); letter-spacing: 0.3em;">SIMULATION://2030</span>
+        <span style="font-size: 0.55rem; color: rgba(47, 212, 216, 0.6); letter-spacing: 0.3em;">SCENARIO://2030</span>
         <span style="flex: 1; height: 1px; background: linear-gradient(90deg, rgba(47, 212, 216, 0.3), transparent);"></span>
-        <span style="font-size: 0.5rem; color: rgba(47, 212, 216, 0.4); letter-spacing: 0.2em;">SCENARIO LOADED</span>
+        <span style="font-size: 0.5rem; color: rgba(47, 212, 216, 0.4); letter-spacing: 0.2em;">A CAUTIONARY EXPLORATION</span>
       </div>
       <p style="
         font-family: 'Cormorant Garamond', serif;
@@ -3912,7 +4012,14 @@
         line-height: 1.5;
         margin: 0;
         text-align: center;
-      ">You've read the analysis. Now walk through the world it describes.<span style="display: inline-block; width: 2px; height: 1.1em; background: var(--accent-cyan); vertical-align: text-bottom; margin-left: 4px; animation: blink 1s step-end infinite;"></span></p>
+      ">It's not AI that makes bad decisions — it's humans wielding it. We can do better.<span style="display: inline-block; width: 2px; height: 1.1em; background: var(--accent-cyan); vertical-align: text-bottom; margin-left: 4px; animation: blink 1s step-end infinite;"></span></p>
+      <p style="
+        font-family: 'JetBrains Mono', monospace;
+        font-size: 0.6rem;
+        color: rgba(200, 184, 138, 0.5);
+        text-align: center;
+        margin-top: 0.6rem;
+      ">A scenario exploring what happens when we don't.</p>
       <div style="display: flex; align-items: center; gap: 0.75rem; margin-top: 1rem;">
         <span style="flex: 1; height: 1px; background: linear-gradient(90deg, transparent, rgba(242, 193, 78, 0.3));"></span>
         <span style="font-size: 0.6rem; color: rgba(242, 193, 78, 0.5); letter-spacing: 0.25em;">ai-2030.net</span>
@@ -4568,6 +4675,88 @@
       </p>
     </div>
   </section>
+
+  <!-- ═══════════ AI-FUTURE BANNER 2 ═══════════ -->
+  <a href="https://ai-future.org" target="_blank" rel="noopener" class="reveal" style="text-decoration: none; display: block;">
+    <div style="
+      max-width: 860px;
+      margin: 2rem auto;
+      padding: 0;
+      position: relative;
+    ">
+      <!-- Animated gradient border -->
+      <div style="
+        position: absolute;
+        inset: 0;
+        border-radius: 3px;
+        padding: 1px;
+        background: linear-gradient(90deg, rgba(47, 212, 216, 0.3), rgba(242, 193, 78, 0.3), rgba(47, 212, 216, 0.3));
+        background-size: 200% 100%;
+        animation: shimmer 4s ease-in-out infinite;
+        -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+        mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+        -webkit-mask-composite: xor;
+        mask-composite: exclude;
+      "></div>
+
+      <div style="
+        padding: 2.5rem 3rem;
+        text-align: center;
+        position: relative;
+      ">
+        <div style="
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          gap: 1.5rem;
+          margin-bottom: 1.2rem;
+        ">
+          <span style="flex: 0 0 auto; width: 40px; height: 1px; background: linear-gradient(90deg, transparent, rgba(47, 212, 216, 0.4));"></span>
+          <span style="
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 0.3em;
+            color: var(--accent-cyan);
+          ">AI FUTURE</span>
+          <span style="flex: 0 0 auto; width: 40px; height: 1px; background: linear-gradient(90deg, rgba(47, 212, 216, 0.4), transparent);"></span>
+        </div>
+
+        <p style="
+          font-family: 'Cormorant Garamond', serif;
+          font-size: 1.5rem;
+          color: #d4cbb3;
+          line-height: 1.5;
+          margin: 0 0 0.5rem;
+        ">The trap only holds if nobody names it.</p>
+        <p style="
+          font-family: 'JetBrains Mono', monospace;
+          font-size: 0.6rem;
+          color: rgba(200, 184, 138, 0.5);
+          letter-spacing: 0.1em;
+          margin-bottom: 1.2rem;
+        ">Scenarios, signals, and second-order thinking about what's ahead.</p>
+
+        <div style="
+          display: inline-flex;
+          align-items: center;
+          gap: 0.5rem;
+          padding: 0.5rem 1.6rem;
+          background: rgba(47, 212, 216, 0.06);
+          border: 1px solid rgba(47, 212, 216, 0.2);
+          border-radius: 20px;
+          font-family: 'JetBrains Mono', monospace;
+          font-size: 0.6rem;
+          letter-spacing: 0.2em;
+          color: rgba(47, 212, 216, 0.7);
+          transition: all 0.3s ease;
+        " onmouseover="this.style.background='rgba(47, 212, 216, 0.12)'; this.style.borderColor='rgba(47, 212, 216, 0.5)'" onmouseout="this.style.background='rgba(47, 212, 216, 0.06)'; this.style.borderColor='rgba(47, 212, 216, 0.2)'">
+          <span>ai-future.org</span>
+          <span style="font-size: 0.5rem;">→</span>
+        </div>
+      </div>
+    </div>
+  </a>
 
   <div class="divider">
     <div class="divider-line"></div>
